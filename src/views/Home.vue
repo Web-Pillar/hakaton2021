@@ -2,8 +2,9 @@
   <div>
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <form class="form">
-      <label for="filter">Filter</label>
-      <input type="text" name="filter" id="filter" placeholder="Filter">
+   
+      <Filter1></Filter1>
+
     </form>
     <div class="home">
       <Map msg="Welcome to Your Vue.js App"/>
@@ -13,13 +14,15 @@
 
 <script>
 // @ is an alias to /src
-import Map from '@/components/Map.vue'
+import Map from '@/components/Map.vue';
+import Filter1 from '../components/Filter.vue';
 
 export default {
   name: 'Home',
   components: {
-    Map
-  }
+    Map,
+    Filter1
+}
 }
 </script>
 
