@@ -7,7 +7,7 @@
 
     </form>
     <div class="home">
-      <Map msg="Welcome to Your Vue.js App"/>
+      <Map />
     </div>
   </div>
 </template>
@@ -30,9 +30,12 @@ export default {
 .home {
   display: flex;
   justify-content: center;
+  background: gray;
+  padding-bottom:3.49vh;
 }
 
 .form {
-  margin: 5vh;
+  padding: 3vh;
+  background: gray;
 }
 </style>

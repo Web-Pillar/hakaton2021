@@ -63,12 +63,12 @@ export default {
         position: relative;
         display: flex;
         flex-direction: row;
+        justify-content: center;
         width:100vh;
-        
         margin: 0 auto;
         border-radius: 2px;
         padding: 1.4rem 2rem 1.6rem;
-        background: rgba(146, 147, 153, 0.8);
+        background: rgba(77, 77, 79, 0.8);
        
         }
 
