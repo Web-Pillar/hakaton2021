@@ -5,14 +5,16 @@
       <l-marker v-for="school in schools" :key="`school_${school.id}`" :lat-lng="[school.latitude, school.longitude]">
         <l-popup>
             <div>
-              <p>
-              <b>Name</b> : {{school.schoolName}}</p>
+              <p><b>Name</b> : {{school.schoolName}}</p>
               <p><b>Email</b> : {{school.email}}</p>
               <p><b>Rating</b> : Unknown</p>
               <p><b>Finance</b> : Unknown</p>
               <button>Details</button>
             </div>
           </l-popup>
+          <l-tooltip>
+              <h3>{{school.schoolName}}</h3>
+          </l-tooltip>
       </l-marker>
     </v-marker-cluster>
     
@@ -20,7 +22,7 @@
 </template>
 
 <script>
-import {LMap, LTileLayer,LPopup, LMarker} from 'vue2-leaflet';
+import {LMap, LTileLayer,LPopup, LMarker, LTooltip} from 'vue2-leaflet';
 import Vue2LeafletMarkerCluster from "vue2-leaflet-markercluster";
 import { schools } from './../data/schools_v2'
 
@@ -30,6 +32,7 @@ export default {
     LTileLayer,
     LMarker,
     LPopup,
+    LTooltip,
     "v-marker-cluster": Vue2LeafletMarkerCluster,
   },
   data () {
