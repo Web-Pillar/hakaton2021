@@ -1,7 +1,13 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <Map msg="Welcome to Your Vue.js App"/>
+  <div>
+    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
+    <form class="form">
+      <label for="filter">Filter</label>
+      <input type="text" name="filter" id="filter" placeholder="Filter">
+    </form>
+    <div class="home">
+      <Map msg="Welcome to Your Vue.js App"/>
+    </div>
   </div>
 </template>
 
@@ -16,3 +22,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.home {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  margin: 5vh;
+}
+</style>

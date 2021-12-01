@@ -1,5 +1,5 @@
 <template>
-  <l-map style="height: 300px" :zoom="zoom" :center="center">
+  <l-map class="map-container-custom" :zoom="zoom" :center="center">
     <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
     <l-marker :lat-lng="markerLatLng"></l-marker>
   </l-map>
@@ -26,3 +26,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.map-container-custom {
+  height: 80vh;
+  width: 95vw;
+}
+</style>
