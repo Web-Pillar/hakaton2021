@@ -103,6 +103,7 @@ export default {
             margin-left: 30px;
             
         }
+        
       
 
 </style>
