@@ -2,9 +2,9 @@
    <div>
       <label> Languages
          <select>
-            <option value="MK">Macedonian </option>
+            <option value="MK" selected>Macedonian </option>
             <option value="EN">English</option>
-            <option value="SQ" selected>Albanian</option>
+            <option value="SQ" >Albanian</option>
             <option value="TR">Turkish</option>
          </select>
       </label>
