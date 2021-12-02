@@ -2,9 +2,11 @@
   <div>
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <form class="form">
-   
+     
       <Filter1></Filter1>
-      <lang></lang>
+       <lang></lang>
+       
+   
       
 
     </form>
@@ -44,6 +46,7 @@ export default {
 }
 
 .form {
+  display: inline-flex;
   padding: 3vh;
   background: rgb(235, 235, 235);;
 }
