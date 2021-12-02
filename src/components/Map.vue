@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <Filter1 @filtered="filtering" :schools="schools"></Filter1>
+
+    <section>
+    <nav>
+    <Filter1 @filtered="filtering" :schools="schools"></Filter1></nav>
+    <article>
     <l-map class="map-container-custom" :zoom="zoom" :center="center">
     <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
     <v-marker-cluster>
@@ -20,7 +23,9 @@
       </l-marker>
     </v-marker-cluster>
   </l-map>
-  </div>
+  </article>
+   </section>
+ 
 </template>
 
 <script>
@@ -88,7 +93,30 @@ export default {
 @import "~leaflet.markercluster/dist/MarkerCluster.css";
 @import "~leaflet.markercluster/dist/MarkerCluster.Default.css";
 .map-container-custom {
-  height: 80vh;
-  width: 95vw;
+  height: 100%;
+  width: 100%;
 }
+ *{
+  box-sizing: border-box;
+}
+
+nav {
+  float: left;
+  width: 20%;
+  height:100vh; /* only for demonstration, should be removed */
+  background: #f1f1f1;
+  padding: 20px;
+  border: solid;
+  border-right:none;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 80%;
+  border: solid;
+  background-color: #f1f1f1;
+  height: 100vh; /* only for demonstration, should be removed */
+}
+
 </style>

@@ -21,7 +21,9 @@
             <option v-for="val in 5" :key="val" :value="val">{{ val }}</option>
         </select>
         </label>
+        <div>
         <button type="submit" name="filter">Filter</button>
+        </div>
         </form>
 </div>
 </template>
@@ -62,14 +64,14 @@ export default {
 </script>
 
 <style>
-    .labels
+   .labels
     {
-        margin-left: 20px;
-        color:black
+        color:black;
+       margin-top: 50px;
+
+
     }
-    .button{
-        margin-left: 5px;
-    }
+  
     .Filter
     {
        width: 120px;
@@ -84,35 +86,34 @@ export default {
     }
     select{ border-style: none; background: transparent; outline: none; }
     .webflow-style-select {
-        position: relative;
-        display: flex;
+       
         flex-direction: row;
         justify-content: center;
-        width:100vh;
-        margin: 10px auto;
+        width:100%;
+        margin: 0 auto;
         border-radius: 2px;
         padding: 1.4rem 2rem 1.6rem;
         background: rgba(220, 220, 228, 0.8);
-       
+        margin-top: 20px;
         }
 
         .webflow-style-select select {
         flex-grow: 1;
         color: #0b0b0c;
-        font-size: 1.3rem;
+        font-size: 1.7rem;
         line-height: 2.4rem;
         vertical-align: middle;
-        margin-left: 20px;
         
         }
         .webflow-style-select button {
             color:  black;
             font-size: 1.3rem;
-            vertical-align: middle;
+           
            padding-inline: 20px;
            padding-block: 5px;
             background: rgb(235, 235, 235);
-            margin-left: 30px;
+            margin-top: 50px;
+
             
             
             
@@ -120,11 +121,11 @@ export default {
         .webflow-style-select button:hover{
                color:  black;
             font-size: 1.3rem;
-            vertical-align: middle;
+          
            padding-inline: 20px;
            padding-block: 5px;
             background: rgb(167, 167, 167);
-            margin-left: 30px;
+        
             
         }
         

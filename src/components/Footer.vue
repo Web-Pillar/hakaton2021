@@ -1,5 +1,5 @@
 <template>
-   <footer class="footer1">
+   <footer>
         <div class="image-container">
           <img src="@/assets/usaid1.png" class="image">
           <img src="@/assets/meta.svg" class="image">
@@ -24,5 +24,12 @@ export default {
 
 .image {
     max-height: 10vh;
+}
+footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+    border: solid;
+    border-top: none;
 }
 </style>

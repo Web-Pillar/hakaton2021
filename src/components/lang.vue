@@ -13,6 +13,7 @@
 
 
 <script>
+
 export default {
 
 }
@@ -20,6 +21,9 @@ export default {
 
 
 <style scoped>
+label{
+   align-content: right;
+}
   select {
      padding: 7px 40px 7px 12px;
      border: 1px solid #E8EAED;
