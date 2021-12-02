@@ -51,7 +51,7 @@ export default {
       attribution:
         '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       zoom: 9,
-      center: [41.9981, 21.4254],
+      center: [41.608635, 21.745275],
       schools: schools
         .filter(s => Boolean(s.latitude) && Boolean(s.longitude))
         .map(s => {
