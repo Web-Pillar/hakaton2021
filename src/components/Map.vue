@@ -1,8 +1,10 @@
 <template>
-  <l-map class="map-container-custom" :zoom="zoom" :center="center">
+  <div>
+    <Filter1 @filtered="filtering" :schools="schools"></Filter1>
+    <l-map class="map-container-custom" :zoom="zoom" :center="center">
     <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
     <v-marker-cluster>
-      <l-marker v-for="school in schools" :key="`school_${school.id}`" :lat-lng="[school.latitude, school.longitude]">
+      <l-marker v-for="school in schoolsInMap" :key="`school_${school.id}`" :lat-lng="[school.latitude, school.longitude]">
         <l-popup>
             <div>
               <p><b>Name</b> : {{school.schoolName}}</p>
@@ -17,17 +19,20 @@
           </l-tooltip>
       </l-marker>
     </v-marker-cluster>
-    
   </l-map>
+  </div>
 </template>
 
 <script>
+import Filter1 from '@/components/Filter.vue';
 import {LMap, LTileLayer,LPopup, LMarker, LTooltip} from 'vue2-leaflet';
 import Vue2LeafletMarkerCluster from "vue2-leaflet-markercluster";
-import { schools } from './../data/schools_v2'
+import { schools } from './../data/schools_v2';
+const categories = ['univerzitet', 'sredno', 'osniovno'];
 
 export default {
   components: {
+    Filter1,
     LMap,
     LTileLayer,
     LMarker,
@@ -42,12 +47,38 @@ export default {
         '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       zoom: 9,
       center: [41.9981, 21.4254],
-      schools: schools.filter(s => Boolean(s.latitude) && Boolean(s.longitude)),
+      schools: schools
+        .filter(s => Boolean(s.latitude) && Boolean(s.longitude))
+        .map(s => {
+          return {
+            ...s,
+            category: categories[Math.floor(Math.random() * categories.length)],
+            rating: Math.floor(Math.random() * 5) + 1,
+          }
+        }),
+      municipality: 'all',
+      category: 'all',
+      rating: 'all',
     };
+  },
+  computed: {
+    schoolsInMap() {
+      return this.schools.filter(s => {
+        return (this.municipality === 'all' || s.municipality === this.municipality) &&
+        (this.category === 'all' || s.category === this.category) &&
+        (this.rating === 'all' || s.rating >= this.rating)
+      })
+    }
   },
   methods: {
     innerClick() {
       alert("Click!");
+    },
+    filtering(val) {
+      const { municipality, category, rating } = val;
+      this.municipality = municipality;
+      this.category = category;
+      this.rating = rating;
     }
   },
 }

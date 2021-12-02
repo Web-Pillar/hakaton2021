@@ -1,39 +1,63 @@
 <template>
 <div class="webflow-style-select">
-    <form>
-        <label class="labels">  Opshtina:      
-        <select class="select">
-            <option value=""></option>
-            <option value="Tetovo">Tetovo</option>
-            <option value="Bogovine">Bogovinje</option>
+    <form @submit.prevent="filter">
+        <label class="labels">Opshtina:
+        <select class="select" v-model="municipality">
+            <option value="all" selected>All</option>
+            <option v-for="item in municipalities" :key="item" :value="item">{{ item }}</option>
         </select>
         </label >
-        <label class="labels">  Kategorija:      
-        <select class="select">
-            <option value=""></option>
-            <option value="Fakultet">Fakultet</option>
-            <option value="Sredno">Sredno</option>
-            <option value="Osniovno">Osnovno</option>
-            
+        <label class="labels">Kategorija:
+        <select class="select" v-model="category">
+            <option value="all" selected>All</option>
+            <option value="univerzitet">Univerzitet</option>
+            <option value="sredno">Sredno</option>
+            <option value="osniovno">Osnovno</option>
         </select>
         </label >
-        <label class="labels">  Rating:      
-        <select class="select">
-            <option value=""></option>
-            <option value="5">5</option>
-            <option value="4">4</option>
+        <label class="labels">Rating:
+        <select class="select" v-model="rating">
+            <option value="all" selected>All</option>
+            <option v-for="val in 5" :key="val" :value="val">{{ val }}</option>
         </select>
         </label>
-
         <button type="submit" name="filter">Filter</button>
         </form>
 </div>
-       
 </template>
 
 <script>
 export default {
+    props: ['schools'],
+    data: () => {
+        return {
+            // municipalities: [
+            //     { label: 'Tetovo', value: 'Tetovo' },
+            //     { label: 'Bogovinje', value: 'Bogovinje' },
+            // ],
+            municipality: 'all',
+            category: 'all',
+            rating: 'all',
+        }
+    },
+    computed: {
+        municipalities() {
+            let allMunicipalities = this.schools.map(s => { return s.municipality });
+            let uniqueMunicipalities = [...new Set(allMunicipalities)];
+            return uniqueMunicipalities;
+        }
+    },
+    methods: {
+        filter(){
+            let filters = {
+                municipality: this.municipality,
+                category: this.category,
+                rating: this.rating,
+            }
 
+            this.$emit('filtered', filters);
+        }
+    },
 }
 </script>
 
@@ -65,7 +89,7 @@ export default {
         flex-direction: row;
         justify-content: center;
         width:100vh;
-        margin: 0 auto;
+        margin: 10px auto;
         border-radius: 2px;
         padding: 1.4rem 2rem 1.6rem;
         background: rgba(220, 220, 228, 0.8);
