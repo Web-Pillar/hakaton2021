@@ -21,6 +21,13 @@
               <h3>{{school.schoolName}}</h3>
           </l-tooltip>
       </l-marker>
+      <l-marker v-for="(casino, index) in casinos" :key="`casino_${index}`" :lat-lng="[casino.latitude, casino.longitude]">
+        <l-icon
+          :icon-size="iconSize"
+          :icon-anchor="iconAnchor"
+          :icon-url="casinoIcon"
+        ></l-icon>
+      </l-marker>
     </v-marker-cluster>
   </l-map>
   </article>
@@ -30,9 +37,10 @@
 
 <script>
 import Filter1 from '@/components/Filter.vue';
-import {LMap, LTileLayer,LPopup, LMarker, LTooltip} from 'vue2-leaflet';
+import {LMap, LTileLayer, LPopup, LMarker, LTooltip, LIcon} from 'vue2-leaflet';
 import Vue2LeafletMarkerCluster from "vue2-leaflet-markercluster";
 import { schools } from './../data/schools_v2';
+import casinoIcon from '@/assets/dices.svg';
 const categories = ['univerzitet', 'sredno', 'osniovno'];
 
 export default {
@@ -43,15 +51,19 @@ export default {
     LMarker,
     LPopup,
     LTooltip,
+    LIcon,
     "v-marker-cluster": Vue2LeafletMarkerCluster,
   },
   data () {
     return {
+      casinoIcon: casinoIcon,
+      iconSize: [30, 50],
+			iconAnchor: [16, 45],
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       attribution:
         '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       zoom: 9,
-      center: [41.9981, 21.4254],
+      center: [41.608635, 21.745275],
       schools: schools
         .filter(s => Boolean(s.latitude) && Boolean(s.longitude))
         .map(s => {
@@ -59,6 +71,16 @@ export default {
             ...s,
             category: categories[Math.floor(Math.random() * categories.length)],
             rating: Math.floor(Math.random() * 5) + 1,
+            type: 'S',
+          }
+        }),
+      casinos: schools
+        .filter(s => Boolean(s.latitude) && Boolean(s.longitude))
+        .map(s => {
+          return {
+            latitude: s.latitude + 0.0023023,
+            longitude: s.longitude + 0.002323,
+            type: 'C',
           }
         }),
       municipality: 'all',

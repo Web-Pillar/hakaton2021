@@ -88,15 +88,19 @@ export default {
     height: 20px;
     margin: 5px;
 }
-.FilterFrm {
-    background-color: #dddddd;
-    height: 80px;
-}
 select {
-    border-style: none;
-    background: transparent;
-    outline: none;
-}
+    
+     padding: 7px 40px 7px 12px;
+     border: 1px solid #E8EAED;
+     border-radius: 5px;
+    background: white;
+    box-shadow: 0 1px 3px -2px #9098A9;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 2.0rem;
+    transition: all 150ms ease;
+    max-width: 70%;
+  }
 .webflow-style-select {
     flex-direction: row;
     justify-content: center;
@@ -104,21 +108,15 @@ select {
     margin: 0 auto;
     border-radius: 2px;
     padding: 1.4rem 2rem 1.6rem;
-    background: rgba(220, 220, 228, 0.8);
     margin-top: 20px;
 }
 
-.webflow-style-select select {
-    flex-grow: 1;
-    color: #0b0b0c;
-    font-size: 1.7rem;
-    line-height: 2.4rem;
-    vertical-align: middle;
-}
-.webflow-style-select button {
-    color: black;
-    font-size: 1.3rem;
 
+.webflow-style-select button {
+    color: #000000;
+    font-size: 2.0rem;
+       width: 150px;
+    height: 50px;
     padding-inline: 20px;
     padding-block: 5px;
     background: rgb(235, 235, 235);
@@ -126,8 +124,9 @@ select {
 }
 .webflow-style-select button:hover {
     color: black;
-    font-size: 1.3rem;
-
+    font-size: 2rem;
+    width: 160px;
+    height: 60px;
     padding-inline: 20px;
     padding-block: 5px;
     background: rgb(167, 167, 167);
