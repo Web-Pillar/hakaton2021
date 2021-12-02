@@ -644,7 +644,7 @@ const schools = [
         number: 65,
         schoolName: "ОOУ „Св.Кирил и Методиј“",
         address: "ул. Маршал Тито, бр. 2",
-        municipality: "Maкедонска Kaменица",
+        municipality: "Македонска Каменица",
         latitude: 42.0226285,
         longitude: 22.5881116,
         email: "osnovno_mkamenica@yahoo.com"
@@ -684,7 +684,7 @@ const schools = [
         number: 69,
         schoolName: "ОOУ „Димката Ангелов- Габерот“ с.Ваташа",
         address: "ул. Страшо Пинџур, бр.186 с.Ваташа",
-        municipality: "Kaвадарци",
+        municipality: "Кавадарци",
         latitude: 41.4201026,
         longitude: 22.017545,
         email: "dag_vatasa@yahoo.com"

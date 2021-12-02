@@ -54,7 +54,8 @@ export default {
     computed: {
         municipalities() {
             let allMunicipalities = this.schools.map(s => { return s.municipality });
-            let uniqueMunicipalities = [...new Set(allMunicipalities)];
+            let uniqueMunicipalities = [...new Set(allMunicipalities)]
+                .sort((x, y) => x.localeCompare(y));
             return uniqueMunicipalities;
         }
     },
