@@ -4,12 +4,16 @@
     <form class="form">
    
       <Filter1></Filter1>
+      <lang></lang>
+      
 
     </form>
     <div class="home">
       <Map msg="Welcome to Your Vue.js App"/>
+     
     </div>
     <Footer></Footer>
+    
   </div>
 </template>
 
@@ -18,13 +22,15 @@
 import Map from '@/components/Map.vue';
 import Filter1 from '../components/Filter.vue';
 import Footer from '../components/Footer.vue';
+import lang from '../components/lang.vue';
 
 export default {
   name: 'Home',
   components: {
     Map,
     Filter1,
-    Footer
+    Footer,
+    lang
 }
 }
 </script>
