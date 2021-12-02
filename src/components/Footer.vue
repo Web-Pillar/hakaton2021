@@ -7,7 +7,7 @@
           class="image1">
           <img src="@/assets/usaid1.png" style="width:600px;height:350px;margin-bottom:42px;">
           <img src="@/assets/meta.svg"   style="width:600px;height:400px;margin-bottom:42px;">
-          <img src="@/assets/Logo.png" style="width:500px;height:300px; padding-left:42px; margin-bottom:42px;">
+          <!-- <img src="@/assets/Logo.png" style="width:500px;height:300px; padding-left:42px; margin-bottom:42px;"> -->
 
 
         </div>

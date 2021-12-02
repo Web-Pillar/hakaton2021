@@ -1,6 +1,7 @@
 <template>
 <div class="webflow-style-select">
     <form>
+        <div>
         <label class="labels">  Opshtina:      
         <select class="select">
             <option value=""></option>
@@ -8,6 +9,8 @@
             <option value="Bogovine">Bogovinje</option>
         </select>
         </label >
+        </div>
+        <div>
         <label class="labels">  Kategorija:      
         <select class="select">
             <option value=""></option>
@@ -17,6 +20,7 @@
             
         </select>
         </label >
+        </div>
         <label class="labels">  Rating:      
         <select class="select">
             <option value=""></option>
@@ -24,8 +28,9 @@
             <option value="4">4</option>
         </select>
         </label>
-
+        <div>
         <button type="submit" name="filter">Filter</button>
+        </div>
         </form>
 </div>
        
@@ -40,8 +45,9 @@ export default {
 <style>
     .labels
     {
-        margin-left: 20px;
-        color:black
+        color:black;
+       margin-top: 40px;
+
     }
     .button{
         margin-left: 5px;
@@ -60,11 +66,10 @@ export default {
     }
     select{ border-style: none; background: transparent; outline: none; }
     .webflow-style-select {
-        position: relative;
-        display: flex;
+       
         flex-direction: row;
         justify-content: center;
-        width:100vh;
+        width:100%;
         margin: 0 auto;
         border-radius: 2px;
         padding: 1.4rem 2rem 1.6rem;
@@ -75,10 +80,9 @@ export default {
         .webflow-style-select select {
         flex-grow: 1;
         color: #0b0b0c;
-        font-size: 1.3rem;
+        font-size: 2.5rem;
         line-height: 2.4rem;
         vertical-align: middle;
-        margin-left: 20px;
         
         }
         .webflow-style-select button {
@@ -88,7 +92,8 @@ export default {
            padding-inline: 20px;
            padding-block: 5px;
             background: rgb(235, 235, 235);
-            margin-left: 30px;
+            margin-top: 50px;
+
             
             
             

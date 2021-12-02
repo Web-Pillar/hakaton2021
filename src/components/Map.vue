@@ -57,7 +57,7 @@ export default {
 @import "~leaflet.markercluster/dist/MarkerCluster.css";
 @import "~leaflet.markercluster/dist/MarkerCluster.Default.css";
 .map-container-custom {
-  height: 80vh;
-  width: 95vw;
+  height: 100%;
+  width: 100%;
 }
 </style>
