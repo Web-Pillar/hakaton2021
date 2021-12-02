@@ -68,7 +68,7 @@ export default {
         margin: 0 auto;
         border-radius: 2px;
         padding: 1.4rem 2rem 1.6rem;
-        background: rgba(77, 77, 79, 0.8);
+        background: rgba(220, 220, 228, 0.8);
        
         }
 
@@ -83,13 +83,24 @@ export default {
         }
         .webflow-style-select button {
             color:  black;
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             vertical-align: middle;
-            transition: color .25s;
-            background: transparent;
+           padding-inline: 20px;
+           padding-block: 5px;
+            background: rgb(235, 235, 235);
             margin-left: 30px;
             
             
+            
+        }
+        .webflow-style-select button:hover{
+               color:  black;
+            font-size: 1.3rem;
+            vertical-align: middle;
+           padding-inline: 20px;
+           padding-block: 5px;
+            background: rgb(167, 167, 167);
+            margin-left: 30px;
             
         }
       
