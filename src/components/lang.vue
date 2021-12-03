@@ -1,13 +1,11 @@
 <template>
    <div>
-      <label> Languages
-         <select>
-            <option value="MK" selected>Macedonian </option>
-            <option value="EN">English</option>
-            <option value="SQ" >Albanian</option>
-            <option value="TR">Turkish</option>
-         </select>
-      </label>
+      <select id="select">
+         <option value="MK" selected>MK </option>
+         <option value="EN">EN</option>
+         <option value="SQ" >SQ</option>
+         <option value="TR">TR</option>
+      </select>
    </div>
 </template>
 
@@ -21,6 +19,9 @@ export default {
 
 
 <style scoped>
+#select {
+   min-width: 5vw;
+}
 label{
    align-content: right;
 }
