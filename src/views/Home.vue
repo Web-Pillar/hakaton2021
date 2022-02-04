@@ -2,7 +2,9 @@
   <div>
     <Information></Information>
     <Map />
+    <Faq></Faq>
     <Footer></Footer>
+  
   </div>
 </template>
 
@@ -13,6 +15,8 @@ import Map from "@/components/Map.vue";
 // import Filter1 from '../components/Filter.vue';
 import Footer from "../components/Footer.vue";
 // import lang from '../components/lang.vue';
+import Faq from "../components/Faq.vue";
+// import lang from '../components/lang.vue';
 
 export default {
   name: "",
@@ -22,6 +26,7 @@ export default {
     //  Filter1,
     Footer,
     // lang
+    Faq,
   },
 };
 </script>
