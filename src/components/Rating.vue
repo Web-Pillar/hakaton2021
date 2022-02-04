@@ -2,10 +2,10 @@
   <div>
     <div v-for="school in schools" :key="school">
       <v-col class="shrink" v-if="school.id == $route.params.school">
-        <v-card class="elevation-16 mx-auto" width="300">
+       
           <v-card-title class="text-h5"> {{ school.schoolName }}</v-card-title>
           <v-card-text>
-              <h1>{{school.address}}</h1>
+            <h1>{{ school.address }}</h1>
             <div class="text-center mt-12">
               <v-rating
                 v-model="rating"
@@ -23,7 +23,16 @@
             <v-btn text @click="$router.go(-1)"> No Thanks </v-btn>
             <v-btn color="primary" text> Rate Now </v-btn>
           </v-card-actions>
-        </v-card>
+       
+      </v-col>
+    </div>
+    <div v-for="budget in finances" :key="budget">
+      <v-col v-if="budget.schoolId == $route.params.school">
+        <v-data-table
+          :headers="headers"
+          :items="budget.data.info"
+          
+        ></v-data-table>
       </v-col>
     </div>
   </div>
@@ -31,11 +40,25 @@
 
 <script>
 import { schools } from "./../data/schools_v2";
+import { finances } from "./../data/budgets";
 
 export default {
   data() {
     return {
       schools: schools,
+      finances: finances,
+      headers: [
+          {
+            text: 'Year',
+            align: 'start',
+            sortable: false,
+            value: 'year',
+          },
+          { text: 'Budget', value: 'budget'},
+          { text: 'Planed', value: 'planed' },
+          { text: 'Realised', value: 'realised' },
+       
+        ],
     };
   },
 };
