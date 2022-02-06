@@ -14,17 +14,17 @@
           >
             <l-popup>
               <div>
-                <p><b>Name</b> : {{ school.schoolName }}</p>
-                <p><b>Email</b> : {{ school.email }}</p>
+                <p><b>{{$t("nameofschool")}}</b> : {{ school.schoolName }}</p>
+                <p><b>{{$t("email")}}</b> : {{ school.email }}</p>
                 <p>
-                  <b>Rating</b> : <span class="fa fa-star checked"></span>
+                  <b>{{$t("rating")}}</b> : <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star"></span>
                   <span class="fa fa-star"></span>
                 </p>
-                <p><b>Finance</b> : Unknown</p>
-                <button v-on:click="innerClick()">Details</button>
+                <p><b>{{$t("finances")}}</b> : Unknown</p>
+                <button v-on:click="innerClick()">{{$t("details")}}</button>
               </div>
             </l-popup>
             <l-tooltip>
