@@ -7,6 +7,7 @@
                 href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
             />
             <i class="glyphicon glyphicon-info-sign"></i>
+           
             <h1>{{ $t("message") }}</h1>
             <h1>{{ $t("enterance") }}</h1>
             <h2>Добредојдовте во „Web Pillar“!</h2>

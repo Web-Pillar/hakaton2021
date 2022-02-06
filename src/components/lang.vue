@@ -1,10 +1,10 @@
 <template>
    <div>
-      <select id="select">
-         <option value="MK" selected>MK </option>
-         <option value="EN">EN</option>
-         <option value="SQ" >SQ</option>
-         <option value="TR">TR</option>
+      <select id="language_select" @change="changeLanguage($event)">
+         <option value="mk">MK</option>
+         <option value="sq">SQ</option>
+         <option value="en" selected>EN</option>
+         <option value="tr">TR</option>
       </select>
    </div>
 </template>
@@ -13,7 +13,11 @@
 <script>
 
 export default {
-
+   methods: {
+      changeLanguage(event) {
+         this.$i18n.locale = event.target.value
+      }
+   }
 }
 </script>
 
