@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
+import i18n from './i18n'
 
 // The lines below fix the problem with marker icon
 delete Icon.Default.prototype._getIconUrl;
@@ -17,5 +18,6 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
+  i18n,
   render: h => h(App)
 }).$mount('#app')
