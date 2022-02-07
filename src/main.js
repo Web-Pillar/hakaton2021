@@ -1,9 +1,11 @@
 import Vue from 'vue'
+import './plugins/axios'
 import App from './App.vue'
 import router from './router'
 import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
 import vuetify from './plugins/vuetify'
+import store from './store'
 
 // The lines below fix the problem with marker icon
 delete Icon.Default.prototype._getIconUrl;
@@ -19,5 +21,6 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   vuetify,
+  store,
   render: h => h(App)
 }).$mount('#app')
