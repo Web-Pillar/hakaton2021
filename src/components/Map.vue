@@ -63,6 +63,7 @@ import {
 } from "vue2-leaflet";
 import Vue2LeafletMarkerCluster from "vue2-leaflet-markercluster";
 import { schools } from "./../data/schools_v2";
+import { casinos } from "./../data/casinos";
 import casinoIcon from "@/assets/dices.svg";
 const categories = ["univerzitet", "sredno", "osniovno"];
 
@@ -99,12 +100,11 @@ export default {
             type: "S",
           };
         }),
-      casinos: schools
-        .filter((s) => Boolean(s.latitude) && Boolean(s.longitude))
+      casinos: casinos
         .map((s) => {
           return {
-            latitude: s.latitude + 0.0023023,
-            longitude: s.longitude + 0.002323,
+            latitude: s.Location.split(',')[0],
+            longitude: s.Location.split(',')[1],
             type: "C",
           };
         }),
