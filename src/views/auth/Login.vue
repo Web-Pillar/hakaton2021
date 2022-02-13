@@ -53,8 +53,9 @@ export default {
                 password: this.password
             });
             if (response.data.success) {
+                localStorage.setItem('token', response.data.data.token);
                 this.logIn(response.data.data);
-                this.$router.push("/admin/dashboard");
+                this.$router.push("/admin/users");
             }
         }
     }
