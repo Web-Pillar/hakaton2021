@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import userModule from './modules/user'
+import schoolModule from './modules/school'
 
 Vue.use(Vuex)
 
@@ -19,6 +21,12 @@ export default new Vuex.Store({
       commit('LOGED_IN', payload)
     }
   },
+  getters: {
+    getToken: state => state.token,
+    authUser: state => state.user,
+  },
   modules: {
+    userModule,
+    schoolModule,
   }
 })

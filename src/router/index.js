@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import VueMeta from 'vue-meta'
 import Home from '../views/Home.vue'
 
+import Admin from "@/layouts/Admin.vue";
+
 Vue.use(VueRouter)
 Vue.use(VueMeta)
 
@@ -32,7 +34,35 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: () => import(/* webpackChunkName: "login" */ '../views/auth/Login.vue')
-  }
+  },
+  {
+		path: '/logout',
+		name: 'Logout',
+		// beforeEnter (to, from, next) {
+		// 	logout();
+		// 	next('/login');
+		// },
+	},
+  {
+    path: "/admin",
+    redirect: "/admin/dashboard",
+    component: Admin,
+    meta: { requiresAuth: true },
+    children: [
+      {
+        path: "/admin/users",
+        name: 'Users',
+        meta: { requiresAuth: true },
+        component: () => import(/* webpackChunkName: "about" */ '../views/admin/Users.vue'),
+      },
+      {
+        path: "/admin/schools",
+        name: 'Schools',
+        meta: { requiresAuth: true },
+        component: () => import(/* webpackChunkName: "about" */ '../views/admin/Schools.vue'),
+      },
+    ],
+  },
 ]
 
 const router = new VueRouter({
