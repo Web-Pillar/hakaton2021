@@ -1,18 +1,17 @@
 <template>
     <div>
-    <rating></rating>
-    
+<compare></compare>    
     
     </div>
 </template>
 
 <script>
-import rating from "../components/Rating.vue";
+import compare from "../components/Compare.vue";
 
 
 export default {
     components:{
-        rating
+        compare
     }
 
 }

@@ -16,17 +16,22 @@
               <div>
                 <p><b>Name</b> : {{ school.schoolName }}</p>
                 <p><b>Email</b> : {{ school.email }}</p>
-                <p >
-                  <b>Rating</b> : <v-rating disabled
-                
-                color="yellow darken-3"
-                background-color="grey darken-1"
-                large
-              ></v-rating>
+                <p>
+                  <b>Rating</b> :
+                  <v-rating
+                    disabled
+                    color="yellow darken-3"
+                    background-color="grey darken-1"
+                    large
+                  ></v-rating>
                 </p>
                 <p><b>Finance</b> : Unknown</p>
-                <button @click="$router.push(`/details/${school.id}`)"> Details </button>
-                
+                <button @click="$router.push(`/details/${school.id}`)">
+                  Details
+                </button>
+                <button @click="$router.push(`/compare/${school.id}`)">
+                  Compare
+                </button>
               </div>
             </l-popup>
             <l-tooltip>
@@ -79,9 +84,7 @@ export default {
     "v-marker-cluster": Vue2LeafletMarkerCluster,
   },
   data() {
-    
     return {
-      
       casinoIcon: casinoIcon,
       iconSize: [30, 50],
       iconAnchor: [16, 45],
@@ -100,14 +103,13 @@ export default {
             type: "S",
           };
         }),
-      casinos: casinos
-        .map((s) => {
-          return {
-            latitude: s.Location.split(',')[0],
-            longitude: s.Location.split(',')[1],
-            type: "C",
-          };
-        }),
+      casinos: casinos.map((s) => {
+        return {
+          latitude: s.Location.split(",")[0],
+          longitude: s.Location.split(",")[1],
+          type: "C",
+        };
+      }),
       municipality: "all",
       category: "all",
       rating: "all",
