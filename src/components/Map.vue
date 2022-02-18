@@ -1,10 +1,7 @@
 <template>
   <section>
-    <nav>
-      <Filter1 @filtered="filtering" :schools="schools"></Filter1>
-    </nav>
-    <article>
-      <l-map class="map-container-custom" :zoom="zoom" :center="center">
+    <article id="article1" class="">
+      <l-map class="map-container-custom"  style="border-radius:0" :zoom="zoom" :center="center">
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
         <v-marker-cluster>
           <l-marker
@@ -53,6 +50,40 @@
         </v-marker-cluster>
       </l-map>
     </article>
+    <article id="article2">
+      <row>
+        <div style="background-color: #6c757d !important">
+          <Filter1 @filtered="filtering" :schools="schools"></Filter1>
+        </div>
+      </row>
+      <row>
+       
+          <v-simple-table fixed-header style="border-radius:0"
+         height="74vh" white>
+           
+              <thead>
+                <tr>
+                  <th class="text-left">Name</th>
+                  <th class="text-left">Email</th>
+                  <th class="text-left">Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="school in schoolsInMap"
+            :key="`school_${school.id}`"
+           >
+                  <td>{{ school.schoolName }}</td>
+                  <td>{{ school.email }}</td>
+                   <td><button @click="$router.push(`/details/${school.id}`)">
+                  Details
+                </button></td>
+                </tr>
+              </tbody>
+            
+          </v-simple-table>
+        
+      </row>
+    </article>
   </section>
 </template>
 
@@ -91,7 +122,7 @@ export default {
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution:
         '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      zoom: 9,
+      zoom: 8,
       center: [41.608635, 21.745275],
       schools: schools
         .filter((s) => Boolean(s.latitude) && Boolean(s.longitude))
@@ -148,26 +179,16 @@ export default {
   height: 100%;
   width: 100%;
 }
-* {
-  box-sizing: border-box;
-}
-
-nav {
-  float: left;
-  width: 20%;
-  height: 100vh; /* only for demonstration, should be removed */
-  background: #f1f1f1;
-  padding: 20px;
-  border: solid;
-  border-right: none;
-}
 
 article {
   float: left;
-  padding: 20px;
-  width: 80%;
-  border: solid;
-  background-color: #f1f1f1;
-  height: 100vh; /* only for demonstration, should be removed */
+  /* background-color: #f1f1f1; */
+  height: 82vh; /* only for demonstration, should be removed */
+}
+#article1 {
+  width: 60%;
+}
+#article2 {
+  width: 40%;
 }
 </style>

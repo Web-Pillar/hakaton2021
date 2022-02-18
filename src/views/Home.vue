@@ -1,40 +1,39 @@
 <template>
   <div>
-    <Information></Information>
+    
     <Map />
-    <Faq></Faq>
-    <Footer></Footer>
+    
+    
   
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Information from "../components/Information.vue";
+// import Information from "../components/Information.vue";
 import Map from "@/components/Map.vue";
 // import Filter1 from '../components/Filter.vue';
-import Footer from "../components/Footer.vue";
+// import Footer from "../components/Footer.vue";
 // import lang from '../components/lang.vue';
-import Faq from "../components/Faq.vue";
-// import lang from '../components/lang.vue';
+// import Faq from "../components/Faq.vue";
+// // import lang from '../components/lang.vue';
 
 export default {
   name: "",
   components: {
-    Information,
+    // Information,
     Map,
-    //  Filter1,
-    Footer,
-    // lang
-    Faq,
+    // Footer
+    // // lang
+    // Faq,
   },
 };
 </script>
 
 <style scoped>
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -45,10 +44,10 @@ body {
 /* Create two columns/boxes that floats next to each other */
 
 /* Style the list inside the menu */
-nav ul {
+/* nav ul {
   list-style-type: none;
   padding: 0;
-}
+} */
 
 /* Clear floats after the columns */
 

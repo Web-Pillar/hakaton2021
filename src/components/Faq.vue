@@ -55,7 +55,7 @@ export default {
   background-color: #f1f1f1;
   padding: 30px;
 
-  border: solid;
+  /* border: solid; */
 }
 
 body {
@@ -66,9 +66,9 @@ body {
 .faqbox {
   padding: 4rem 8rem;
 
-  border: 3px solid #333333;
+  /* border: 3px solid #333333; */
   font-size: 1.3rem;
-  border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+  /* border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%; */
   text-transform: uppercase;
   letter-spacing: 0.3ch;
   background: #ffffff;

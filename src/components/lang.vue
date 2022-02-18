@@ -27,8 +27,8 @@ label{
 }
   select {
      padding: 7px 40px 7px 12px;
-     border: 1px solid #E8EAED;
-     border-radius: 5px;
+     /* border: 1px solid #E8EAED; */
+     /* border-radius: 5px; */
     background: white;
     box-shadow: 0 1px 3px -2px #9098A9;
     cursor: pointer;

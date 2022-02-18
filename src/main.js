@@ -4,8 +4,11 @@ import App from './App.vue'
 import router from './router'
 import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
-import vuetify from './plugins/vuetify'
-import store from './store'
+import vuetify from './plugins/vuetify';
+import store from './store';
+import "vuetify/dist/vuetify.min.css";
+
+
 
 // The lines below fix the problem with marker icon
 delete Icon.Default.prototype._getIconUrl;

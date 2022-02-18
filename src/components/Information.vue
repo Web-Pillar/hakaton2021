@@ -1,55 +1,67 @@
 <template>
-    <header class="header">
-        <lang id="lang"></lang>
-        <div class="information">
-            <link
-                rel="stylesheet"
-                href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-            />
-            <i class="glyphicon glyphicon-info-sign"></i>
-            <h2>Добредојдовте во „Web Pillar“!</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dolor saepe numquam, quia consequatur, ipsam velit, vel placeat aspernatur porro ullam nam deleniti repudiandae voluptates fuga? Impedit maiores facilis quisquam!</p>
-        </div>
-        
-    </header>
+  <nav style="border-bottom: 10px solid #1678ca">
+    <v-toolbar style="background-color: #343a40 !important; box-shadow: none">
+      <v-toolbar-title style="color: white">
+        <router-link to="/" tag="span" style="cursor: pointer">
+          {{ appTitle }}
+        </router-link>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items class="hidden-xs-only" style="padding-top: 18px">
+        <v-btn
+          style="
+            background-color: #1678ca;
+            box-shadow: none;
+            margin: 0 20px 0 0;
+            color: white;
+          "
+          flat
+          v-for="item in menuItems"
+          :key="item.title"
+          :to="item.path"
+        >
+          <!-- <v-icon left dark>{{ item.icon }}</v-icon> -->
+          {{ item.title }}
+        </v-btn>
+      </v-toolbar-items>
+      <!-- <v-spacer></v-spacer> -->
+      <v-toolbar-items class="hidden-xs-only">
+        <v-btn
+          style="
+            background-color: #1678ca;
+            box-shadow: none;
+            margin: 0 2px 0 0;
+            color: white;
+          "
+          flat
+          v-for="item in menuItems2"
+          :key="item.title"
+          :to="item.path"
+        >
+          <!-- <v-icon left dark>{{ item.icon }}</v-icon> -->
+          {{ item.title }}
+        </v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
+  </nav>
 </template>
 
-<style scoped>
-
-#lang {
-    float: right;
-    min-width: 10vw;
-    margin-top: 10px;
-}
-.information {
-    color: #00529b;
-    background-color: #bde5f8;
-    margin: 10px 0px;
-    padding: 15px 10px;
-
-    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
-        rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-    border-radius: 25px;
-}
-header {
-    background-color: #f1f1f1;
-    padding: 30px;
-    text-align: center;
-    font-size: 35px;
-    border: solid;
-    border-bottom: none;
-}
-.glyphicon.glyphicon-info-sign {
-    font-size: 35px;
+<script>
+export default {
+  data: () => ({
+    appTitle: "MetaSchools",
+    menuItems: [
+      { title: "Home", path: "/", icon: "home" },
+      { title: "Sign Up", path: "/signup", icon: "face" },
+      { title: "Sign In", path: "/signin", icon: "lock_open" },
+    ],
+    menuItems2: [{ title: "Login", path: "/login", icon: "home" }],
+  }),
+};
+</script>
+<style>
+.s {
+  background-color: rgb(65, 63, 63);
+  box-shadow: n;
 }
 </style>
-
-<script>
-import lang from './lang.vue';
-export default {
-    components: {
-        lang,
-    }
-
-}
-</script>
