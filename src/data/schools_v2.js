@@ -525,8 +525,8 @@ const schools = [
         schoolName: "ООУ „Маршал Тито“ с.Жеровница",
         address: "с. Жировница",
         municipality: "Маврово и Ростуше",
-        latitude: 42.9311844,
-        longitude: 20.8049097,
+        latitude: 41.90261307052401, 
+        longitude: 20.963121941531806,
         email: "o.u.zirovnica@gmail.com"
     },
     {
@@ -1135,8 +1135,8 @@ const schools = [
         schoolName: "ООУ „Вера Которка“ с.Клечовце",
         address: "Населено место без уличен систем с.Клечевце",
         municipality: "Куманово",
-        latitude: 44.8225401,
-        longitude: 26.8234952,
+        latitude: 42.13492337422729, 
+        longitude: 21.72330240193867,
         email: "vera.kotorka@gmail.com"
     },
     {
@@ -3075,8 +3075,8 @@ const schools = [
         schoolName: "ООУ „Андреја Савевски-Ќиќиш“",
         address: "ул. Иво Рибар Лола, бр. 46",
         municipality: "Тетово",
-        latitude: 45.7707805,
-        longitude: 25.7997157,
+        latitude: 42.02013820260978, 
+        longitude:20.967173741796962,
         email: "um_askikis_tetovo@yahoo.com"
     },
     {

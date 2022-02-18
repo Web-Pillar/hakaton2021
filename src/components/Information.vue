@@ -8,21 +8,42 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only" style="padding-top: 18px">
-        <v-btn
-          style="
-            background-color: #1678ca;
-            box-shadow: none;
-            margin: 0 20px 0 0;
-            color: white;
-          "
+        <div
           flat
           v-for="item in menuItems"
           :key="item.title"
-          :to="item.path"
+          :style="'margin: 0 20px 0 0'"
+          style="box-shadow: none"
         >
+          <v-btn
+            v-if="item.test"
+            :to="item.path"
+            style="
+              height: 100%;
+              border-radius: 0;
+              box-shadow: none;
+              color: white;
+              background-color: rgb(22, 120, 202);
+            "
+          >
+            {{ item.title }}</v-btn
+          >
+          <v-btn
+            v-if="!item.test"
+            :to="item.path"
+            @click="click(item)"
+            style="
+              height: 100%;
+              border-radius: 0;
+              box-shadow: none;
+              color: white;
+              background-color: transparent;
+            "
+          >
+            {{ item.title }}</v-btn
+          >
           <!-- <v-icon left dark>{{ item.icon }}</v-icon> -->
-          {{ item.title }}
-        </v-btn>
+        </div>
       </v-toolbar-items>
       <!-- <v-spacer></v-spacer> -->
       <v-toolbar-items class="hidden-xs-only">
@@ -33,6 +54,7 @@
             margin: 0 2px 0 0;
             color: white;
           "
+          @click="click(item)"
           flat
           v-for="item in menuItems2"
           :key="item.title"
@@ -48,20 +70,50 @@
 
 <script>
 export default {
-  data: () => ({
-    appTitle: "MetaSchools",
-    menuItems: [
-      { title: "Home", path: "/", icon: "home" },
-      { title: "Sign Up", path: "/signup", icon: "face" },
-      { title: "Sign In", path: "/signin", icon: "lock_open" },
-    ],
-    menuItems2: [{ title: "Login", path: "/login", icon: "home" }],
-  }),
+  data() {
+    // <== changed this line
+    return {
+      clicked: true,
+      appTitle: "MetaSchools",
+
+      menuItems: [
+        { id: 1, title: "Home", path: "/", icon: "home", test: true },
+        { id: 2, title: "Sign Up", path: "/signup", icon: "face", test: false },
+        {
+          id: 3,
+          title: "Sign In",
+          path: "/signin",
+          icon: "lock_open",
+          test: false,
+        },
+      ],
+      menuItems2: [{ title: "Login", path: "/login", icon: "home" }],
+    };
+  },
+
+  methods:
+  {
+    click(item)
+    {
+      item.test=!item.test
+      this.menuItems.forEach(items => {
+
+        if(items.id!=item.id)
+        {
+          items.test=false;
+        }
+        
+      });
+
+    }
+  }
 };
 </script>
 <style>
-.s {
+.s:hover {
   background-color: rgb(65, 63, 63);
   box-shadow: n;
+
+
 }
 </style>
