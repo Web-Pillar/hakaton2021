@@ -59,7 +59,7 @@
       <row>
        
           <v-simple-table fixed-header style="border-radius:0"
-         height="74vh" white>
+         height="78vh" white>
            
               <thead>
                 <tr>
@@ -183,7 +183,7 @@ export default {
 article {
   float: left;
   /* background-color: #f1f1f1; */
-  height: 82vh; /* only for demonstration, should be removed */
+  height: 85vh; /* only for demonstration, should be removed */
 }
 #article1 {
   width: 60%;

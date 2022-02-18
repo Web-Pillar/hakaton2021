@@ -1,5 +1,5 @@
 <template>
-  <nav style="border-bottom: 10px solid #1678ca">
+  <nav style="border-bottom: 6px solid #1678ca">
     <v-toolbar style="background-color: #343a40 !important; box-shadow: none">
       <v-toolbar-title style="color: white">
         <router-link to="/" tag="span" style="cursor: pointer">
