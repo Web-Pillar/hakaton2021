@@ -14,11 +14,19 @@ export default new Vuex.Store({
     LOGED_IN(state, payload) {
       state.user = payload.user;
       state.token = payload.token;
+    },
+    LOGED_OUT(state) {
+      state.user = null;
+      state.token = null;
     }
   },
   actions: {
     logIn({ commit }, payload) {
       commit('LOGED_IN', payload)
+    },
+    logOut({ commit }) {
+      localStorage.removeItem('token');
+      commit('LOGED_OUT')
     }
   },
   getters: {

@@ -37,7 +37,7 @@
 
     <v-tabs-items v-model="model">
       <v-tab-item v-for="i in tab" :key="i" :value="`${i.name}`">
-        <v-card v-if="i.name == 'info' " flat>
+        <v-card v-if="i.name == 'info' " text>
           <div v-for="school in schools" :key="school">
             <v-row
               class="shrink mx-16"
@@ -78,7 +78,7 @@
             </v-col>
           </div>
         </v-card>
-        <v-card v-if="i.name == 'data'" flat>
+        <v-card v-if="i.name == 'data'" text>
           <v-stepper v-model="e1">
             <v-stepper-header>
               <v-stepper-step :complete="e1 > 1" step="1">

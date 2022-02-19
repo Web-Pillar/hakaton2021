@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <NavigationDrawer></NavigationDrawer>
-        <AppBar></AppBar>
+        <!-- <AppBar></AppBar> -->
 
         <!-- Provides the application the proper gutter -->
         <v-container fluid>
@@ -13,9 +13,9 @@
 
 <script>
 import NavigationDrawer from "../components/admin/NavigationDrawer"
-import AppBar from "../components/admin/AppBar"
+// import AppBar from "../components/admin/AppBar"
 export default {
-    components: { NavigationDrawer, AppBar }
+    components: { NavigationDrawer }
 }
 </script>
 
