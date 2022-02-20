@@ -9,6 +9,7 @@ export default new Vuex.Store({
   state: {
     user: null,
     token: null,
+    compareIds: [],
   },
   mutations: {
     LOGED_IN(state, payload) {
@@ -18,16 +19,33 @@ export default new Vuex.Store({
     LOGED_OUT(state) {
       state.user = null;
       state.token = null;
-    }
+    },
+    ADD_COMPARE(state, id) {
+      const index = state.compareIds.indexOf(id);
+      if(index === -1) {
+        state.compareIds.push(id);
+      } else {
+        state.compareIds = state.compareIds.filter(i => i !== id);
+      }
+    },
+    CLEAR_COMPARE(state) {
+      state.compareIds = [];
+    },
   },
   actions: {
     logIn({ commit }, payload) {
-      commit('LOGED_IN', payload)
+      commit('LOGED_IN', payload);
     },
     logOut({ commit }) {
       localStorage.removeItem('token');
-      commit('LOGED_OUT')
-    }
+      commit('LOGED_OUT');
+    },
+    addCompare({ commit }, id) {
+      commit('ADD_COMPARE', id);
+    },
+    clearCompare({ commit }) {
+      commit('CLEAR_COMPARE');
+    },
   },
   getters: {
     getToken: state => state.token,

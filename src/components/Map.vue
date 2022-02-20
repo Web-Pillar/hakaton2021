@@ -1,7 +1,7 @@
 <template>
   <section>
-    <article id="article1" class="">
-      <l-map class="map-container-custom"  style="border-radius:0" :zoom="zoom" :center="center">
+    <article id="article1" class>
+      <l-map class="map-container-custom" style="border-radius:0" :zoom="zoom" :center="center">
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
         <v-marker-cluster>
           <l-marker
@@ -11,24 +11,23 @@
           >
             <l-popup>
               <div>
-                <p><b>Name</b> : {{ school.schoolName }}</p>
-                <p><b>Email</b> : {{ school.email }}</p>
+                <p>
+                  <b>Name</b>
+                  : {{ school.schoolName }}
+                </p>
+                <p>
+                  <b>Email</b>
+                  : {{ school.email }}
+                </p>
                 <p>
                   <b>Rating</b> :
-                  <v-rating
-                    disabled
-                    color="yellow darken-3"
-                    background-color="grey darken-1"
-                    large
-                  ></v-rating>
+                  <v-rating disabled color="yellow darken-3" background-color="grey darken-1" large></v-rating>
                 </p>
-                <p><b>Finance</b> : Unknown</p>
-                <button @click="$router.push(`/details/${school.id}`)">
-                  Details
-                </button>
-                <button @click="$router.push(`/compare/${school.id}`)">
-                  Compare
-                </button>
+                <p>
+                  <b>Finance</b> : Unknown
+                </p>
+                <button @click="$router.push(`/details/${school.id}`)">Details</button>
+                <button @click="$router.push(`/compare/${school.id}`)">Compare</button>
               </div>
             </l-popup>
             <l-tooltip>
@@ -41,11 +40,7 @@
             :key="`casino_${index}`"
             :lat-lng="[casino.latitude, casino.longitude]"
           >
-            <l-icon
-              :icon-size="iconSize"
-              :icon-anchor="iconAnchor"
-              :icon-url="casinoIcon"
-            ></l-icon>
+            <l-icon :icon-size="iconSize" :icon-anchor="iconAnchor" :icon-url="casinoIcon"></l-icon>
           </l-marker>
         </v-marker-cluster>
       </l-map>
@@ -54,34 +49,36 @@
       <row>
         <div style="background-color: #6c757d !important">
           <Filter1 @filtered="filtering" :schools="schools"></Filter1>
+          <v-btn @click="$router.push('/compare')">Compare</v-btn>
         </div>
       </row>
       <row>
-       
-          <v-simple-table fixed-header style="border-radius:0"
-         height="78vh" white>
-           
-              <thead>
-                <tr>
-                  <th class="text-left">Name</th>
-                  <th class="text-left">Email</th>
-                  <th class="text-left">Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="school in schoolsInMap"
-            :key="`school_${school.id}`"
-           >
-                  <td>{{ school.schoolName }}</td>
-                  <td>{{ school.email }}</td>
-                   <td><button @click="$router.push(`/details/${school.id}`)">
-                  Details
-                </button></td>
-                </tr>
-              </tbody>
-            
-          </v-simple-table>
-        
+        <v-simple-table fixed-header style="border-radius:0" height="78vh" white>
+          <thead>
+            <tr>
+              <th class="text-left">Name</th>
+              <th class="text-left">Email</th>
+              <th class="text-left">Details</th>
+              <th class="text-left">Compare</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="school in schoolsInMap" :key="`school_${school.id}`">
+              <td>{{ school.schoolName }}</td>
+              <td>{{ school.email }}</td>
+              <td>
+                <v-btn @click="$router.push(`/details/${school.id}`)">Details</v-btn>
+              </td>
+              <td>
+                <v-switch inset
+                  :input-value="compareIds.includes(school.id)"
+                  @change="selectCompare(school.id)"
+                  label="Compare"
+                ></v-switch>
+              </td>
+            </tr>
+          </tbody>
+        </v-simple-table>
       </row>
     </article>
   </section>
@@ -102,6 +99,7 @@ import { schools } from "./../data/schools_v2";
 import { casinos } from "./../data/casinos";
 import casinoIcon from "@/assets/dices.svg";
 const categories = ["univerzitet", "sredno", "osniovno"];
+import { mapActions, mapState } from 'vuex'
 
 export default {
   components: {
@@ -157,8 +155,12 @@ export default {
         );
       });
     },
+    ...mapState({
+      compareIds: state => state.compareIds,
+    }),
   },
   methods: {
+    ...mapActions(['addCompare']),
     innerClick() {
       alert("Click!");
     },
@@ -167,6 +169,9 @@ export default {
       this.municipality = municipality;
       this.category = category;
       this.rating = rating;
+    },
+    selectCompare(schoolId){
+      this.addCompare(schoolId);
     },
   },
 };

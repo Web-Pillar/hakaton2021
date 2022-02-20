@@ -1,17 +1,11 @@
 <template>
   <div>
-    <div class="mx-14 my-8" v-for="school in schools" :key="school">
-      <v-row class="shrink" v-if="school.id == $route.params.school">
+    <div class="mx-14 my-8">
+      <v-row class="shrink">
         <v-col>
           <v-card-title class="text-h5">Name</v-card-title>
         </v-col>
-        <v-col>
-          <v-card-title class="text-h5">{{ school.schoolName }}</v-card-title>
-        </v-col>
-        <v-col>
-          <v-card-title class="text-h5">{{ school.schoolName }}</v-card-title>
-        </v-col>
-        <v-col>
+        <v-col v-for="school in filteredSchools" :key="`school_${school.id}`">
           <v-card-title class="text-h5">{{ school.schoolName }}</v-card-title>
         </v-col>
       </v-row>
@@ -20,8 +14,8 @@
     <v-tabs-items v-model="model">
       <v-tab-item v-for="i in 2" :key="i" :value="`tab-${i}`">
         <v-card v-if="i == 1" text>
-          <div v-for="school in schools" :key="school">
-            <v-row class="shrink mx-16" v-if="school.id == $route.params.school">
+          <div>
+            <v-row class="shrink mx-16">
               <v-col>
                 <v-card-text>Telefon:</v-card-text>
                 <v-card-text>Fax:</v-card-text>
@@ -44,53 +38,9 @@
                 <v-card-text>Laboratory:</v-card-text>
                 <v-card-text>Supplay:</v-card-text>
               </v-col>
-              <v-col>
-                <v-card-text>00389XXXXXX</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>{{ school.email }}</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-              </v-col>
-              <v-col>
-                <v-card-text>00389XXXXXX</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>{{ school.email }}</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-                <v-card-text>#</v-card-text>
-              </v-col>
-              <v-col>
-                <v-card-text>00389XXXXXX</v-card-text>
-                <v-card-text>#</v-card-text>
+              <v-col v-for="school in filteredSchools" :key="`school_details_${school.id}`">
+                <v-card-text>{{ school.phoneNumber }}</v-card-text>
+                <v-card-text>{{ school.fax }}</v-card-text>
                 <v-card-text>{{ school.email }}</v-card-text>
                 <v-card-text>#</v-card-text>
                 <v-card-text>#</v-card-text>
@@ -121,7 +71,7 @@
 <script>
 import { schools } from "./../data/schools_v2";
 import { finances } from "./../data/budgets";
-
+import { mapState } from 'vuex';
 export default {
   data() {
     return {
@@ -144,5 +94,13 @@ export default {
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     };
   },
+  computed: {
+    ...mapState({
+      compareIds: state => state.compareIds,
+    }),
+    filteredSchools() {
+      return this.schools.filter(s => this.compareIds.includes(s.id) )
+    }
+  }
 };
 </script>
