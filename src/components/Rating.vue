@@ -1,21 +1,19 @@
 <template>
   <div>
-    <v-toolbar  style="height:50px" >
-     
-        <v-tabs style="height:20px ;" v-model="model" centered slider-color="yellow">
-          <v-tab :href="`#info`"> Info </v-tab>
-          <v-tab :href="`#data`"> Add Data </v-tab>
-        </v-tabs>
-     
-     
+    <v-toolbar style="height:50px">
+      <v-tabs style="height:20px ;" v-model="tab" centered slider-color="yellow">
+        <v-tab key="info">School Details</v-tab>
+        <v-tab key="survey">Survey</v-tab>
+      </v-tabs>
     </v-toolbar>
 
-    <div class="mx-14 my-8" v-for="school in schools" :key="school">
-      <v-col class="shrink" v-if="school.id == $route.params.school">
+    <div class="mx-14 my-8">
+      <v-col class="shrink">
         <v-card-title class="text-h5">
-          {{ school.schoolName }} <v-spacer></v-spacer>
+          {{ selectedSchool.name }}
+          <v-spacer></v-spacer>
           <v-rating
-            v-model="rating"
+            v-model="survey.rating"
             color="yellow darken-3"
             background-color="grey darken-1"
             empty-icon="$ratingFull"
@@ -25,240 +23,148 @@
           ></v-rating>
         </v-card-title>
         <v-card-text>
-          <h1>{{ school.address }}</h1>
+          <h1>{{ selectedSchool.address }}</h1>
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions class="justify-space-between">
-          <v-btn text @click="$router.go(-1)"> No Thanks </v-btn>
-          <v-btn color="primary" text> Rate Now </v-btn>
+          <v-btn text @click="$router.go(-1)">No Thanks</v-btn>
+          <v-btn color="primary" text>Rate Now</v-btn>
         </v-card-actions>
       </v-col>
     </div>
 
-    <v-tabs-items v-model="model">
-      <v-tab-item v-for="i in tab" :key="i" :value="`${i.name}`">
-        <v-card v-if="i.name == 'info' " text>
-          <div v-for="school in schools" :key="school">
-            <v-row
-              class="shrink mx-16"
-              v-if="school.id == $route.params.school"
-            >
+    <v-tabs-items v-model="tab">
+      <v-tab-item key="info">
+        <v-card text>
+          <div>
+            <v-row class="shrink mx-16">
               <v-col>
-                <v-card-text>Telefon: 00389XXXXXX</v-card-text>
-                <v-card-text>Fax: #</v-card-text>
-                <v-card-text>Email: {{ school.email }}</v-card-text>
-                <v-card-text>Founded By: #</v-card-text>
-                <v-card-text>Learning Language: #</v-card-text>
-                <v-card-text>Year of Construction: #</v-card-text>
+                <v-card-text>Telefon: {{ selectedSchool.phoneNumber }}</v-card-text>
+                <v-card-text>Fax: {{ selectedSchool.fax }}</v-card-text>
+                <v-card-text>Email: {{ selectedSchool.email }}</v-card-text>
+                <v-card-text>Founded By: {{ selectedSchool.foundedBy }}</v-card-text>
+                <v-card-text>Learning Language: {{ selectedSchool.language }}</v-card-text>
+                <v-card-text>Year of Construction: {{ selectedSchool.builtAt }}</v-card-text>
               </v-col>
               <v-col>
-                <v-card-text>Type of Construction: #</v-card-text>
-                <v-card-text>Size of Object: #</v-card-text>
-                <v-card-text>School Yard: #</v-card-text>
-                <v-card-text>Shifts: #</v-card-text>
-                <v-card-text>Heating System: #</v-card-text>
-                <v-card-text>Number of Classes: #</v-card-text>
+                <v-card-text>Type of Construction: {{ selectedSchool.buildingType }}</v-card-text>
+                <v-card-text>Area of Building: {{ selectedSchool.buildingArea }}</v-card-text>
+                <v-card-text>Area of School Yard: {{ selectedSchool.gardenArea }}</v-card-text>
+                <v-card-text>Shifts: {{ selectedSchool.shifts }}</v-card-text>
+                <v-card-text>Heating System: {{ selectedSchool.heating }}</v-card-text>
+                <v-card-text>Number of Classes: {{ selectedSchool.nrClasses }}</v-card-text>
               </v-col>
               <v-col>
-                <v-card-text>Number of Students: #</v-card-text>
-                <v-card-text>Number of Teacher: #</v-card-text>
-                <v-card-text>Cantene: </v-card-text>
-                <v-card-text>Library: #</v-card-text>
-                <v-card-text>Laboratory: #</v-card-text>
-                <v-card-text>Supplay: #</v-card-text>
+                <v-card-text>Number of Students: {{ selectedSchool.nrStudents }}</v-card-text>
+                <v-card-text>Number of Teacher: {{ selectedSchool.nrTeachers }}</v-card-text>
+                <v-card-text>Cantene: {{ selectedSchool.canteen }}</v-card-text>
+                <v-card-text>Library: {{ selectedSchool.library }}</v-card-text>
+                <v-card-text>Laboratory: {{ selectedSchool.labs }}</v-card-text>
               </v-col>
             </v-row>
           </div>
-          <div class="mx-14 my-8" v-for="budget in finances" :key="budget">
-            <v-col v-if="budget.schoolId == $route.params.school">
-              <v-data-table
-                :headers="headers"
-                :items="budget.data.info"
-              ></v-data-table>
+          <div class="mx-14 my-8">
+            <v-col>
+              <v-data-table :headers="headers" :items="finances.data.info"></v-data-table>
             </v-col>
           </div>
         </v-card>
-        <v-card v-if="i.name == 'data'" text>
+      </v-tab-item>
+      <v-tab-item>
+        <v-card text key="survey">
           <v-stepper v-model="e1">
             <v-stepper-header>
-              <v-stepper-step :complete="e1 > 1" step="1">
-                Name of step 1
-              </v-stepper-step>
+              <v-stepper-step :complete="e1 > 1" step="1">Identity</v-stepper-step>
 
               <v-divider></v-divider>
 
-              <v-stepper-step :complete="e1 > 2" step="2">
-                Name of step 2
-              </v-stepper-step>
+              <v-stepper-step :complete="e1 > 2" step="2">Area</v-stepper-step>
 
               <v-divider></v-divider>
 
-              <v-stepper-step step="3"> Name of step 3 </v-stepper-step>
+              <v-stepper-step step="3">Meta</v-stepper-step>
             </v-stepper-header>
 
             <v-stepper-items>
               <v-stepper-content step="1">
-                <v-form
-                  ref="form"
-                  class="mx-14 my-8"
-                  v-model="valid"
-                  lazy-validation
-                >
-                  <v-text-field
-                    v-model="Tetefon"
-                    :counter="10"
-                    label="Telefon"
-                    required
-                  ></v-text-field>
+                <v-form ref="form" class="mx-14 my-8">
+                  <v-text-field v-model="survey.phoneNumber" :counter="10" label="Telefon" required></v-text-field>
 
-                  <v-text-field
-                    v-model="fax"
-                    label="Fax"
-                    required
-                  ></v-text-field>
+                  <v-text-field v-model="survey.fax" label="Fax" required></v-text-field>
 
-                  <v-text-field
-                    v-model="email"
-                    label="Email"
-                    required
-                  ></v-text-field>
-                  <v-text-field
-                    v-model="foundedby"
-                    label="Founded By"
-                    required
-                  ></v-text-field>
-                  <v-text-field
-                    v-model="LearningLanguage"
-                    label="Learning Language"
-                    required
-                  ></v-text-field>
+                  <v-text-field v-model="survey.email" label="Email" required></v-text-field>
+                  <v-text-field v-model="survey.foundedBy" label="Founded By" required></v-text-field>
+                  <v-text-field v-model="survey.language" label="Learning Language" required></v-text-field>
                 </v-form>
 
-                <v-btn color="primary" @click="e1 = 2"> Continue </v-btn>
+                <v-btn color="primary" @click="e1 = 2">Continue</v-btn>
 
-                <v-btn text> Cancel </v-btn>
+                <v-btn text>Cancel</v-btn>
               </v-stepper-content>
 
               <v-stepper-content step="2">
-                <v-form
-                  ref="form"
-                  class="mx-14 my-8"
-                  v-model="valid"
-                  lazy-validation
-                >
+                <v-form ref="form" class="mx-14 my-8">
                   <v-text-field
-                    v-model="YearOfConstruction"
+                    v-model="survey.builtAt"
                     :counter="10"
                     label="Year Of Construction"
                     required
                   ></v-text-field>
 
-                  <v-text-field
-                    v-model="typeofconstruction"
-                    label="Type Of Construction"
-                    required
-                  ></v-text-field>
+                  <v-text-field v-model="survey.buildingType" label="Type Of Construction" required></v-text-field>
 
-                  <v-text-field
-                    v-model="sizeofobject"
-                    label="Size Of Object"
-                    required
-                  ></v-text-field>
-                  <v-text-field
-                    v-model="schoolyard"
-                    label="School Yard"
-                    required
-                  ></v-text-field>
-                  <v-text-field
-                    v-model="shifts"
-                    label="Shifts"
-                    required
-                  ></v-text-field>
+                  <v-text-field v-model="survey.buildingArea" label="Size Of Object" required></v-text-field>
+                  <v-text-field v-model="survey.gardenArea" label="School Yard" required></v-text-field>
+                  <v-text-field v-model="survey.shifts" label="Shifts" required></v-text-field>
 
-                  <v-text-field
-                    v-model="heating"
-                    label="Heating System"
-                    required
-                  ></v-text-field>
+                  <v-text-field v-model="survey.heating" label="Heating System" required></v-text-field>
                 </v-form>
-                <v-btn color="primary" @click="e1 = 3"> Continue </v-btn>
+                <v-btn color="primary" @click="e1 = 3">Continue</v-btn>
 
-                <v-btn text> Cancel </v-btn>
+                <v-btn text>Cancel</v-btn>
               </v-stepper-content>
 
               <v-stepper-content step="3">
-                <v-form
-                  ref="form"
-                  class="mx-14 my-8"
-                  v-model="valid"
-                  lazy-validation
-                >
+                <v-form ref="form" class="mx-14 my-8">
                   <v-text-field
-                    v-model="numberofclasses"
+                    v-model="survey.nrClasses"
                     :counter="10"
                     label="Number Of Classes"
                     required
                   ></v-text-field>
 
-                  <v-text-field
-                    v-model="numberofstudents"
-                    label="Number Of Students"
-                    required
-                  ></v-text-field>
+                  <v-text-field v-model="survey.nrStudents" label="Number Of Students" required></v-text-field>
 
-                  <v-text-field
-                    v-model="numberofteacher"
-                    label="Number Of Teacher"
-                    required
-                  ></v-text-field>
-                  <v-text-field
-                    v-model="Cantene"
-                    label="Cantene"
-                    required
-                  ></v-text-field>
-                  <v-text-field
-                    v-model="library"
-                    label="Library"
-                    required
-                  ></v-text-field>
+                  <v-text-field v-model="survey.nrTeachers" label="Number Of Teacher" required></v-text-field>
+                  <v-text-field v-model="survey.canteen" label="Cantene" required></v-text-field>
+                  <v-text-field v-model="survey.library" label="Library" required></v-text-field>
 
-                  <v-text-field
-                    v-model="laboratory"
-                    label="Laboratory"
-                    required
-                  ></v-text-field>
-                   <v-text-field
-                    v-model="supplay"
-                    label="Supplay"
-                    required
-                  ></v-text-field>
+                  <v-text-field v-model="survey.labs" label="Laboratory" required></v-text-field>
                 </v-form>
 
-                <v-btn color="primary" @click="e1 = 1"> Continue </v-btn>
+                <v-btn color="primary" @click="e1 = 1">Continue</v-btn>
 
-                <v-btn text> Cancel </v-btn>
+                <v-btn text>Cancel</v-btn>
               </v-stepper-content>
             </v-stepper-items>
           </v-stepper>
         </v-card>
       </v-tab-item>
     </v-tabs-items>
-
-   
   </div>
 </template>
 
 <script>
 import { schools } from "./../data/schools_v2";
 import { finances } from "./../data/budgets";
+import { School } from "../models/School";
 
 export default {
   data() {
     return {
-      schools: schools,
+      school: schools.filter(s => +s.id === +this.$route.params.school)[0],
       e1: 1,
-      tab: [{name:"info"},{name:"data"}],
-      finances: finances,
+      finances: finances.filter(f => +f.schoolId === +this.$route.params.school)[0],
       headers: [
         {
           text: "Year",
@@ -270,10 +176,33 @@ export default {
         { text: "Planed", value: "planed" },
         { text: "Realised", value: "realised" },
       ],
-      icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
-      model: "tab-1",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      tab: "info",
+      survey: {
+        rating: 0,
+        phoneNumber: null,
+        fax: null,
+        email: null,
+        foundedBy: null,
+        language: null,
+        builtAt: null,
+        buildingType: null,
+        buildingArea: null,
+        gardenArea: null,
+        shifts: null,
+        heating: null,
+        nrClasses: null,
+        nrStudents: null,
+        nrTeachers: null,
+        canteen: null,
+        library: null,
+        labs: null,
+      }
     };
   },
+  computed: {
+    selectedSchool() {
+      return new School(this.school);
+    }
+  }
 };
 </script>
