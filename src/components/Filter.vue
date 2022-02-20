@@ -80,8 +80,8 @@ export default {
     margin: 2px;
 }
 .select {
-    padding: 4px 10px 4px 12px;
-    margin: 0 1.6rem 0 2px;
+    padding: 2px 8px 4px 6px;
+    margin: 0 1rem 0 0px;
     border: 3px solid #343a40 !important;
     border-radius: 20px;
     background-color: white;
@@ -96,23 +96,14 @@ export default {
 .webflow-style-select {
     flex-direction: row;
     justify-content: center;
-    width: 100%;
+    width: 50%;
     margin: 0 auto;
 
     border-radius: 2px;
-    padding: 0.7rem 2rem 0.7rem;
+    padding: 0.1rem 1rem 0rem;
 }
 
-.webflow-style-select button {
-    color: #000000;
-    font-size: 2rem;
-    width: 150px;
-    height: 50px;
-    padding-inline: 20px;
-    padding-block: 5px;
-    background: rgb(235, 235, 235);
-    margin-top: 50px;
-}
+
 
 .background {
     background-color: #6c757d;

@@ -1,7 +1,12 @@
 <template>
   <section>
     <article id="article1" class>
-      <l-map class="map-container-custom" style="border-radius:0" :zoom="zoom" :center="center">
+      <l-map
+        class="map-container-custom"
+        style="border-radius: 0"
+        :zoom="zoom"
+        :center="center"
+      >
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
         <v-marker-cluster>
           <l-marker
@@ -21,13 +26,32 @@
                 </p>
                 <p>
                   <b>Rating</b> :
-                  <v-rating disabled color="yellow darken-3" background-color="grey darken-1" large></v-rating>
+                  <v-rating
+                    disabled
+                    color="yellow darken-3"
+                    background-color="grey darken-1"
+                    large
+                  ></v-rating>
                 </p>
-                <p>
-                  <b>Finance</b> : Unknown
-                </p>
-                <button @click="$router.push(`/details/${school.id}`)">Details</button>
-                <button @click="$router.push(`/compare/${school.id}`)">Compare</button>
+                <v-container  >
+                  <v-switch
+                  label="Compare"
+                  inset
+                  :input-value="compareIds.includes(school.id)"
+                  @change="selectCompare(school.id)"
+                 
+                ></v-switch>
+
+                <v-btn  style="margin:10px" @click="$router.push(`/details/${school.id}`)">
+                  Details
+                </v-btn>
+                
+                    <v-btn @click="$router.push('/compare')">Compare</v-btn>
+
+               
+              
+                
+                </v-container>
               </div>
             </l-popup>
             <l-tooltip>
@@ -40,7 +64,11 @@
             :key="`casino_${index}`"
             :lat-lng="[casino.latitude, casino.longitude]"
           >
-            <l-icon :icon-size="iconSize" :icon-anchor="iconAnchor" :icon-url="casinoIcon"></l-icon>
+            <l-icon
+              :icon-size="iconSize"
+              :icon-anchor="iconAnchor"
+              :icon-url="casinoIcon"
+            ></l-icon>
           </l-marker>
         </v-marker-cluster>
       </l-map>
@@ -50,7 +78,12 @@
         <Filter1 @filtered="filtering" :schools="schools"></Filter1>
       </row>
       <row>
-        <v-simple-table fixed-header style="border-radius:0" height="78vh" white>
+        <v-simple-table
+          fixed-header
+          style="border-radius: 0"
+          height="78vh"
+          white
+        >
           <thead>
             <tr>
               <th class="text-left">Name</th>
@@ -64,14 +97,16 @@
               <td>{{ school.schoolName }}</td>
               <td>{{ school.email }}</td>
               <td>
-                <v-btn @click="$router.push(`/details/${school.id}`)">Details</v-btn>
+                <v-btn @click="$router.push(`/details/${school.id}`)"
+                  >Details</v-btn
+                >
               </td>
               <td>
+                
                 <v-switch
                   inset
                   :input-value="compareIds.includes(school.id)"
                   @change="selectCompare(school.id)"
-                  label="Compare"
                 ></v-switch>
               </td>
             </tr>
@@ -97,7 +132,7 @@ import { schools } from "./../data/schools_v2";
 import { casinos } from "./../data/casinos";
 import casinoIcon from "@/assets/dices.svg";
 const categories = ["univerzitet", "sredno", "osniovno"];
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState } from "vuex";
 
 export default {
   components: {
@@ -154,11 +189,11 @@ export default {
       });
     },
     ...mapState({
-      compareIds: state => state.compareIds,
+      compareIds: (state) => state.compareIds,
     }),
   },
   methods: {
-    ...mapActions(['addCompare']),
+    ...mapActions(["addCompare"]),
     innerClick() {
       alert("Click!");
     },
@@ -189,9 +224,9 @@ article {
   height: 85vh; /* only for demonstration, should be removed */
 }
 #article1 {
-  width: 60%;
+  width: 55%;
 }
 #article2 {
-  width: 40%;
+  width: 45%;
 }
 </style>

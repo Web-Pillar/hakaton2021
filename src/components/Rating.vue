@@ -65,7 +65,7 @@
           </div>
           <div class="mx-14 my-8">
             <v-col>
-              <v-data-table :headers="headers" :items="finances.data.info"></v-data-table>
+              <v-data-table v-if="finances" :headers="headers" :items="finances.data.info"></v-data-table>
             </v-col>
           </div>
         </v-card>
