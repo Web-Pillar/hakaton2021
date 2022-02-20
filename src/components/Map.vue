@@ -47,10 +47,7 @@
     </article>
     <article id="article2">
       <row>
-        <div style="background-color: #6c757d !important">
-          <Filter1 @filtered="filtering" :schools="schools"></Filter1>
-          <v-btn @click="$router.push('/compare')">Compare</v-btn>
-        </div>
+        <Filter1 @filtered="filtering" :schools="schools"></Filter1>
       </row>
       <row>
         <v-simple-table fixed-header style="border-radius:0" height="78vh" white>

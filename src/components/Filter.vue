@@ -1,5 +1,5 @@
 <template>
-    <div class="webflow-style-select">
+    <v-container class="webflow-style-select background flex">
         <form @change.prevent="filter">
             <div class="input-container">
                 <label class="labels">
@@ -21,18 +21,10 @@
                     </select>
                 </label>
             </div>
-            <!-- <div class="input-container">
-                <label class="labels">
-                    Rating:
-                    <select class="select" v-model="rating">
-                        <option value="all" selected>All</option>
-                        <option v-for="val in 5" :key="val" :value="val">{{ val }}</option>
-                    </select>
-                </label>
-            </div> -->
-            
         </form>
-    </div>
+        <v-spacer></v-spacer>
+        <v-btn @click="$router.push('/compare')">Compare</v-btn>
+    </v-container>
 </template>
 
 <script>
@@ -123,13 +115,12 @@ export default {
     background: rgb(235, 235, 235);
     margin-top: 50px;
 }
-.webflow-style-select button:hover {
-    color: black;
-    font-size: 2rem;
-    width: 160px;
-    height: 60px;
-    padding-inline: 20px;
-    padding-block: 5px;
-    background: rgb(167, 167, 167);
+
+.background {
+  background-color: #6c757d
+}
+
+.flex {
+    display: flex;
 }
 </style>
