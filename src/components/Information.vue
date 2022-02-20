@@ -107,7 +107,7 @@ export default {
     };
   },
   computed: {
-      ...mapGetters(['authUser']),
+    ...mapGetters(['authUser']),
   },
   methods:
   {

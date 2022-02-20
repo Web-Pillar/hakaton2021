@@ -99,7 +99,7 @@ export default {
       compareIds: state => state.compareIds,
     }),
     filteredSchools() {
-      return this.schools.filter(s => this.compareIds.includes(s.id) )
+      return this.schools.filter(s => this.compareIds.includes(s.id))
     }
   }
 };

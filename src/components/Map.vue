@@ -67,7 +67,8 @@
                 <v-btn @click="$router.push(`/details/${school.id}`)">Details</v-btn>
               </td>
               <td>
-                <v-switch inset
+                <v-switch
+                  inset
                   :input-value="compareIds.includes(school.id)"
                   @change="selectCompare(school.id)"
                   label="Compare"
@@ -167,7 +168,7 @@ export default {
       this.category = category;
       this.rating = rating;
     },
-    selectCompare(schoolId){
+    selectCompare(schoolId) {
       this.addCompare(schoolId);
     },
   },
