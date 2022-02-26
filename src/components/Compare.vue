@@ -9,7 +9,7 @@
           <v-card-title class="text-h5">{{ school.schoolName }}</v-card-title>
         </v-col>
       </v-row>
-          <v-btn  @click="deleteCompare(),$router.go(-1)">Remove Compare</v-btn>
+      <v-btn @click="deleteCompare(), $router.go(-1)">Remove Compare</v-btn>
     </div>
 
     <v-tabs-items v-model="model">
@@ -18,6 +18,7 @@
           <div class="mx-14 my-8">
             <v-row class="shrink">
               <v-col>
+                <v-card-text>Address:</v-card-text>
                 <v-card-text>Telefon:</v-card-text>
                 <v-card-text>Fax:</v-card-text>
                 <v-card-text>Email:</v-card-text>
@@ -36,7 +37,11 @@
                 <v-card-text>Library:</v-card-text>
                 <v-card-text>Laboratory:</v-card-text>
               </v-col>
-              <v-col v-for="school in filteredSchools" :key="`school_details_${school.id}`">
+              <v-col
+                v-for="school in filteredSchools"
+                :key="`school_details_${school.id}`"
+              >
+                <v-card-text>{{ school.address }}</v-card-text>
                 <v-card-text>{{ school.phoneNumber }}</v-card-text>
                 <v-card-text>{{ school.fax }}</v-card-text>
                 <v-card-text>{{ school.email }}</v-card-text>
@@ -60,40 +65,34 @@
         </v-card>
       </v-tab-item>
     </v-tabs-items>
-
-
   </div>
 </template>
 
 <script>
 import { schools } from "./../data/schools_v2";
 
-import { mapActions,mapState } from 'vuex';
+import { mapActions, mapState } from "vuex";
 export default {
   data() {
     return {
       schools: schools,
-     
+
       model: "compare",
-      
     };
   },
   computed: {
     ...mapState({
-      compareIds: state => state.compareIds,
+      compareIds: (state) => state.compareIds,
     }),
     filteredSchools() {
-      return this.schools.filter(s => this.compareIds.includes(s.id))
-    }
-  },
-  methods:{
-     ...mapActions(["clearCompare"]),
-     deleteCompare() {
-      this.clearCompare();
-    
-      
+      return this.schools.filter((s) => this.compareIds.includes(s.id));
     },
-  }
-  
+  },
+  methods: {
+    ...mapActions(["clearCompare"]),
+    deleteCompare() {
+      this.clearCompare();
+    },
+  },
 };
 </script>
