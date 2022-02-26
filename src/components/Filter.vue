@@ -3,21 +3,21 @@
         <form @change.prevent="filter">
             <div class="input-container">
                 <label class="labels">
-                    Opshtina:
+                {{$t("municipality")}}
                     <select class="select" v-model="municipality">
-                        <option value="all" selected>All</option>
+                        <option value="all" selected> {{$t("all")}}</option>
                         <option v-for="item in municipalities" :key="item" :value="item">{{ item }}</option>
                     </select>
                 </label>
             </div>
             <div class="input-container">
                 <label class="labels">
-                    Kategorija:
+                    {{$t("category")}}
                     <select class="select" v-model="category">
-                        <option value="all" selected>All</option>
-                        <option value="univerzitet">Univerzitet</option>
-                        <option value="sredno">Sredno</option>
-                        <option value="osniovno">Osnovno</option>
+                        <option value="all" selected> {{$t("all")}}</option>
+                        <option value="univerzitet">{{$t("uni")}}</option>
+                        <option value="sredno">{{$t("highschool")}}</option>
+                        <option value="osniovno">{{$t("preschool")}}</option>
                     </select>
                 </label>
             </div>

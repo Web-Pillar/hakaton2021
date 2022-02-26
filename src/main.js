@@ -7,8 +7,7 @@ import { Icon } from 'leaflet';
 import vuetify from './plugins/vuetify';
 import store from './store';
 import "vuetify/dist/vuetify.min.css";
-
-
+import i18n from './i18n'
 
 // The lines below fix the problem with marker icon
 delete Icon.Default.prototype._getIconUrl;
@@ -25,5 +24,6 @@ new Vue({
   router,
   vuetify,
   store,
+  i18n,
   render: h => h(App)
 }).$mount('#app')
