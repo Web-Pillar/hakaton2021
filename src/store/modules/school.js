@@ -1,4 +1,5 @@
 import SchoolService from "@/services/SchoolService";
+import { School } from '@/models/School';
 
 function setPaginatedSchools(commit, response) {
     commit("SET_SCHOOLS", response.data.data);
@@ -10,7 +11,10 @@ const state = {
 
 const mutations = {
     SET_SCHOOLS(state, schools) {
-        state.schools = schools;
+        state.schools = schools.map(s => {
+            const schoolDTO = new School(s);
+            return schoolDTO;
+        });
     },
     CREATE_SCHOOL(state, school) {
         state.schools.push(school);

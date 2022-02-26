@@ -17,6 +17,7 @@ import Map from "@/components/Map.vue";
 // import lang from '../components/lang.vue';
 // import Faq from "../components/Faq.vue";
 // // import lang from '../components/lang.vue';
+import { mapActions } from 'vuex'
 
 export default {
   name: "",
@@ -27,6 +28,13 @@ export default {
     // // lang
     // Faq,
   },
+  methods: {
+    ...mapActions(['getSchools', 'getCasinos']),
+  },
+  created() {
+    this.getSchools();
+    this.getCasinos();
+  }
 };
 </script>
 

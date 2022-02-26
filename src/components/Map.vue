@@ -1,12 +1,17 @@
 <template>
   <section>
     <article id="article1" class>
-      <l-map
-        class="map-container-custom"
-        style="border-radius: 0"
-        :zoom="zoom"
-        :center="center"
-      >
+      <l-map class="map-container-custom" style="border-radius: 0" :zoom="zoom" :center="center">
+        <div v-if="showRadius">
+          <l-circle
+          v-for="school in schoolsInMap"
+          :key="`school_radius_${school.id}`"
+          :lat-lng="[school.latitude, school.longitude]"
+          :radius="500"
+          color="red"
+        />
+        </div>
+        
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
         <v-marker-cluster>
           <l-marker
@@ -14,48 +19,37 @@
             :key="`school_${school.id}`"
             :lat-lng="[school.latitude, school.longitude]"
           >
+            ]
             <l-popup>
               <div>
                 <p>
                   <b>Name</b>
-                  : {{ school.schoolName }}
+                  : {{ school.name }}
                 </p>
                 <p>
                   <b>Email</b>
-                  : {{ school.email }}
+                  : {{ school.email[0] }}
                 </p>
                 <p>
                   <b>Rating</b> :
-                  <v-rating
-                    disabled
-                    color="yellow darken-3"
-                    background-color="grey darken-1"
-                    large
-                  ></v-rating>
+                  <v-rating disabled color="yellow darken-3" background-color="grey darken-1" large></v-rating>
                 </p>
-                <v-container  >
+                <v-container>
                   <v-switch
-                  label="Compare"
-                  inset
-                  :input-value="compareIds.includes(school.id)"
-                  @change="selectCompare(school.id)"
-                 
-                ></v-switch>
+                    label="Compare"
+                    inset
+                    :input-value="compareIds.includes(school.id)"
+                    @change="selectCompare(school.id)"
+                  ></v-switch>
 
-                <v-btn  style="margin:10px" @click="$router.push(`/details/${school.id}`)">
-                  Details
-                </v-btn>
-                
-                    <v-btn @click="$router.push('/compare')">Compare</v-btn>
+                  <v-btn style="margin:10px" @click="$router.push(`/details/${school.id}`)">Details</v-btn>
 
-               
-              
-                
+                  <v-btn @click="$router.push('/compare')">Compare</v-btn>
                 </v-container>
               </div>
             </l-popup>
             <l-tooltip>
-              <h3>{{ school.schoolName }}</h3>
+              <h3>{{ school.name }}</h3>
             </l-tooltip>
           </l-marker>
 
@@ -64,13 +58,14 @@
             :key="`casino_${index}`"
             :lat-lng="[casino.latitude, casino.longitude]"
           >
-            <l-icon
-              :icon-size="iconSize"
-              :icon-anchor="iconAnchor"
-              :icon-url="casinoIcon"
-            ></l-icon>
+            <l-icon :icon-size="iconSize" :icon-anchor="iconAnchor" :icon-url="casinoIcon"></l-icon>
           </l-marker>
         </v-marker-cluster>
+        <l-control position="topleft">
+				<v-btn @click="showRadius = !showRadius" x-small fab elevation="1">
+					<v-icon>mdi-circle</v-icon>
+				</v-btn>
+			</l-control>
       </l-map>
     </article>
     <article id="article2">
@@ -78,12 +73,7 @@
         <Filter1 @filtered="filtering" :schools="schools"></Filter1>
       </row>
       <row>
-        <v-simple-table
-          fixed-header
-          style="border-radius: 0"
-          height="78vh"
-          white
-        >
+        <v-simple-table fixed-header style="border-radius: 0" height="78vh" white>
           <thead>
             <tr>
               <th class="text-left">Name</th>
@@ -94,15 +84,12 @@
           </thead>
           <tbody>
             <tr v-for="school in schoolsInMap" :key="`school_${school.id}`">
-              <td>{{ school.schoolName }}</td>
-              <td>{{ school.email }}</td>
+              <td>{{ school.name }}</td>
+              <td>{{ school.email[0] }}</td>
               <td>
-                <v-btn @click="$router.push(`/details/${school.id}`)"
-                  >Details</v-btn
-                >
+                <v-btn @click="$router.push(`/details/${school.id}`)">Details</v-btn>
               </td>
               <td>
-                
                 <v-switch
                   inset
                   :input-value="compareIds.includes(school.id)"
@@ -126,13 +113,15 @@ import {
   LMarker,
   LTooltip,
   LIcon,
+  LCircle,
+  LControl,
 } from "vue2-leaflet";
 import Vue2LeafletMarkerCluster from "vue2-leaflet-markercluster";
-import { schools } from "./../data/schools_v2";
-import { casinos } from "./../data/casinos";
+// import { schools } from "./../data/schools_v2";
+// import { casinos } from "./../data/casinos";
 import casinoIcon from "@/assets/dices.svg";
-const categories = ["univerzitet", "sredno", "osniovno"];
-import { mapActions, mapState } from "vuex";
+// const categories = ["univerzitet", "sredno", "osniovno"];
+import { mapActions, mapState, mapGetters } from "vuex";
 
 export default {
   components: {
@@ -143,10 +132,13 @@ export default {
     LPopup,
     LTooltip,
     LIcon,
+    LCircle,
+    LControl,
     "v-marker-cluster": Vue2LeafletMarkerCluster,
   },
   data() {
     return {
+      showRadius: false,
       casinoIcon: casinoIcon,
       iconSize: [30, 50],
       iconAnchor: [16, 45],
@@ -155,29 +147,30 @@ export default {
         '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       zoom: 8,
       center: [41.608635, 21.745275],
-      schools: schools
-        .filter((s) => Boolean(s.latitude) && Boolean(s.longitude))
-        .map((s) => {
-          return {
-            ...s,
-            category: categories[Math.floor(Math.random() * categories.length)],
-            rating: Math.floor(Math.random() * 5) + 1,
-            type: "S",
-          };
-        }),
-      casinos: casinos.map((s) => {
-        return {
-          latitude: s.Location.split(",")[0],
-          longitude: s.Location.split(",")[1],
-          type: "C",
-        };
-      }),
+      // schools: schools
+      //   .filter((s) => Boolean(s.latitude) && Boolean(s.longitude))
+      //   .map((s) => {
+      //     return {
+      //       ...s,
+      //       category: categories[Math.floor(Math.random() * categories.length)],
+      //       rating: Math.floor(Math.random() * 5) + 1,
+      //       type: "S",
+      //     };
+      //   }),
+      // casinos: casinos.map((s) => {
+      //   return {
+      //     latitude: s.Location.split(",")[0],
+      //     longitude: s.Location.split(",")[1],
+      //     type: "C",
+      //   };
+      // }),
       municipality: "all",
       category: "all",
       rating: "all",
     };
   },
   computed: {
+    ...mapGetters(['schools', 'casinos']),
     schoolsInMap() {
       return this.schools.filter((s) => {
         return (
@@ -188,6 +181,7 @@ export default {
         );
       });
     },
+    
     ...mapState({
       compareIds: (state) => state.compareIds,
     }),
