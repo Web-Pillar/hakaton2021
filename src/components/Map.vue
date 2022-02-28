@@ -73,7 +73,7 @@
         <Filter1 @filtered="filtering" :schools="schools"></Filter1>
       </row>
       <row>
-        <v-simple-table fixed-header style="border-radius: 0" height="78vh" white>
+        <v-simple-table fixed-header style="border-radius: 0" height="68vh"  white>
           <thead>
             <tr>
               <th class="text-left">Name</th>
