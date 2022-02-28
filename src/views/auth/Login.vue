@@ -1,13 +1,13 @@
 <template>
-    <v-container fluid fill-height style="background-color: #343a40 !important; height:85vh ">
+    <v-container fluid fill-height style="background-color: #343a40 !important; height:75vh ">
     <v-layout align-center justify-center>
         <v-flex xs12 sm8 md4>
             <v-card class="elevation-12">
                 <v-toolbar dark style="background-color:#1678ca ;color:white">
                 <v-toolbar-title>Login form</v-toolbar-title>
                 </v-toolbar>
-                <v-card-text>
-                <v-form>
+                <v-card-text style="min-width:400px ">
+                <v-form >
                     <v-text-field
                         prepend-icon="mdi-account"
                         name="login"

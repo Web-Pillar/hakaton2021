@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <article id="article1" class>
+  <v-row>
+    <v-col >
       <l-map class="map-container-custom" style="border-radius: 0" :zoom="zoom" :center="center">
         <div v-if="showRadius">
           <l-circle
@@ -67,8 +67,8 @@
 				</v-btn>
 			</l-control>
       </l-map>
-    </article>
-    <article id="article2">
+    </v-col>
+    <v-col >
       <row>
         <Filter1 @filtered="filtering" :schools="schools"></Filter1>
       </row>
@@ -100,8 +100,8 @@
           </tbody>
         </v-simple-table>
       </row>
-    </article>
-  </section>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -209,18 +209,8 @@ export default {
 @import "~leaflet.markercluster/dist/MarkerCluster.Default.css";
 .map-container-custom {
   height: 100%;
-  width: 100%;
+  width: 103%;
 }
 
-article {
-  float: left;
-  /* background-color: #f1f1f1; */
-  height: 85vh; /* only for demonstration, should be removed */
-}
-#article1 {
-  width: 55%;
-}
-#article2 {
-  width: 45%;
-}
+
 </style>
