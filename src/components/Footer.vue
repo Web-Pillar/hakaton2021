@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <v-bottom-navigation height="100px">
       <footer  style="border-top: 6px solid #1678ca; width:100% ; height:130px">
         
