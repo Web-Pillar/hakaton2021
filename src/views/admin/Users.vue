@@ -63,7 +63,6 @@
                 </v-row>
                 <v-row>
                   <v-col v-if="editedIndex !== -1" cols="12" sm="6" md="4">
-                    
                     <v-switch
                       inset
                       v-model="editedItem.enable"
@@ -144,6 +143,7 @@ export default {
     // users: [],
     editedIndex: -1,
     editedItem: {
+      _id: null,
       name: "",
       surname: "",
       email: "",
@@ -153,6 +153,7 @@ export default {
       enable: "",
     },
     defaultItem: {
+      _id: null,
       name: "",
       surname: "",
       email: "",
@@ -223,6 +224,7 @@ export default {
 
     async save() {
       if (this.editedIndex > -1) {
+        await store.dispatch("updateUser", this.editedItem);
         Object.assign(this.users[this.editedIndex], this.editedItem);
       } else {
         await store.dispatch("createUser", this.editedItem);
