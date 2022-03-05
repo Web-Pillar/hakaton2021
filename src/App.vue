@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-main>
+      <Inspop></Inspop>
       <Information></Information>
       <router-view/>
       <Footer></Footer>
@@ -9,6 +10,7 @@
 </template>
 
 <script>
+import Inspop from "./components/Inspop.vue";
 import Footer from "./components/Footer.vue";
 import Information from "./components/Information.vue";
 
@@ -19,7 +21,7 @@ export default {
     titleTemplate: '%s | MetaSchools'
   },
   components:{
-    Footer,Information,
+      Inspop, Footer,Information,
   },
 
   data: () => ({
