@@ -19,7 +19,7 @@
             <v-card-text>
               <v-container>
                 <v-row>
-                <v-col cols="12" sm="6" md="4">
+                  <v-col cols="12" sm="6" md="4">
                     <v-text-field
                       v-model="editedItem.id"
                       label="ID"
@@ -134,7 +134,7 @@
                       label="gardenArea"
                     ></v-text-field>
                   </v-col>
-                  
+
                   <v-col cols="6" sm="4" md="2">
                     <v-text-field
                       type="number"
@@ -173,17 +173,16 @@
                       v-model="editedItem.shifts"
                       label="Shifts"
                       :items="shifts"
+                      false-value="false"
                       input-value="value"
                     ></v-switch>
                   </v-col>
                   <v-col cols="6" sm="4" md="2">
-                    <v-switch
-                      inset
+                    <v-text-field
+                      type="string"
                       v-model="editedItem.heating"
                       label="Heating"
-                      :items="heating"
-                      input-value="value"
-                    ></v-switch>
+                    ></v-text-field>
                   </v-col>
                   <v-col cols="6" sm="4" md="2">
                     <v-switch
@@ -191,6 +190,7 @@
                       v-model="editedItem.canteen"
                       label="Canteen"
                       :items="canteens"
+                      false-value="false"
                       input-value="value"
                     ></v-switch>
                   </v-col>
@@ -200,15 +200,18 @@
                       v-model="editedItem.library"
                       label="Library"
                       :items="library"
+                      false-value="false"
                       input-value="value"
                     ></v-switch>
                   </v-col>
                   <v-col cols="6" sm="4" md="2">
                     <v-switch
                       inset
+                      type="bolean"
                       v-model="editedItem.labs"
                       label="Labs"
                       :items="labs"
+                      false-value="false"
                       input-value="value"
                     ></v-switch>
                   </v-col>
@@ -219,7 +222,7 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="save()">Save</v-btn>
+              <v-btn color="blue darken-1" text @click="save">Save</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -275,7 +278,7 @@ export default {
         value: "name",
       },
       // { text: 'Surname', value: 'surname' },
-            { text: "ID", value: "id" },
+      { text: "ID", value: "id" },
 
       { text: "Email", value: "email" },
       { text: "Address", value: "address" },
@@ -288,35 +291,10 @@ export default {
     ],
     editedIndex: -1,
     editedItem: {
-        id: "",
-      name: "",
-      email: "",
-      address: "",
-      latitude: "",
-      longitude: "",
-      municipality: "",
-      phoneNumber: "",
-      fax: "",
-      foundedBy: "",
-      verifiedAt: "",
-      language: "",
-      builtAt: "",
-      buildingType: "",
-      buildingArea: "",
-      gardenArea: "",
-      shifts: "",
-      heating: "",
-      nrClasses: "",
-      nrStudents: "",
-      nrTeachers: "",
-      nrClassrooms: "",
-      canteen: "",
-      library: "",
-      labs: "",
-    },
-    defaultItem: {
+      _id: null,
       id: "",
       name: "",
+      enable: false,
       email: "",
       address: "",
       latitude: "",
@@ -331,36 +309,50 @@ export default {
       buildingType: "",
       buildingArea: "",
       gardenArea: "",
-      shifts: "",
+      shifts: true,
       heating: "",
       nrClasses: "",
       nrStudents: "",
       nrTeachers: "",
       nrClassrooms: "",
-      canteen: "",
-      library: "",
-      labs: "",
+      canteen: false,
+      library: false,
+      labs: false,
     },
-    canteens: [
-      { text: "Yes", value: true },
-      { text: "No", value: false },
-    ],
-    library: [
-      { text: "Yes", value: true },
-      { text: "No", value: false },
-    ],
-    labs: [
-      { text: "Yes", value: true },
-      { text: "No", value: false },
-    ],
-    heating: [
-      { text: "Yes", value: true },
-      { text: "No", value: false },
-    ],
-    shifts: [
-      { text: "Yes", value: true },
-      { text: "No", value: false },
-    ],
+    defaultItem: {
+      _id: null,
+      id: "",
+      name: "",
+      enable: false,
+      email: "",
+      address: "",
+      latitude: "",
+      longitude: "",
+      municipality: "",
+      phoneNumber: "",
+      fax: "",
+      foundedBy: "",
+      verifiedAt: "",
+      language: "",
+      builtAt: "",
+      buildingType: "",
+      buildingArea: "",
+      gardenArea: "",
+      shifts: true,
+      heating: "",
+      nrClasses: "",
+      nrStudents: "",
+      nrTeachers: "",
+      nrClassrooms: "",
+      canteen: false,
+      library: false,
+      labs: false,
+    },
+    canteens: [{ value: true }],
+    library: [{ value: true }],
+    labs: [{ value: true }],
+    heating: [{ value: true }],
+    shifts: [{ value: true }],
   }),
 
   computed: {
@@ -415,6 +407,9 @@ export default {
 
     async save() {
       if (this.editedIndex > -1) {
+        // console.log(this.editedItem._id);
+        await store.dispatch("updateSchool", this.editedItem);
+
         Object.assign(this.schools[this.editedIndex], this.editedItem);
       } else {
         await store.dispatch("createSchool", this.editedItem);

@@ -19,6 +19,12 @@ const mutations = {
     CREATE_SCHOOL(state, school) {
         state.schools.push(school);
     },
+    UPDATE_SCHOOL(state, school) {
+        state.schools = state.schools.map(s => {
+            if (s._id === school._id) { s = Object.assign(school); }
+            return s;
+        })
+    }
 }
 
 const actions = {
@@ -43,6 +49,17 @@ const actions = {
             // commit("SET_LOADING", false);
             // commit("SET_ERROR", getError(error));
         });
+    },
+    updateSchool({ commit }, payload) {
+        SchoolService.updateSchool(payload._id, payload)
+            .then((response) => {
+                commit("UPDATE_SCHOOL", response.data.data);
+            })
+            .catch((error) => {
+                console.log('ERROR', error);
+                // commit("SET_LOADING", false);
+                // commit("SET_ERROR", getError(error));
+            });
     }
 }
 

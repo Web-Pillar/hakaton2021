@@ -1,5 +1,7 @@
 class School {
     constructor(obj) {
+        this._id = obj._id || null;
+
         this.id = obj.iid || '';
         this.enable = obj.enable || '';
         this.name = obj.name || obj.schoolName || '';
