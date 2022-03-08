@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <v-main>
-      <Inspop></Inspop>
+      <Inspop v-if="tutorial" :dialog="tutorial" @completed="completedTutorial"></Inspop>
       <Information></Information>
-      <router-view/>
+      <router-view v-if="!tutorial" />
       <Footer></Footer>
     </v-main>
   </v-app>
@@ -20,12 +20,24 @@ export default {
     title: 'Home',
     titleTemplate: '%s | MetaSchools'
   },
-  components:{
-      Inspop, Footer,Information,
+  components: {
+    Inspop, Footer, Information,
   },
 
   data: () => ({
-    //
+    tutorial: false,
   }),
+  methods: {
+    completedTutorial() {
+      localStorage.setItem('tutorial', true);
+      this.tutorial = false;
+    }
+  },
+  created() {
+    const notFirstTime = localStorage.getItem('tutorial');
+    if (!notFirstTime) {
+      this.tutorial = true;
+    }
+  }
 };
 </script>

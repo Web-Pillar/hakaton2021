@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col >
+    <v-col>
       <l-map class="map-container-custom" style="border-radius: 0" :zoom="zoom" :center="center">
         <div v-if="showRadius">
           <l-circle
@@ -11,7 +11,6 @@
           color="red"
         />
         </div>
-        
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
         <v-marker-cluster>
           <l-marker
