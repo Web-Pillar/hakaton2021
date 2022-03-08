@@ -2,7 +2,9 @@
   <nav style="border-bottom: 6px solid #1678ca">
     <v-toolbar style="background-color: #343a40 !important; box-shadow: none">
       <v-toolbar-title style="color: white">
-        <router-link to="/" tag="span" style="cursor: pointer">{{ appTitle }}</router-link>
+        <router-link to="/" tag="span" style="cursor: pointer">
+          <v-img max-width="160px" src="@/assets/Logo/Metaschools-logos_white.png"></v-img>
+        </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items v-if="!authUser" class="hidden-xs-only" style="padding-top: 18px">

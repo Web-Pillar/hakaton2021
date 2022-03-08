@@ -34,7 +34,7 @@ export default {
     }
   },
   created() {
-    const notFirstTime = localStorage.getItem('tutorial');
+    const notFirstTime = localStorage.getItem('tutorial') === 'true';
     if (!notFirstTime) {
       this.tutorial = true;
     }
