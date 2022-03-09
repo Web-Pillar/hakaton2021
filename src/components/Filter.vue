@@ -10,7 +10,7 @@
                     </select>
                 </label>
             </div>
-            <div class="input-container">
+            <!-- <div class="input-container">
                 <label class="labels">
                     {{$t("category")}}
                     <select class="select" v-model="category">
@@ -20,7 +20,7 @@
                         <option value="osniovno">{{$t("preschool")}}</option>
                     </select>
                 </label>
-            </div>
+            </div> -->
         </form>
         <v-spacer></v-spacer>
         <v-btn @click="$router.push('/compare')">Compare</v-btn>

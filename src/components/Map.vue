@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col>
+    <v-col sm="12" md="7">
       <l-map class="map-container-custom" style="border-radius: 0" :zoom="zoom" :center="center">
         <div v-if="showRadius">
           <l-circle
@@ -67,7 +67,7 @@
 			</l-control>
       </l-map>
     </v-col>
-    <v-col >
+    <v-col sm="12" md="5">
       <row>
         <Filter1 @filtered="filtering" :schools="schools"></Filter1>
       </row>
@@ -186,6 +186,7 @@ export default {
 @import "~leaflet.markercluster/dist/MarkerCluster.css";
 @import "~leaflet.markercluster/dist/MarkerCluster.Default.css";
 .map-container-custom {
+  min-height: 80vh;
   height: 100%;
   width: 103%;
 }
