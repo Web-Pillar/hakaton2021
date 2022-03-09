@@ -1,6 +1,6 @@
 <template>
-  <v-row>
-    <v-col sm="12" md="7">
+  <v-row no-gutters>
+    <v-col cols="12" sm="12" md="7">
       <l-map class="map-container-custom" style="border-radius: 0" :zoom="zoom" :center="center">
         <div v-if="showRadius">
           <l-circle
@@ -67,7 +67,7 @@
 			</l-control>
       </l-map>
     </v-col>
-    <v-col sm="12" md="5">
+    <v-col cols="12" sm="12" md="5">
       <row>
         <Filter1 @filtered="filtering" :schools="schools"></Filter1>
       </row>
@@ -188,7 +188,7 @@ export default {
 .map-container-custom {
   min-height: 80vh;
   height: 100%;
-  width: 103%;
+  width: 100%;
 }
 
 

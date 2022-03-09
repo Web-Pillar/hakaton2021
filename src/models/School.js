@@ -30,6 +30,7 @@ class School {
         this.labs = obj.labs || '';
         this.labsMeta = obj.labsMeta || '';
         this.finances = obj.finances || '' || '';
+        this.rating = obj?.rating?.value || 0;
     }
 }
 

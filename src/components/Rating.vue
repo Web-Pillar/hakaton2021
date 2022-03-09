@@ -7,13 +7,13 @@
       </v-tabs>
     </v-toolbar>
 
-    <div class="mx-14 my-8">
+    <div v-if="selectedSchool" class="mx-14 my-8">
       <v-col class="shrink">
         <v-card-title class="text-h5">
           {{ selectedSchool.name }}
           <v-spacer></v-spacer>
           <v-rating
-            v-model="survey.rating"
+            v-model="selectedSchool.rating"
             color="yellow darken-3"
             background-color="grey darken-1"
             empty-icon="$ratingFull"
@@ -28,12 +28,12 @@
         <v-divider></v-divider>
         <v-card-actions class="justify-space-between">
           <v-btn text @click="$router.go(-1)">No Thanks</v-btn>
-          <v-btn color="primary" text>Rate Now</v-btn>
+          <v-btn @click="submitRating" color="primary" text>Rate Now</v-btn>
         </v-card-actions>
       </v-col>
     </div>
 
-    <v-tabs-items v-model="tab">
+    <v-tabs-items v-if="selectedSchool" v-model="tab">
       <v-tab-item key="info">
         <v-card text>
           <div>
@@ -155,15 +155,16 @@
 </template>
 
 <script>
-import { schools } from "./../data/schools_v2";
 import { finances } from "./../data/budgets";
+import SchoolService from "../services/SchoolService";
 import { School } from "../models/School";
+import RatingService from '../services/RatingService';
 
 export default {
   data() {
     return {
-      school: schools.filter(s => +s.id === +this.$route.params.school)[0],
       e1: 1,
+      selectedSchool: null,
       finances: finances.filter(f => +f.schoolId === +this.$route.params.school)[0],
       headers: [
         {
@@ -178,7 +179,6 @@ export default {
       ],
       tab: "info",
       survey: {
-        rating: 0,
         phoneNumber: null,
         fax: null,
         email: null,
@@ -199,9 +199,25 @@ export default {
       }
     };
   },
-  computed: {
-    selectedSchool() {
-      return new School(this.school);
+  async created() {
+    const res = await SchoolService.getSchool(+this.$route.params.school)
+    this.selectedSchool = new School(res.data.data);
+  },
+  methods: {
+    async submitRating() {
+      try {
+        const payload = {
+          schoolId: +this.$route.params.school,
+          rating: this.selectedSchool.rating,
+        };
+        const res = await RatingService.submit(payload);
+        if (res.success) {
+          console.log('SUCCESS');
+        }
+      } catch (error) {
+        console.log('ERROR', error);
+      }
+
     }
   }
 };

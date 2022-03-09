@@ -26,10 +26,10 @@ const mutations = {
         state.schools.push(school);
     },
     UPDATE_SCHOOL(state, school) {
-        state.schools = state.schools.map(s => {
-            if (s._id === school._id) { s = Object.assign(school); }
-            return s;
-        })
+        const index = state.schools.indexOf(s => s._id === school._id);
+        if (index !== -1) {
+            state.schools[index] = Object.assign(school);
+        }
     }
 }
 
