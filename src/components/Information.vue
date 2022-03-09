@@ -108,6 +108,7 @@ export default {
 
       menuItems: [
         { id: 1, title: "Home", path: "/", icon: "home", test: true },
+        { id: 2, title: "About", path: "/about", icon: "home", test: true },
         // { id: 2, title: "Sign Up", path: "/signup", icon: "face", test: false },
         // {
         //   id: 3,
@@ -117,7 +118,9 @@ export default {
         //   test: false,
         // },
       ],
-      menuItems2: [{ title: "Login", path: "/login", icon: "home" }],
+      menuItems2: [
+        // { title: "Login", path: "/login", icon: "home" }
+      ],
       user: {
         name: 'Sandra Adams',
         email: 'sandra_a88@gmail.com',
