@@ -96,9 +96,7 @@ export default {
 .webflow-style-select {
     flex-direction: row;
     justify-content: center;
-    width: 50%;
     margin: 0 auto;
-
     border-radius: 2px;
     padding: 0.1rem 1rem 0rem;
 }

@@ -141,7 +141,7 @@ export default {
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution:
         '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      zoom: 8,
+      zoom: 9,
       center: [41.608635, 21.745275],
       municipality: "all",
       category: "all",
