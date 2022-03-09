@@ -16,6 +16,12 @@ const mutations = {
             return schoolDTO;
         });
     },
+    SET_SCHOOL_DETAILS(state, schoolDetails) {
+        state.schools = state.schools.map(s => {
+            if (s._id === schoolDetails._id) { s = Object.assign(schoolDetails); }
+            return s;
+        })
+    },
     CREATE_SCHOOL(state, school) {
         state.schools.push(school);
     },
@@ -32,6 +38,17 @@ const actions = {
         SchoolService.getSchools()
             .then((response) => {
                 setPaginatedSchools(commit, response);
+            })
+            .catch((error) => {
+                console.log('ERROR', error);
+                // commit("SET_LOADING", false);
+                // commit("SET_ERROR", getError(error));
+            });
+    },
+    getSchoolDetails({ commit }, id) {
+        SchoolService.getSchool(id)
+            .then((response) => {
+                commit("SET_SCHOOL_DETAILS", response.data.data);
             })
             .catch((error) => {
                 console.log('ERROR', error);

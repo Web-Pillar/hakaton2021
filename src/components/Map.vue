@@ -76,7 +76,7 @@
           <thead>
             <tr>
               <th class="text-left">Name</th>
-              <th class="text-left">Email</th>
+              <th class="text-left">Municipality</th>
               <th class="text-left">Details</th>
               <th class="text-left">Compare</th>
             </tr>
@@ -84,7 +84,7 @@
           <tbody>
             <tr v-for="school in schoolsInMap" :key="`school_${school.id}`">
               <td>{{ school.name }}</td>
-              <td>{{ school.email[0] }}</td>
+              <td>{{ school.municipality }}</td>
               <td>
                 <v-btn @click="$router.push(`/details/${school.id}`)">Details</v-btn>
               </td>
@@ -116,10 +116,7 @@ import {
   LControl,
 } from "vue2-leaflet";
 import Vue2LeafletMarkerCluster from "vue2-leaflet-markercluster";
-// import { schools } from "./../data/schools_v2";
-// import { casinos } from "./../data/casinos";
 import casinoIcon from "@/assets/dices.svg";
-// const categories = ["univerzitet", "sredno", "osniovno"];
 import { mapActions, mapState, mapGetters } from "vuex";
 
 export default {
@@ -146,23 +143,6 @@ export default {
         '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       zoom: 8,
       center: [41.608635, 21.745275],
-      // schools: schools
-      //   .filter((s) => Boolean(s.latitude) && Boolean(s.longitude))
-      //   .map((s) => {
-      //     return {
-      //       ...s,
-      //       category: categories[Math.floor(Math.random() * categories.length)],
-      //       rating: Math.floor(Math.random() * 5) + 1,
-      //       type: "S",
-      //     };
-      //   }),
-      // casinos: casinos.map((s) => {
-      //   return {
-      //     latitude: s.Location.split(",")[0],
-      //     longitude: s.Location.split(",")[1],
-      //     type: "C",
-      //   };
-      // }),
       municipality: "all",
       category: "all",
       rating: "all",
@@ -180,7 +160,6 @@ export default {
         );
       });
     },
-    
     ...mapState({
       compareIds: (state) => state.compareIds,
     }),

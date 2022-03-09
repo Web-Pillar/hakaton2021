@@ -32,8 +32,10 @@ export default {
     ...mapActions(['getSchools', 'getCasinos']),
   },
   created() {
-    this.getSchools();
-    this.getCasinos();
+    Promise.all([
+      this.getSchools(),
+      this.getCasinos(),
+    ]);
   }
 };
 </script>
