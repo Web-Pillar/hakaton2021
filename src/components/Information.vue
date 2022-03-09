@@ -75,12 +75,29 @@
           {{ item.title }}
         </v-btn>
       </v-toolbar-items>
+      <v-toolbar-items>
+        <v-select v-model="$i18n.locale" class="mt-3 ml-2" :items="languages" item-value="val" outlined dense style="width: 90px;">
+          <template v-slot:selection="{ item }">
+            <div class="d-flex align-center pa-2">
+              <img width="18px" height="12px" :src="item.image" >
+            </div>
+          </template>
+          <template v-slot:item="{ item }">
+            <div class="d-flex align-center pa-2">
+              <img width="18px" height="12px" :src="item.image">
+            </div>
+          </template>
+        </v-select>
+      </v-toolbar-items>
     </v-toolbar>
   </nav>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex"
+import en from '@/assets/lang_icons/uk-xs.png';
+import mk from '@/assets/lang_icons/macedonia-xs.png';
+import al from '@/assets/lang_icons/albania-xs.png';
 
 export default {
   data() {
@@ -91,21 +108,26 @@ export default {
 
       menuItems: [
         { id: 1, title: "Home", path: "/", icon: "home", test: true },
-        { id: 2, title: "Sign Up", path: "/signup", icon: "face", test: false },
-        {
-          id: 3,
-          title: "Sign In",
-          path: "/signin",
-          icon: "lock_open",
-          test: false,
-        },
+        // { id: 2, title: "Sign Up", path: "/signup", icon: "face", test: false },
+        // {
+        //   id: 3,
+        //   title: "Sign In",
+        //   path: "/signin",
+        //   icon: "lock_open",
+        //   test: false,
+        // },
       ],
       menuItems2: [{ title: "Login", path: "/login", icon: "home" }],
       user: {
         name: 'Sandra Adams',
         email: 'sandra_a88@gmail.com',
         avatar: 'https://randomuser.me/api/portraits/women/85.jpg',
-      }
+      },
+      languages: [
+        { val: 'en', image: en },
+        { val: 'mk', image: mk },
+        { val: 'sq', image: al },
+      ],
     };
   },
   computed: {
@@ -126,7 +148,7 @@ export default {
         }
       });
 
-    }
+    },
   }
 };
 </script>
