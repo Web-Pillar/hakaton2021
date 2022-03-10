@@ -43,7 +43,7 @@
 
                   <v-btn style="margin:10px" @click="$router.push(`/details/${school.id}`)">Details</v-btn>
 
-                  <v-btn @click="$router.push('/compare')">Compare</v-btn>
+                  <v-btn @click="$router.push('/compare')">{{$t("compare")}}</v-btn>
                 </v-container>
               </div>
             </l-popup>
@@ -75,10 +75,10 @@
         <v-simple-table fixed-header style="border-radius: 0" height="68vh"  white>
           <thead>
             <tr>
-              <th class="text-left">Name</th>
-              <th class="text-left">Municipality</th>
-              <th class="text-left">Details</th>
-              <th class="text-left">Compare</th>
+              <th class="text-left"> {{ $t("nameofschool") }}</th>
+              <th class="text-left">{{$t("municipality")}}</th>
+              <th class="text-left">{{$t("details")}}</th>
+              <th class="text-left">{{$t("compare")}}</th>
             </tr>
           </thead>
           <tbody>
