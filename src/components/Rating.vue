@@ -2,8 +2,8 @@
   <div>
     <v-toolbar style="height:50px">
       <v-tabs style="height:20px ;" v-model="tab" centered slider-color="yellow">
-        <v-tab key="info">School Details</v-tab>
-        <v-tab key="survey">Survey</v-tab>
+        <v-tab key="info">{{$t("schooldetails")}}</v-tab>
+        <v-tab key="survey">{{$t("survey")}}</v-tab>
       </v-tabs>
     </v-toolbar>
 
@@ -27,8 +27,8 @@
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions class="justify-space-between">
-          <v-btn text @click="$router.go(-1)">No Thanks</v-btn>
-          <v-btn @click="submitRating" color="primary" text>Rate Now</v-btn>
+          <v-btn text @click="$router.go(-1)">{{t('nothanks')}}</v-btn>
+          <v-btn @click="submitRating" color="primary" text>{{t('ratenow')}}</v-btn>
         </v-card-actions>
       </v-col>
     </div>
@@ -39,27 +39,27 @@
           <div>
             <v-row class="shrink mx-16">
               <v-col>
-                <v-card-text>Telefon: {{ selectedSchool.phoneNumber }}</v-card-text>
-                <v-card-text>Fax: {{ selectedSchool.fax }}</v-card-text>
-                <v-card-text>Email: {{ selectedSchool.email }}</v-card-text>
-                <v-card-text>Founded By: {{ selectedSchool.foundedBy }}</v-card-text>
-                <v-card-text>Learning Language: {{ selectedSchool.language }}</v-card-text>
-                <v-card-text>Year of Construction: {{ selectedSchool.builtAt }}</v-card-text>
+                <v-card-text>{{$t("phonenumber")}}: {{ selectedSchool.phoneNumber }}</v-card-text>
+                <v-card-text>{{$t("faxnumber")}}: {{ selectedSchool.fax }}</v-card-text>
+                <v-card-text>{{$t("email")}}: {{ selectedSchool.email }}</v-card-text>
+                <v-card-text>{{$t("foundedby")}}: {{ selectedSchool.foundedBy }}</v-card-text>
+                <v-card-text>{{$t("teachinglanguage")}}: {{ selectedSchool.language }}</v-card-text>
+                <v-card-text>{{$t("yearofconstruction")}}: {{ selectedSchool.builtAt }}</v-card-text>
               </v-col>
               <v-col>
-                <v-card-text>Type of Construction: {{ selectedSchool.buildingType }}</v-card-text>
-                <v-card-text>Area of Building: {{ selectedSchool.buildingArea }}</v-card-text>
-                <v-card-text>Area of School Yard: {{ selectedSchool.gardenArea }}</v-card-text>
-                <v-card-text>Shifts: {{ selectedSchool.shifts }}</v-card-text>
-                <v-card-text>Heating System: {{ selectedSchool.heating }}</v-card-text>
-                <v-card-text>Number of Classes: {{ selectedSchool.nrClasses }}</v-card-text>
+                <v-card-text>{{$t("typeofconstruction")}}: {{ selectedSchool.buildingType }}</v-card-text>
+                <v-card-text>{{$t("areaofobject")}}: {{ selectedSchool.buildingArea }}</v-card-text>
+                <v-card-text>{{$t("areaofschoolpark")}}: {{ selectedSchool.gardenArea }}</v-card-text>
+                <v-card-text>{{$t("shcoolworkswithshifts")}}: {{ selectedSchool.shifts }}</v-card-text>
+                <v-card-text>{{$t("heatingsystem")}}: {{ selectedSchool.heating }}</v-card-text>
+                <v-card-text>{{$t("numofclassrooms")}}: {{ selectedSchool.nrClasses }}</v-card-text>
               </v-col>
               <v-col>
-                <v-card-text>Number of Students: {{ selectedSchool.nrStudents }}</v-card-text>
-                <v-card-text>Number of Teacher: {{ selectedSchool.nrTeachers }}</v-card-text>
-                <v-card-text>Cantene: {{ selectedSchool.canteen }}</v-card-text>
-                <v-card-text>Library: {{ selectedSchool.library }}</v-card-text>
-                <v-card-text>Laboratory: {{ selectedSchool.labs }}</v-card-text>
+                <v-card-text>{{$t("numberofstudents")}}: {{ selectedSchool.nrStudents }}</v-card-text>
+                <v-card-text>{{$t("numberofteachers")}}: {{ selectedSchool.nrTeachers }}</v-card-text>
+                <v-card-text>{{$t("canteene")}}: {{ selectedSchool.canteen }}</v-card-text>
+                <v-card-text>{{$t("library")}}: {{ selectedSchool.library }}</v-card-text>
+                <v-card-text>{{$t("laboratory")}}: {{ selectedSchool.labs }}</v-card-text>
               </v-col>
             </v-row>
           </div>
@@ -74,27 +74,27 @@
         <v-card text key="survey">
           <v-stepper v-model="e1">
             <v-stepper-header>
-              <v-stepper-step :complete="e1 > 1" step="1">Identity</v-stepper-step>
+              <v-stepper-step :complete="e1 > 1" step="1">{{$t("identity")}}</v-stepper-step>
 
               <v-divider></v-divider>
 
-              <v-stepper-step :complete="e1 > 2" step="2">Area</v-stepper-step>
+              <v-stepper-step :complete="e1 > 2" step="2">{{$t("area")}}</v-stepper-step>
 
               <v-divider></v-divider>
 
-              <v-stepper-step step="3">Meta</v-stepper-step>
+              <v-stepper-step step="3">{{$t("meta")}}</v-stepper-step>
             </v-stepper-header>
 
             <v-stepper-items>
               <v-stepper-content step="1">
                 <v-form ref="form" class="mx-14 my-8">
-                  <v-text-field v-model="survey.phoneNumber" :counter="10" label="Telefon" required></v-text-field>
+                  <v-text-field v-model="survey.phoneNumber" :counter="10" :label="$t('phonenumber')" required></v-text-field>
 
-                  <v-text-field v-model="survey.fax" label="Fax" required></v-text-field>
+                  <v-text-field v-model="survey.fax" :label="$t('faksnumber')" required></v-text-field>
 
-                  <v-text-field v-model="survey.email" label="Email" required></v-text-field>
-                  <v-text-field v-model="survey.foundedBy" label="Founded By" required></v-text-field>
-                  <v-text-field v-model="survey.language" label="Learning Language" required></v-text-field>
+                  <v-text-field v-model="survey.email" :label="$t('email')" required></v-text-field>
+                  <v-text-field v-model="survey.foundedBy" :label="$t('foundedby')" required></v-text-field>
+                  <v-text-field v-model="survey.language" :label="$t('teachinglanguage')" required></v-text-field>
                 </v-form>
 
                 <v-btn color="primary" @click="e1 = 2">Continue</v-btn>
@@ -111,13 +111,13 @@
                     required
                   ></v-text-field>
 
-                  <v-text-field v-model="survey.buildingType" label="Type Of Construction" required></v-text-field>
+                  <v-text-field v-model="survey.buildingType" :label="$t('typeofconstruction')" required></v-text-field>
 
-                  <v-text-field v-model="survey.buildingArea" label="Size Of Object" required></v-text-field>
-                  <v-text-field v-model="survey.gardenArea" label="School Yard" required></v-text-field>
-                  <v-text-field v-model="survey.shifts" label="Shifts" required></v-text-field>
+                  <v-text-field v-model="survey.buildingArea" :label="$t('areaofobject')" required></v-text-field>
+                  <v-text-field v-model="survey.gardenArea" :label="$t('areaofschoolpark')" required></v-text-field>
+                  <v-text-field v-model="survey.shifts" :label="$t('shcoolworkswithshifts')" required></v-text-field>
 
-                  <v-text-field v-model="survey.heating" label="Heating System" required></v-text-field>
+                  <v-text-field v-model="survey.heating" :label="$t('heatingsystem')" required></v-text-field>
                 </v-form>
                 <v-btn color="primary" @click="e1 = 3">Continue</v-btn>
 
@@ -133,13 +133,13 @@
                     required
                   ></v-text-field>
 
-                  <v-text-field v-model="survey.nrStudents" label="Number Of Students" required></v-text-field>
+                  <v-text-field v-model="survey.nrStudents" :label="$t('numberofstudents')" required></v-text-field>
 
-                  <v-text-field v-model="survey.nrTeachers" label="Number Of Teacher" required></v-text-field>
-                  <v-text-field v-model="survey.canteen" label="Cantene" required></v-text-field>
-                  <v-text-field v-model="survey.library" label="Library" required></v-text-field>
+                  <v-text-field v-model="survey.nrTeachers" :label="$t('numberofteachers')" required></v-text-field>
+                  <v-text-field v-model="survey.canteen" :label="$t('canteene')" required></v-text-field>
+                  <v-text-field v-model="survey.library" :label="$t('library')" required></v-text-field>
 
-                  <v-text-field v-model="survey.labs" label="Laboratory" required></v-text-field>
+                  <v-text-field v-model="survey.labs" :label="$t('laboratory')" required></v-text-field>
                 </v-form>
 
                 <v-btn color="primary" @click="e1 = 1">Continue</v-btn>
