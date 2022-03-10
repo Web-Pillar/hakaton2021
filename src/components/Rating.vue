@@ -27,8 +27,8 @@
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions class="justify-space-between">
-          <v-btn text @click="$router.go(-1)">{{t('nothanks')}}</v-btn>
-          <v-btn @click="submitRating" color="primary" text>{{t('ratenow')}}</v-btn>
+          <v-btn text @click="$router.go(-1)">{{$t('nothanks')}}</v-btn>
+          <v-btn @click="submitRating" color="primary" text>{{$t('ratenow')}}</v-btn>
         </v-card-actions>
       </v-col>
     </div>
