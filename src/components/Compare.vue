@@ -3,13 +3,13 @@
     <div class="mx-14 my-8">
       <v-row class="shrink">
         <v-col>
-          <v-card-title class="text-h5">Name</v-card-title>
+          <v-card-title class="text-h5">{{$t("nameofschool")}}</v-card-title>
         </v-col>
         <v-col v-for="school in filteredSchools" :key="`school_${school.id}`">
           <v-card-title class="text-h5">{{ school.schoolName }}</v-card-title>
         </v-col>
       </v-row>
-      <v-btn @click="deleteCompare(), $router.go(-1)">Remove Compare</v-btn>
+      <v-btn @click="deleteCompare(), $router.go(-1)">{{$t("removecompare")}}</v-btn>
     </div>
 
     <v-tabs-items v-model="model">
