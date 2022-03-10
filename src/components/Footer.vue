@@ -17,7 +17,7 @@
             <v-img width="130px" src="./../assets/usaiden.png"></v-img>
             </v-col>
             <v-col style="color:white; font-size:15px"> 
-              This web site content was prepared by Foundation Metamorphosis with the support of the American people through the United States Agency for International Development (USAID).  The authors views expressed in this website do not necessarily reflect the views of the United States Agency for International Development or the United States Government.
+              {{t("description")}}
             </v-col>
             </v-toolbar-items>
           </v-row>
