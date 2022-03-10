@@ -22,26 +22,26 @@
             <l-popup>
               <div>
                 <p>
-                  <b>Name</b>
+                  <b>{{$t("nameofschool")}}</b>
                   : {{ school.name }}
                 </p>
                 <p>
-                  <b>Email</b>
-                  : {{ school.email[0] }}
+                  <b>{{$t("email")}}</b>
+                  : {{ school.email }}
                 </p>
                 <p>
-                  <b>Rating</b> :
+                  <b>{{$t("rating")}}</b> :
                   <v-rating disabled color="yellow darken-3" background-color="grey darken-1" large></v-rating>
                 </p>
                 <v-container>
                   <v-switch
-                    label="Compare"
+                    :label="$t('compare')"
                     inset
                     :input-value="compareIds.includes(school.id)"
                     @change="selectCompare(school.id)"
                   ></v-switch>
 
-                  <v-btn style="margin:10px" @click="$router.push(`/details/${school.id}`)">Details</v-btn>
+                  <v-btn style="margin:10px" @click="$router.push(`/details/${school.id}`)">{{$t('details')}}</v-btn>
 
                   <v-btn @click="$router.push('/compare')">{{$t("compare")}}</v-btn>
                 </v-container>
@@ -86,7 +86,7 @@
               <td>{{ school.name }}</td>
               <td>{{ school.municipality }}</td>
               <td>
-                <v-btn @click="$router.push(`/details/${school.id}`)">Details</v-btn>
+                <v-btn @click="$router.push(`/details/${school.id}`)">{{$t('details')}}</v-btn>
               </td>
               <td>
                 <v-switch
