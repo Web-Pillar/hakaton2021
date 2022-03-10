@@ -23,7 +23,7 @@
             </div> -->
         </form>
         <v-spacer></v-spacer>
-        <v-btn @click="$router.push('/compare')">Compare</v-btn>
+        <v-btn @click="$router.push('/compare')">{{$t('compare')}}</v-btn>
     </v-container>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="faqstyle">
-    <h1 class="text-center">Frequently askend questions!</h1>
+    <h1 class="text-center">{{$t("faq")}}</h1>
     <v-container class="faqbox">
       <v-row no-gutters>
         <v-col md="6">
