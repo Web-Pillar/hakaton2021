@@ -41,6 +41,8 @@
   "canteene":"Canteen in School",
   "library":"Library in School",
   "laboratory":"Laboratory In School",
-  "supply":"taken over from e-nabavki"
+  "supply":"taken over from e-nabavki",
+  "survey":"Survey",
+  "schooldetails":"School Details"
   
 }
