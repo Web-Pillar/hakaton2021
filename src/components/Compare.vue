@@ -18,24 +18,24 @@
           <div class="mx-14 my-8">
             <v-row class="shrink">
               <v-col>
-                <v-card-text>Address:</v-card-text>
-                <v-card-text>Telefon:</v-card-text>
-                <v-card-text>Fax:</v-card-text>
-                <v-card-text>Email:</v-card-text>
-                <v-card-text>Founded By:</v-card-text>
-                <v-card-text>Learning Language:</v-card-text>
-                <v-card-text>Year of Construction:</v-card-text>
-                <v-card-text>Type of Construction:</v-card-text>
-                <v-card-text>Size of Object:</v-card-text>
-                <v-card-text>School Yard:</v-card-text>
-                <v-card-text>Shifts:</v-card-text>
-                <v-card-text>Heating System:</v-card-text>
-                <v-card-text>Number of Classes:</v-card-text>
-                <v-card-text>Number of Students:</v-card-text>
-                <v-card-text>Number of Teacher:</v-card-text>
-                <v-card-text>Cantene:</v-card-text>
-                <v-card-text>Library:</v-card-text>
-                <v-card-text>Laboratory:</v-card-text>
+                <v-card-text>{{$t("adresse")}}:</v-card-text>
+                <v-card-text>{{$t("phonenumber")}}:</v-card-text>
+                <v-card-text>{{$t("faksnumber")}}:</v-card-text>
+                <v-card-text>{{$t("email")}}:</v-card-text>
+                <v-card-text>{{$t("foundedby")}}:</v-card-text>
+                <v-card-text>{{$t("teachinglanguage")}}:</v-card-text>
+                <v-card-text>{{$t("yearofconstruction")}}:</v-card-text>
+                <v-card-text>{{$t("typeofconstruction")}}:</v-card-text>
+                <v-card-text>{{$t("areaofobject")}}:</v-card-text>
+                <v-card-text>{{$t("areaofschoolpark")}}:</v-card-text>
+                <v-card-text>{{$t("shcoolworkswithshifts")}}:</v-card-text>
+                <v-card-text>{{$t("heatingsystem")}}:</v-card-text>
+                <v-card-text>{{$t("numberofclasses")}}:</v-card-text>
+                <v-card-text>{{$t("numberofstudents")}}:</v-card-text>
+                <v-card-text>{{$t("numberofteachers")}}:</v-card-text>
+                <v-card-text>{{$t("canteene")}}:</v-card-text>
+                <v-card-text>{{$t("library")}}:</v-card-text>
+                <v-card-text>{{$t("laboratory")}}:</v-card-text>
               </v-col>
               <v-col
                 v-for="school in filteredSchools"
