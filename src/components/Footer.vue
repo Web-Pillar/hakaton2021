@@ -17,7 +17,7 @@
             <v-img width="130px" src="./../assets/usaiden.png"></v-img>
             </v-col>
             <v-col style="color:white; font-size:15px"> 
-              {{t("description")}}
+              <p>{{$t("descriptione")}}</p>
             </v-col>
             </v-toolbar-items>
           </v-row>
