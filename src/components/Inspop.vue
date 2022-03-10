@@ -19,24 +19,24 @@
 
       <v-stepper-items>
         <v-stepper-content step="1">
-          <v-img src="..\assets\instruction\1step.jpg"></v-img>
+          <v-img src="../assets/instruction/1step.jpg"></v-img>
 
           <v-btn color="primary" @click="e1 = 2">Next</v-btn>
         </v-stepper-content>
 
         <v-stepper-content step="2">
-          <v-img src="..\assets\instruction\2step.jpg"></v-img>
+          <v-img src="../assets/instruction/2step.jpg"></v-img>
 
           <v-btn color="primary" @click="e1 = 3">Next</v-btn>
         </v-stepper-content>
 
         <v-stepper-content step="3">
-          <v-img src="..\assets\instruction\3step.jpg"></v-img>
+          <v-img src="../assets/instruction/3step.jpg"></v-img>
 
           <v-btn color="primary" @click="e1 = 4">Next</v-btn>
         </v-stepper-content>
         <v-stepper-content step="4">
-          <v-img src="..\assets\instruction\4step.jpg"></v-img>
+          <v-img src="../assets/instruction/4step.jpg"></v-img>
 
           <v-btn text @click="completed">Close</v-btn>
         </v-stepper-content>
