@@ -1,7 +1,6 @@
 {
   "message": "hello!!",
   "enterance":"Welcome to WEB-PILLAR",
-  "descriptione":"Lorem ipsum",
   "all":"all",
   "municipality":"Municipality",
   "category":"Category",
@@ -43,6 +42,19 @@
   "laboratory":"Laboratory In School",
   "supply":"taken over from e-nabavki",
   "survey":"Survey",
-  "schooldetails":"School Details"
+  "schooldetails":"School Details", 
+  "numberofteachers":"Numri i Profesorve",
+  "identity":"Identitet",
+  "area":"Area",
+  "meta":"Meta",
+  "continue":"Contine",
+  "cancel":"Cancle",
+  "maporient":"Map Orientatione",
+  "tooltip":"Tool tip",
+  "next":"Next",
+  "close":"Close",
+  "logout":"Log Out",
+  "descriptione":"This web site content was prepared by Foundation Metamorphosis with the support of the American people through the United States Agency for International Development (USAID).  The authors views expressed in this website do not necessarily reflect the views of the United States Agency for International Development or the United States Government.",
+  "removecompare":"Remove Compare"
   
 }
