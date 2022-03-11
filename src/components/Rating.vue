@@ -65,7 +65,7 @@
           </div>
           <div class="mx-14 my-8">
             <v-col>
-              <v-data-table v-if="finances" :headers="headers" :items="finances.data.info"></v-data-table>
+              <v-data-table v-if="selectedSchool.finances" :headers="headers" :items="selectedSchool.finances.data"></v-data-table>
             </v-col>
           </div>
         </v-card>
@@ -155,7 +155,6 @@
 </template>
 
 <script>
-import { finances } from "./../data/budgets";
 import SchoolService from "../services/SchoolService";
 import { School } from "../models/School";
 import RatingService from '../services/RatingService';
@@ -165,7 +164,6 @@ export default {
     return {
       e1: 1,
       selectedSchool: null,
-      finances: finances.filter(f => +f.schoolId === +this.$route.params.school)[0],
       headers: [
         {
           text: "Year",

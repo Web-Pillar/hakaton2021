@@ -29,7 +29,7 @@ class School {
         this.library = obj.library || '';
         this.labs = obj.labs || '';
         this.labsMeta = obj.labsMeta || '';
-        this.finances = obj.finances || '' || '';
+        this.finances = obj.finances || null;
         this.rating = obj?.rating?.value || 0;
     }
 }
