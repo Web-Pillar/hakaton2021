@@ -7,7 +7,8 @@
         </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items v-if="!authUser" class="hidden-xs-only" style="padding-top: 18px">
+      
+      <v-toolbar-items v-if="!authUser" class="" style="padding-top: 18px">
         <div
           text
           v-for="item in menuItems"

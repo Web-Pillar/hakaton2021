@@ -7,7 +7,7 @@
       </v-tabs>
     </v-toolbar>
 
-    <div v-if="selectedSchool" class="mx-14 my-8">
+    <div v-if="selectedSchool" class=" my-8">
       <v-col class="shrink">
         <v-card-title class="text-h5">
           {{ selectedSchool.name }}
