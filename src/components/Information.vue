@@ -7,7 +7,6 @@
         </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      
       <v-toolbar-items v-if="!authUser" class="" style="padding-top: 18px">
         <div
           text
@@ -58,24 +57,6 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <v-toolbar-items v-else class="hidden-xs-only">
-        <v-btn
-          style="
-            background-color: #1678ca;
-            box-shadow: none;
-            margin: 0 2px 0 0;
-            color: white;
-          "
-          @click="click(item)"
-          text
-          v-for="item in menuItems2"
-          :key="item.title"
-          :to="item.path"
-        >
-          <!-- <v-icon left dark>{{ item.icon }}</v-icon> -->
-          {{ item.title }}
-        </v-btn>
-      </v-toolbar-items>
       <v-toolbar-items>
         <v-select v-model="$i18n.locale" class="mt-3 ml-2" :items="languages" item-value="val" outlined dense style="width: 90px;">
           <template v-slot:selection="{ item }">
@@ -106,22 +87,6 @@ export default {
     return {
       clicked: true,
       appTitle: "MetaSchools",
-
-      menuItems: [
-        { id: 1, title: "Home", path: "/", icon: "home", test: true },
-        { id: 2, title: "About", path: "/about", icon: "home", test: true },
-        // { id: 2, title: "Sign Up", path: "/signup", icon: "face", test: false },
-        // {
-        //   id: 3,
-        //   title: "Sign In",
-        //   path: "/signin",
-        //   icon: "lock_open",
-        //   test: false,
-        // },
-      ],
-      menuItems2: [
-        // { title: "Login", path: "/login", icon: "home" }
-      ],
       user: {
         name: 'Sandra Adams',
         email: 'sandra_a88@gmail.com',
@@ -136,6 +101,11 @@ export default {
   },
   computed: {
     ...mapGetters(['authUser']),
+    menuItems() {
+      return [
+      { id: 1, title: this.$t('home'), path: "/", icon: "home", test: true },
+      { id: 2, title: this.$t('about'), path: "/about", icon: "home", test: true },
+    ]},
   },
   methods:
   {
@@ -151,7 +121,6 @@ export default {
           items.test = false;
         }
       });
-
     },
   }
 };
