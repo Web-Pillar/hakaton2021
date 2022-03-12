@@ -8,12 +8,8 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items v-if="!authUser" class="" style="padding-top: 18px">
-        <div
-          text
-          v-for="item in menuItems"
-          :key="item.title"
-          :style="'margin: 0 20px 0 0'"
-          style="box-shadow: none"
+        <div text style="margin-right: 20px; box-shadow: none;"
+          v-for="item in menuItems" :key="item.title"
         >
           <v-btn
             v-if="item.test"
@@ -38,10 +34,20 @@
               background-color: transparent;
             "
           >{{ item.title }}</v-btn>
-          <!-- <v-icon left dark>{{ item.icon }}</v-icon> -->
+        </div>
+        <div text style="margin-right: 20px; box-shadow: none;">
+          <v-btn
+            @click="showInstructions"
+            style="
+              height: 100%;
+              border-radius: 0;
+              box-shadow: none;
+              color: white;
+              background-color: rgb(22, 120, 202);
+            "
+          >{{ $t("instructions") }}</v-btn>
         </div>
       </v-toolbar-items>
-      <!-- <v-spacer></v-spacer> -->
       <v-menu v-if="authUser" offset-y>
         <template v-slot:activator="{ on, attrs }">
           <v-btn icon v-bind="attrs" v-on="on">
@@ -122,6 +128,9 @@ export default {
         }
       });
     },
+    showInstructions() {
+      this.$emit('showInstructions');
+    }
   }
 };
 </script>

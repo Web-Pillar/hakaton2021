@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
       <Inspop v-if="tutorial" :dialog="tutorial" @completed="completedTutorial"></Inspop>
-      <Information></Information>
+      <Information @showInstructions="tutorial=true"></Information>
       <router-view v-if="!tutorial" />
       <Footer></Footer>
     </v-main>
