@@ -11,16 +11,15 @@
             </v-col>
             </v-toolbar-items>
           </v-row>
-      
         </v-toolbar> -->
 
     <div class="grey lighten-5" style="background-color: #343a40 !important">
       <v-row align="center" no-gutters style="min-height: 140px">
-        <v-col cols="12" sm="8" md="2" style="">
-          <v-img style="margin-left:25%" width="130px" src="./../assets/usaiden.png"></v-img>
+        <v-col cols="12" sm="4" md="3" style="">
+          <v-img class="image" width="150px" :src="logo"></v-img>
         </v-col>
-        <v-col cols="12" sm="8" md="" style="color: white; font-size:13px">
-          <p style="padding-left:20px ; padding-right:20px">{{ $t("descriptione") }}</p>
+        <v-col cols="12" sm="8" md="9" style="color: white; font-size:13px">
+          <p style="padding: 0 5vw;">{{ $t("descriptione") }}</p>
         </v-col>
       </v-row>
     </div>
@@ -28,10 +27,29 @@
 </template>
 
 <script>
+import logo_en from '../assets/usaid/en.png';
+import logo_mk from '../assets/usaid/mk.png';
+import logo_al from '../assets/usaid/al.png';
+
 export default {
-  data: () => ({}),
+  data: () => ({
+    logos: {
+      mk: logo_mk,
+      en: logo_en,
+      sq: logo_al,
+    },
+  }),
+  computed: {
+    logo() {
+      return this.logos[this.$i18n.locale]
+    }
+  }
 };
 </script>
 
-<style>
+<style scoped>
+  .image {
+    background-color: white;
+    margin-left: 25%
+  }
 </style>
