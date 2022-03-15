@@ -18,7 +18,7 @@ const mutations = {
     },
     SET_SCHOOL_DETAILS(state, schoolDetails) {
         state.schools = state.schools.map(s => {
-            if (s._id === schoolDetails._id) { s = Object.assign(schoolDetails); }
+            if (s._id === schoolDetails._id) { s = Object.assign(new School(schoolDetails)); }
             return s;
         })
     },
