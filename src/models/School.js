@@ -3,6 +3,7 @@ class School {
         this._id = obj._id || null;
 
         this.id = obj.iid || '';
+        this.type = obj.type || 'elementary';
         this.enable = obj.enable || '';
         this.name = obj.name || obj.schoolName || '';
         this.address = obj.address || '';

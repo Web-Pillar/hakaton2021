@@ -23,7 +23,11 @@
             :key="`school_${school.id}`"
             :lat-lng="[school.latitude, school.longitude]"
           >
-            ]
+            <l-icon
+              :icon-size="[60, 90]"
+              :icon-anchor="iconAnchor"
+              :icon-url="getMarkerIcon(school)"
+            ></l-icon>
             <l-popup>
               <div>
                 <p>
@@ -34,7 +38,6 @@
                   <b>{{ $t("email") }}</b>
                   : {{ school.email }}
                 </p>
-        
                   <v-rating
                     color="yellow darken-3"
                     background-color="grey darken-1"
@@ -42,7 +45,6 @@
                     readonly
                     :value="school.rating"
                   ></v-rating>
-             
                 <v-container>
                   <v-switch
                     :label="$t('compare')"
@@ -145,6 +147,12 @@ import {
 import Vue2LeafletMarkerCluster from "vue2-leaflet-markercluster";
 import casinoIcon from "@/assets/dices.svg";
 import { mapActions, mapState, mapGetters } from "vuex";
+import red_elementary from '../assets/school_icons/red_middleschool.svg';
+import yellow_elementary from '../assets/school_icons/yellow_middleschool.svg';
+import green_elementary from '../assets/school_icons/green_middleschool.svg';
+import red_middleschool from '../assets/school_icons/red_highschool.svg';
+import yellow_middleschool from '../assets/school_icons/yellow_highschool.svg';
+import green_middleschool from '../assets/school_icons/green_highschool.svg';
 
 export default {
   components: {
@@ -165,6 +173,14 @@ export default {
       casinoIcon: casinoIcon,
       iconSize: [30, 50],
       iconAnchor: [16, 45],
+      icons: {
+        red_elementary,
+        yellow_elementary,
+        green_elementary,
+        red_middleschool,
+        yellow_middleschool,
+        green_middleschool,
+      },
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution:
         '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
@@ -204,6 +220,18 @@ export default {
     },
     selectCompare(schoolId) {
       this.addCompare(schoolId);
+    },
+    getMarkerIcon(school) {
+      let color;
+      if (school.rating < 2.5) {
+        color = 'red';
+      } else if (school.rating > 3.5) {
+        color = 'green';
+      } else {
+        color = 'yellow';
+      }
+
+      return this.icons[`${color}_${school.type}`];
     },
   },
 };
