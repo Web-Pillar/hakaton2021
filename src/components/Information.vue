@@ -17,7 +17,7 @@
         hide-overlay
         transition="dialog-bottom-transition"
       >
-        <v-toolbar-side-icon dark slot="activator" class="hidden-sm-and-up"
+        <v-toolbar-side-icon dark slot="activator" class="hidden-md-and-up"
           ><v-btn  icon @click.native="dialog = true">
             <svg  class="h-6 w-6 fill-current" viewBox="0 0 24 24">
             <path
@@ -174,7 +174,7 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <v-toolbar-items class="hidden-sm-and-down">
+      <v-toolbar-items class="hidden-md-and-down">
         <v-select
           v-model="$i18n.locale"
           class="mt-3 ml-2"

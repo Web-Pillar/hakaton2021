@@ -219,7 +219,7 @@ export default {
 }
 @media only screen and (max-width: 600px) {
   .map-container-custom {
-    min-height: 60vh;
+    min-height: 80vh;
     height: 100%;
     width: 100%;
   }
