@@ -89,7 +89,20 @@
                 "
                 >{{ item.title }}</v-btn
               > -->
+               <div text style="margin-right: 20px; box-shadow: none;">
+          <v-btn
+            @click="showInstructions"
+            style="
+              height: 100%;
+              border-radius: 0;
+              box-shadow: none;
+              color: white;
+              background-color: rgb(22, 120, 202);
+            "
+          >{{ $t("instructions") }}</v-btn>
+        </div>
             </v-list-tile>
+            
           </v-list>
           <div style="margin-left:35%">
           <v-select
@@ -199,6 +212,7 @@ export default {
   data() {
     // <== changed this line
     return {
+      dialog: false,
       clicked: true,
       appTitle: "MetaSchools",
       user: {

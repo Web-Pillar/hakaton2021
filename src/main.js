@@ -8,6 +8,8 @@ import vuetify from './plugins/vuetify';
 import store from './store';
 import "vuetify/dist/vuetify.min.css";
 import i18n from './i18n'
+import VResponsiveMenu from 'vuetify-responsive-menu';
+
 
 // The lines below fix the problem with marker icon
 delete Icon.Default.prototype._getIconUrl;
@@ -25,5 +27,6 @@ new Vue({
   vuetify,
   store,
   i18n,
+  VResponsiveMenu,
   render: h => h(App)
 }).$mount('#app')
