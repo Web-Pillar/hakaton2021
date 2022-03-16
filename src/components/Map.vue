@@ -3,7 +3,7 @@
     <v-col cols="12" sm="12" md="7">
       <l-map
         class="map-container-custom"
-        style="border-radius: 0"
+        style="border-radius: 0;z-index: 0"
         :zoom="zoom"
         :center="center"
       >
