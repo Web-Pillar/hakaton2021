@@ -9,4 +9,7 @@ Ideja dhe realizimi ishte nga ekipi i një kompanie startup e quajtur Web-pillar
       
     </div>
   </v-container>
+
+  
 </template>
+
