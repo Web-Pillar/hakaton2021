@@ -1,11 +1,9 @@
 <template>
-<div>
-  <AboutContent></AboutContent>
-
-   <Madeby></Madeby>
-  <Faqnew></Faqnew>
- 
-</div>
+  <div>
+    <AboutContent></AboutContent>
+    <Madeby></Madeby>
+    <Faqnew></Faqnew>
+  </div>
 </template>
 
 
@@ -16,14 +14,12 @@ import Madeby from './../components/Madeby.vue'
 
 
 export default {
-  components:{AboutContent,Faqnew,Madeby, 
-
+  components: {
+    AboutContent, Faqnew, Madeby,
   }
 
 }
 </script>
 
 <style>
-
 </style>
-
