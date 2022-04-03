@@ -10,7 +10,7 @@
     <div v-if="selectedSchool" class=" my-8">
       <v-col class="shrink">
         <v-card-title class="text-h5">
-          {{ selectedSchool.name }}
+          {{ translate(selectedSchool.name) }}
           <v-spacer></v-spacer>
           <v-rating
             v-model="selectedSchool.rating"
@@ -23,7 +23,7 @@
           ></v-rating>
         </v-card-title>
         <v-card-text>
-          <h1>{{ selectedSchool.address }}</h1>
+          <h1>{{ translate(selectedSchool.address) }}</h1>
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions class="justify-space-between">
@@ -158,6 +158,7 @@
 import SchoolService from "../services/SchoolService";
 import { School } from "../models/School";
 import RatingService from '../services/RatingService';
+import { transliterate } from '../utils/transliterate';
 
 export default {
   data() {
@@ -202,6 +203,9 @@ export default {
     this.selectedSchool = new School(res.data.data);
   },
   methods: {
+    translate(string) {
+      return transliterate(string, this.$i18n.locale);
+    },
     async submitRating() {
       try {
         const payload = {

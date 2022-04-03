@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import { transliterate } from '../utils/transliterate';
+
 export default {
     props: ['schools'],
     data: () => {
@@ -43,7 +45,7 @@ export default {
     },
     computed: {
         municipalities() {
-            let allMunicipalities = this.schools.map(s => { return s.municipality });
+            let allMunicipalities = this.schools.map(s => { return transliterate(s.municipality, this.$i18n.locale) });
             let uniqueMunicipalities = [...new Set(allMunicipalities)]
                 .sort((x, y) => x.localeCompare(y));
             return uniqueMunicipalities;

@@ -32,7 +32,7 @@
               <div>
                 <p>
                   <b>{{ $t("nameofschool") }}</b>
-                  : {{ school.name }}
+                  : {{ translate(school.name) }}
                 </p>
                 <p>
                   <b>{{ $t("email") }}</b>
@@ -66,7 +66,7 @@
               </div>
             </l-popup>
             <l-tooltip>
-              <h3>{{ school.name }}</h3>
+              <h3>{{ translate(school.name) }}</h3>
             </l-tooltip>
           </l-marker>
 
@@ -110,8 +110,8 @@
           </thead>
           <tbody>
             <tr v-for="school in schoolsInMap" :key="`school_${school.id}`">
-              <td>{{ school.name }}</td>
-              <td>{{ school.municipality }}</td>
+              <td>{{ translate(school.name) }}</td>
+              <td>{{ translate(school.municipality) }}</td>
               <td>
                 <v-btn @click="$router.push(`/details/${school.id}`)">{{
                   $t("details")
@@ -153,6 +153,7 @@ import green_elementary from '../assets/school_icons/green_middleschool.svg';
 import red_middleschool from '../assets/school_icons/red_highschool.svg';
 import yellow_middleschool from '../assets/school_icons/yellow_highschool.svg';
 import green_middleschool from '../assets/school_icons/green_highschool.svg';
+import { transliterate } from '../utils/transliterate'
 
 export default {
   components: {
@@ -209,6 +210,9 @@ export default {
   },
   methods: {
     ...mapActions(["addCompare"]),
+    translate(string) {
+      return transliterate(string, this.$i18n.locale);
+    },
     innerClick() {
       alert("Click!");
     },
