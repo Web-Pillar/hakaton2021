@@ -28,7 +28,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Details.vue')
+    component: () => import(/* webpackChunkName: "details" */ '../views/Details.vue')
   },
   {
     path: '/compare',
@@ -36,7 +36,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/CompareView.vue')
+    component: () => import(/* webpackChunkName: "compareView" */ '../views/CompareView.vue')
   },
   {
     path: '/login',
@@ -61,13 +61,13 @@ const routes = [
         path: "/admin/users",
         name: 'Users',
         meta: { requiresAuth: true },
-        component: () => import(/* webpackChunkName: "about" */ '../views/admin/Users.vue'),
+        component: () => import(/* webpackChunkName: "admin_users" */ '../views/admin/Users.vue'),
       },
       {
         path: "/admin/schools",
         name: 'Schools',
         meta: { requiresAuth: true },
-        component: () => import(/* webpackChunkName: "about" */ '../views/admin/Schools.vue'),
+        component: () => import(/* webpackChunkName: "admin_schools" */ '../views/admin/Schools.vue'),
       },
     ],
   },

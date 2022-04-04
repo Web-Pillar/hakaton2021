@@ -19,24 +19,24 @@
 
       <v-stepper-items>
         <v-stepper-content step="1">
-          <v-img src="../assets/instruction/1step.jpg"></v-img>
+          <v-img :src="getImage(1)"></v-img>
 
           <v-btn color="primary" @click="e1 = 2">Next</v-btn>
         </v-stepper-content>
 
         <v-stepper-content step="2">
-          <v-img src="../assets/instruction/2step.jpg"></v-img>
+          <v-img :src="getImage(2)"></v-img>
 
           <v-btn color="primary" @click="e1 = 3">Next</v-btn>
         </v-stepper-content>
 
         <v-stepper-content step="3">
-          <v-img src="../assets/instruction/3step.jpg"></v-img>
+          <v-img :src="getImage(3)"></v-img>
 
           <v-btn color="primary" @click="e1 = 4">Next</v-btn>
         </v-stepper-content>
         <v-stepper-content step="4">
-          <v-img src="../assets/instruction/4step.jpg"></v-img>
+          <v-img :src="getImage(4)"></v-img>
 
           <v-btn text @click="completed">Close</v-btn>
         </v-stepper-content>
@@ -46,14 +46,36 @@
 </template>
 
 <script>
+import step_1_en from '../assets/instruction/en/1step.jpg';
+import step_2_en from '../assets/instruction/en/2step.jpg';
+import step_3_en from '../assets/instruction/en/3step.jpg';
+import step_4_en from '../assets/instruction/en/4step.jpg';
+
+import step_1_mk from '../assets/instruction/mk/1step.jpg';
+import step_2_mk from '../assets/instruction/mk/2step.jpg';
+import step_3_mk from '../assets/instruction/mk/3step.jpg';
+import step_4_mk from '../assets/instruction/mk/4step.jpg';
+
+import step_1_sq from '../assets/instruction/sq/1step.jpg';
+import step_2_sq from '../assets/instruction/sq/2step.jpg';
+import step_3_sq from '../assets/instruction/sq/3step.jpg';
+import step_4_sq from '../assets/instruction/sq/4step.jpg';
 export default {
   props: ['dialog'],
   data() {
     return {
       e1: 1,
+      images: {
+        en: [step_1_en, step_2_en, step_3_en, step_4_en],
+        mk: [step_1_mk, step_2_mk, step_3_mk, step_4_mk],
+        sq: [step_1_sq, step_2_sq, step_3_sq, step_4_sq],
+      }
     }
   },
   methods: {
+    getImage(step) {
+      return this.images[this.$i18n.locale][step-1];
+    },
     completed() {
       this.$emit('completed');
     }

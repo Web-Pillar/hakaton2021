@@ -17,7 +17,7 @@
           />
         </div>
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-        <v-marker-cluster>
+        <v-marker-cluster v-if="schoolsInMap.length > 0">
           <l-marker
             v-for="school in schoolsInMap"
             :key="`school_${school.id}`"
@@ -108,7 +108,7 @@
               <th class="text-left">{{ $t("compare") }}</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody v-if="schoolsInMap.length > 0">
             <tr v-for="school in schoolsInMap" :key="`school_${school.id}`">
               <td>{{ translate(school.name) }}</td>
               <td>{{ translate(school.municipality) }}</td>
@@ -146,7 +146,7 @@ import {
 } from "vue2-leaflet";
 import Vue2LeafletMarkerCluster from "vue2-leaflet-markercluster";
 import casinoIcon from "@/assets/dices.svg";
-import { mapActions, mapState, mapGetters } from "vuex";
+import { mapActions, mapState } from "vuex";
 import red_elementary from '../assets/school_icons/red_middleschool.svg';
 import yellow_elementary from '../assets/school_icons/yellow_middleschool.svg';
 import green_elementary from '../assets/school_icons/green_middleschool.svg';
@@ -193,7 +193,6 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["schools", "casinos"]),
     schoolsInMap() {
       return this.schools.filter((s) => {
         return (
@@ -206,10 +205,12 @@ export default {
     },
     ...mapState({
       compareIds: (state) => state.compareIds,
+      schools: (state) => state.schoolModule.schools,
+      casinos: (state) => state.casinoModule.casinos,
     }),
   },
   methods: {
-    ...mapActions(["addCompare"]),
+    ...mapActions(['addCompare', 'getSchools', 'getCasinos']),
     translate(string) {
       return transliterate(string, this.$i18n.locale);
     },
@@ -238,6 +239,12 @@ export default {
       return this.icons[`${color}_${school.type}`];
     },
   },
+  mounted() {
+    Promise.all([
+      this.getSchools(),
+      this.getCasinos(),
+    ]);
+  }
 };
 </script>
 
