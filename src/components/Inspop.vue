@@ -21,28 +21,35 @@
         <v-stepper-content step="1">
           <v-img :src="getImage(1)"></v-img>
 
-          <v-btn color="primary" @click="e1 = 2">Next</v-btn>
+          <v-btn color="error float-right ml-2" @click="completed">Close</v-btn>
+          <v-btn color="primary float-right" @click="e1 = 2">Next</v-btn>
         </v-stepper-content>
 
         <v-stepper-content step="2">
           <v-img :src="getImage(2)"></v-img>
 
-          <v-btn color="primary" @click="e1 = 3">Next</v-btn>
+          <v-btn color="primary float-left" @click="e1 = 1">Back</v-btn>
+
+          <v-btn color="error float-right ml-2" @click="completed">Close</v-btn>
+          <v-btn color="primary float-right" @click="e1 = 3">Next</v-btn>
         </v-stepper-content>
 
         <v-stepper-content step="3">
           <v-img :src="getImage(3)"></v-img>
 
-          <v-btn color="primary" @click="e1 = 4">Next</v-btn>
+          <v-btn color="primary float-left" @click="e1 = 2">Back</v-btn>
+          <v-btn color="error float-right ml-2" @click="completed">Close</v-btn>
+          <v-btn color="primary float-right" @click="e1 = 4">Next</v-btn>
         </v-stepper-content>
         <v-stepper-content step="4">
           <v-img :src="getImage(4)"></v-img>
 
-          <v-btn text @click="completed">Close</v-btn>
+          <v-btn color="primary float-left" @click="e1 = 3">Back</v-btn>
+          <v-btn color="error float-right" @click="completed">Close</v-btn>
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>
-  </v-dialog>
+\  </v-dialog>
 </template>
 
 <script>
