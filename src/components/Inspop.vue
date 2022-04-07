@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" persistent max-width="70vw">
+  <v-dialog v-model="dialog" persistent max-width="80vw">
     <v-stepper v-model="e1">
       <v-stepper-header>
         <v-stepper-step :complete="e1 > 1" step="1">Map orientation</v-stepper-step>
@@ -19,14 +19,14 @@
 
       <v-stepper-items>
         <v-stepper-content step="1">
-          <v-img :src="getImage(1)" contain></v-img>
+          <v-img :src="getImage(1)" max-height="70vh" contain></v-img>
 
           <v-btn color="error float-right ml-2" @click="completed">Close</v-btn>
           <v-btn color="primary float-right" @click="e1 = 2">Next</v-btn>
         </v-stepper-content>
 
         <v-stepper-content step="2">
-          <v-img :src="getImage(2)" contain></v-img>
+          <v-img :src="getImage(2)" max-height="70vh" contain></v-img>
 
           <v-btn color="primary float-left" @click="e1 = 1">Back</v-btn>
 
@@ -35,14 +35,14 @@
         </v-stepper-content>
 
         <v-stepper-content step="3">
-          <v-img :src="getImage(3)" contain></v-img>
+          <v-img :src="getImage(3)" max-height="70vh" contain></v-img>
 
           <v-btn color="primary float-left" @click="e1 = 2">Back</v-btn>
           <v-btn color="error float-right ml-2" @click="completed">Close</v-btn>
           <v-btn color="primary float-right" @click="e1 = 4">Next</v-btn>
         </v-stepper-content>
         <v-stepper-content step="4">
-          <v-img :src="getImage(4)" contain></v-img>
+          <v-img :src="getImage(4)" max-height="70vh" contain></v-img>
 
           <v-btn color="primary float-left" @click="e1 = 3">Back</v-btn>
           <v-btn color="error float-right" @click="completed">Close</v-btn>

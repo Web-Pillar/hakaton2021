@@ -90,10 +90,10 @@
       </l-map>
     </v-col>
     <v-col class="d-none d-sm-block" cols="12" sm="12" md="5">
-      <row>
+      <v-row>
         <Filter1 @filtered="filtering" :schools="schools"></Filter1>
-      </row>
-      <row>
+      </v-row>
+      <v-row>
         <v-simple-table
           fixed-header
           style="border-radius: 0"
@@ -127,7 +127,7 @@
             </tr>
           </tbody>
         </v-simple-table>
-      </row>
+      </v-row>
     </v-col>
   </v-row>
 </template>
@@ -240,10 +240,12 @@ export default {
     },
   },
   mounted() {
-    Promise.all([
-      this.getSchools(),
-      this.getCasinos(),
-    ]);
+    if (this.schools.length === 0) {
+      Promise.all([
+        this.getSchools(),
+        this.getCasinos(),
+      ]);
+    }
   }
 };
 </script>
@@ -254,13 +256,11 @@ export default {
 .map-container-custom {
   min-height: 80vh;
   height: 100%;
-  width: 100%;
 }
 @media only screen and (max-width: 600px) {
   .map-container-custom {
     min-height: 60vh;
     height: 100%;
-    width: 100%;
   }
 }
 </style>
