@@ -90,10 +90,10 @@
       </l-map>
     </v-col>
     <v-col class="d-none d-sm-block" cols="12" sm="12" md="5">
-      <v-row>
+      <v-container>
         <Filter1 @filtered="filtering" :schools="schools"></Filter1>
-      </v-row>
-      <v-row>
+      </v-container>
+      <v-container>
         <v-simple-table
           fixed-header
           style="border-radius: 0"
@@ -127,7 +127,7 @@
             </tr>
           </tbody>
         </v-simple-table>
-      </v-row>
+      </v-container>
     </v-col>
   </v-row>
 </template>
