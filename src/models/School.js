@@ -4,7 +4,7 @@ class School {
 
         this.id = obj.iid || '';
         this.type = obj.type || 'elementary';
-        this.enable = obj.enable || '';
+        this.enable = obj.enable;
         this.name = obj.name || obj.schoolName || '';
         this.address = obj.address || '';
         this.latitude = obj.latitude || '';
@@ -20,15 +20,15 @@ class School {
         this.buildingType = obj.buildingType || '';
         this.buildingArea = obj.buildingArea || '';
         this.gardenArea = obj.gardenArea || '';
-        this.shifts = obj.shifts || '';
+        this.shifts = obj.shifts;
         this.heating = obj.heating || '';
         this.nrClasses = obj.nrClasses || '';
         this.nrStudents = obj.nrStudents || '';
         this.nrTeachers = obj.nrTeachers || '';
         this.nrClassrooms = obj.nrClassrooms || '';
-        this.canteen = obj.canteen || '';
-        this.library = obj.library || '';
-        this.labs = obj.labs || '';
+        this.canteen = obj.canteen;
+        this.library = obj.library;
+        this.labs = obj.labs;
         this.labsMeta = obj.labsMeta || '';
         this.finances = obj.finances || null;
         this.rating = obj?.rating?.value || 0;
