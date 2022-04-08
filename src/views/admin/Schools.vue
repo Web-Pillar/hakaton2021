@@ -325,7 +325,7 @@ export default {
       _id: null,
       id: "",
       name: "",
-      enable: "",
+      enable: null,
       email: "",
       address: "",
       latitude: "",
@@ -356,7 +356,7 @@ export default {
       _id: null,
       id: "",
       name: "",
-      enable: "",
+      enable: null,
       email: "",
       address: "",
       latitude: "",
@@ -442,7 +442,6 @@ export default {
 
     async save() {
       if (this.editedIndex > -1) {
-        // console.log(this.editedItem._id);
         await store.dispatch("updateSchool", this.editedItem);
 
         Object.assign(this.schools[this.editedIndex], this.editedItem);
