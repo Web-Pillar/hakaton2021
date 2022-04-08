@@ -21,31 +21,31 @@
         <v-stepper-content step="1">
           <v-img :src="getImage(1)" max-height="70vh" contain></v-img>
 
-          <v-btn color="error float-right ml-2" @click="completed">Close</v-btn>
-          <v-btn color="primary float-right" @click="e1 = 2">Next</v-btn>
+          <v-btn color="error float-right ml-2" @click="completed">{{ $t("close") }}</v-btn>
+          <v-btn color="primary float-right" @click="e1 = 2">{{ $t("next") }}</v-btn>
         </v-stepper-content>
 
         <v-stepper-content step="2">
           <v-img :src="getImage(2)" max-height="70vh" contain></v-img>
 
-          <v-btn color="primary float-left" @click="e1 = 1">Back</v-btn>
+          <v-btn color="primary float-left" @click="e1 = 1">{{ $t("back") }}</v-btn>
 
-          <v-btn color="error float-right ml-2" @click="completed">Close</v-btn>
-          <v-btn color="primary float-right" @click="e1 = 3">Next</v-btn>
+          <v-btn color="error float-right ml-2" @click="completed">{{ $t("close") }}</v-btn>
+          <v-btn color="primary float-right" @click="e1 = 3">{{ $t("next") }}</v-btn>
         </v-stepper-content>
 
         <v-stepper-content step="3">
           <v-img :src="getImage(3)" max-height="70vh" contain></v-img>
 
-          <v-btn color="primary float-left" @click="e1 = 2">Back</v-btn>
-          <v-btn color="error float-right ml-2" @click="completed">Close</v-btn>
-          <v-btn color="primary float-right" @click="e1 = 4">Next</v-btn>
+          <v-btn color="primary float-left" @click="e1 = 2">{{ $t("back") }}</v-btn>
+          <v-btn color="error float-right ml-2" @click="completed">{{ $t("close") }}</v-btn>
+          <v-btn color="primary float-right" @click="e1 = 4">{{ $t("next") }}</v-btn>
         </v-stepper-content>
         <v-stepper-content step="4">
           <v-img :src="getImage(4)" max-height="70vh" contain></v-img>
 
-          <v-btn color="primary float-left" @click="e1 = 3">Back</v-btn>
-          <v-btn color="error float-right" @click="completed">Close</v-btn>
+          <v-btn color="primary float-left" @click="e1 = 3">{{ $t("back") }}</v-btn>
+          <v-btn color="error float-right" @click="completed">{{ $t("close") }}</v-btn>
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>

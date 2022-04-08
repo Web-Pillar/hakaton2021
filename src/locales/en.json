@@ -57,5 +57,21 @@
   "descriptione": "This web site content was prepared by Foundation Metamorphosis with the support of the American people through the United States Agency for International Development (USAID).  The authors views expressed in this website do not necessarily reflect the views of the United States Agency for International Development or the United States Government.",
   "removecompare": "Remove Compare",
   "home": "Home",
-  "about": "About"
+  "about": "About",
+  "back": "Back",
+  "instructions": "Instructions",
+  "questions": {
+    "1": "How many schools are included in the app ?",
+    "2": "Are private schools included in the app ? ",
+    "3": "Who is supporting this project ?",
+    "4": "Which are the sources of the data included in the app ?",
+    "5": "Are all the locations of schools correct ?"
+  },
+  "answers": {
+    "1": "In our app are 363 schools.",
+    "2": "Currently no, but our team is working on including them soon.",
+    "3": "This project is fonded by USAID through NGO \"Metamorhosis\".",
+    "4": "The data used in this app are fetched from \"www.data.gov.mk\" and \"www.e-nabavki.gov.mk\".",
+    "5": "For finding coordinates of schools, we have used Google Geocoding API, which always has a margin of error, but for better precision, our administrators are fixing them. "
+  }
 }

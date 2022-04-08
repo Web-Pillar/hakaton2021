@@ -12,14 +12,14 @@
 
 <script>
 export default {
-  data: () => {
-    return {
-      questions: [
-        {q: 'Question 1', a: 'Answer 1'},
-        {q: 'Question 2', a: 'Answer 2'},
-        {q: 'Question 3', a: 'Answer 3'},
-        {q: 'Question 4', a: 'Answer 4'},
-        {q: 'Question 5', a: 'Answer 5'},
+  computed: {
+    questions() {
+      return [
+        {q: this.$t('questions.1'), a: this.$t('answers.1')},
+        {q: this.$t('questions.2'), a: this.$t('answers.2')},
+        {q: this.$t('questions.3'), a: this.$t('answers.3')},
+        {q: this.$t('questions.4'), a: this.$t('answers.4')},
+        {q: this.$t('questions.5'), a: this.$t('answers.5')},
       ]
     }
   }

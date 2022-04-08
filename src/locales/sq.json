@@ -57,5 +57,21 @@
   "descriptione": "Përmbajtja në këtë ueb faqe është përgatitur nga Fondacioni i Metamorfozës me mbështetjen e amerikanëve ndërmjet  USAID (United States Agency for International Development). Pikëpamjet e autorëve të shprehura në këtë ueb faqe nuk pasqyrojnë domosdoshmërisht pkëpamjet e USAID ose të Qeverisë së Shteteve të Bashkuara",
   "removecompare": "Fshi Krahasimet",
   "home": "Kryefaqja",
-  "about": "Rreth nesh"
+  "about": "Rreth nesh",
+  "back": "Kthehu",
+  "instructions": "Instruksione",
+  "questions": {
+    "1": "Sa shkolla përfshin aplikacioni ?",
+    "2": "A përfshihen edhe shkollat private në aplikacion ? ",
+    "3": "Nga kush mbështetet ky projekt ?",
+    "4": "Cili është burimi i të dhënave në këtë aplikacion ?",
+    "5": "A janë të gjithë lokacionet e shkollave të sakta ?"
+  },
+  "answers": {
+    "1": "Në aplikacionin tonë të përfshirë janë 363 shkolla.",
+    "2": "Momentalisht jo, por ekipi ynë po punon që ti përfshijmë dhe ata së shpejti.",
+    "3": "Ky projekt finansohet nga USAID nëpërmjet OJQ \"Metamorhosis\".",
+    "4": "Të dhënat e shfytëyuara në këtë aplikacion janë marr nga \"www.data.gov.mk\" dhe \"www.e-nabavki.gov.mk\".",
+    "5": "Për të gjetur kordinatat e shkollave, ne kemi përdorur Google Geocoding API, që gjithmon ka margjinë gabimi, por për më shumë saktësi, administratorët tanë po bëjnë përmirsimet. "
+  }
 }
