@@ -1,7 +1,7 @@
 <template>
   <v-expansion-panels>
     <h1 class="text-h2 text-sm-h2 text-md-h2 text-lg-h2">
-      <span class="primary--text">Frequently asked questions</span>
+      <span class="primary--text">{{ $t('faq') }}</span>
     </h1>
     <v-expansion-panel v-for="(question, i) in questions" :key="i">
       <v-expansion-panel-header>{{ question.q }}</v-expansion-panel-header>

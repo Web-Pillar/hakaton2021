@@ -2,19 +2,19 @@
   <v-dialog v-model="dialog" persistent max-width="80vw">
     <v-stepper v-model="e1">
       <v-stepper-header>
-        <v-stepper-step :complete="e1 > 1" step="1">Map orientation</v-stepper-step>
+        <v-stepper-step :complete="e1 > 1" step="1">{{ $t('instructions_steps.1') }}</v-stepper-step>
 
         <v-divider></v-divider>
 
-        <v-stepper-step :complete="e1 > 2" step="2">Tool tip</v-stepper-step>
+        <v-stepper-step :complete="e1 > 2" step="2">{{ $t('instructions_steps.2') }}</v-stepper-step>
 
         <v-divider></v-divider>
 
-        <v-stepper-step :complete="e1 > 3" step="3">Compare</v-stepper-step>
+        <v-stepper-step :complete="e1 > 3" step="3">{{ $t('instructions_steps.3') }}</v-stepper-step>
 
         <v-divider></v-divider>
 
-        <v-stepper-step :complete="e1 > 4" step="4">Survey</v-stepper-step>
+        <v-stepper-step :complete="e1 > 4" step="4">{{ $t('instructions_steps.4') }}</v-stepper-step>
       </v-stepper-header>
 
       <v-stepper-items>

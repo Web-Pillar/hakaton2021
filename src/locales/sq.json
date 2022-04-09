@@ -73,5 +73,15 @@
     "3": "Ky projekt finansohet nga USAID nëpërmjet OJQ \"Metamorhosis\".",
     "4": "Të dhënat e shfytëyuara në këtë aplikacion janë marr nga \"www.data.gov.mk\" dhe \"www.e-nabavki.gov.mk\".",
     "5": "Për të gjetur kordinatat e shkollave, ne kemi përdorur Google Geocoding API, që gjithmon ka margjinë gabimi, por për më shumë saktësi, administratorët tanë po bëjnë përmirsimet. "
+  },
+  "about_content": {
+    "header": "Çdo informacion rreth shkollave në Maqedoninë e Veriut fillon në",
+    "content": "Metaschool u krijua me t’ia lehtësuar idenë e tyre të prindërve në zgjedhjen e arsimimit për të vegjlit(ose fëmijët e tyre) si dhe për studentët që duan të zgjedhin më mirë për veten e tyre. Prindërit ose shumë mund të shfrytezojnë këtë web faqe për të parë performancat dhe kushtet e shkollave si psh. Laborator, paisjet në informacionet dhe gjithashtu të bëj krahasimin për zgjedhjen më të mirë. Të gjitha mund të shohin simbolin e kazinove(lojrat e fatit), të cilat gjenden pranë shkollave të shpeshta në vend të tyre dhe me ndikim të madh edhe negativ. Ideja dhe realizimi ishte nga ekipi i një kompanie startup e quajtur Web-pillar. Pjesë e ekipit ishin antarë të motivuar dhe të marrë për punë si rezultat i të cilës ishte edhe marrja e vendit të parë në këtë hakaton. Hakaton i cili u organizua dhe u financua nga Fondacioni Metamorphosis dhe USAID për të gjithë, kompanitë startup të IT-së dhe të gjithë entuziastëve të IT-së"
+  },
+  "instructions_steps": {
+    "1": "Orientimi i hartës",
+    "2": "Këshillë mjeti",
+    "3": "Krahasoni",
+    "4": "Anketa"
   }
 }

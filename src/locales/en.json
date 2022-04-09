@@ -73,5 +73,15 @@
     "3": "This project is fonded by USAID through NGO \"Metamorhosis\".",
     "4": "The data used in this app are fetched from \"www.data.gov.mk\" and \"www.e-nabavki.gov.mk\".",
     "5": "For finding coordinates of schools, we have used Google Geocoding API, which always has a margin of error, but for better precision, our administrators are fixing them. "
+  },
+  "about_content": {
+    "header": "Every information about schools in North Macedonia starts at",
+    "content": "Metaschool was created to facilitate the idea of ​​parents in choosing education for their little ones (or their children) as well as for students who want to make better choices for themselves. Parents or many can use this website to see the performance and conditions of schools such as. Lab, equipment in the information and also make the comparison for the best choice. Everyone can see the symbol of casinos (gambling), which are located near the frequent schools in their place and with great impact also negative. The idea and realization was from the team of a startup company called Web-pillar. Part of the team were motivated and hired members as a result of which was also taking first place in this hackathon. Hakaton which was organized and funded by the Metamorphosis Foundation and USAID for all, IT startup companies and all IT enthusiasts"
+  },
+  "instructions_steps": {
+    "1": "Map orientation",
+    "2": "Tool tip",
+    "3": "Compare",
+    "4": "Survey"
   }
 }
