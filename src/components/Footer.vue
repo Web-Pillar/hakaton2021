@@ -13,12 +13,12 @@
           </v-row>
         </v-toolbar> -->
 
-    <div class="grey lighten-5" style="background-color: #343a40 !important">
+    <div class=" lighten-5" style="background-color:white !important">
       <v-row align="center" no-gutters style="min-height: 140px">
         <v-col cols="12" sm="4" md="3" style="">
           <v-img class="image" width="150px" :src="logo"></v-img>
         </v-col>
-        <v-col cols="12" sm="8" md="9" style="color: white; font-size:13px">
+        <v-col cols="12" sm="8" md="9" style="color: black; font-size:13px">
           <p style="padding: 0 5vw;">{{ $t("descriptione") }}</p>
         </v-col>
       </v-row>
