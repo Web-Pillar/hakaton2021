@@ -37,6 +37,7 @@ export default {
                 // { id: 'menuItem_dashboard', name: 'Dashboard', icon: 'mdi-folder', url: '/admin/dashboard' },
                 { id: 'menuItem_users', name: 'Users', icon: 'mdi-account-multiple', url: '/admin/users' },
                 { id: 'menuItem_schools', name: 'Schools', icon: 'mdi-town-hall', url: '/admin/schools' },
+                { id: 'menuItem_requests', name: 'Administrator Requests', icon: 'mdi-town-hall', url: '/admin/requests' },
             ],
             avatar: 'https://randomuser.me/api/portraits/women/85.jpg'
         }

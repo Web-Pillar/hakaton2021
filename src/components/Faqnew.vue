@@ -1,6 +1,6 @@
 <template>
-  <v-expansion-panels>
-    <h1 class="text-h2 text-sm-h2 text-md-h2 text-lg-h2">
+  <v-expansion-panels class="mb-4">
+    <h1 class="text-h2 text-sm-h2 text-md-h2 text-lg-h2 mb-4">
       <span class="primary--text">{{ $t('faq') }}</span>
     </h1>
     <v-expansion-panel v-for="(question, i) in questions" :key="i">

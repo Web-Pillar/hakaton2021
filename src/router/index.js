@@ -69,6 +69,12 @@ const routes = [
         meta: { requiresAuth: true },
         component: () => import(/* webpackChunkName: "admin_schools" */ '../views/admin/Schools.vue'),
       },
+      {
+        path: "/admin/requests",
+        name: 'AdminRequests',
+        meta: { requiresAuth: true },
+        component: () => import(/* webpackChunkName: "admin_requests" */ '../views/admin/AdminRequest.vue'),
+      },
     ],
   },
 ]

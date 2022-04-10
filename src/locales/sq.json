@@ -84,5 +84,22 @@
     "3": "Krahasoni",
     "4": "Anketa"
   },
-  "data_source": "Burimi bazë i të dhënave"
+  "admin_form": {
+    "title": "Si të kontribuoni në Metaschools",
+    "header": "Aplikoni tani për t'u bërë administrator përmes këtij formulari.",
+    "description": "Duke u bërë administrator do të keni akses të:",
+    "list": {
+      "1": "Krijoni shkolla të reja",
+      "2": "Redaktoni informacionin për shkollat ekzistuese",
+      "3": "Rregulloni vendndodhjen e shkollave"
+    },
+    "full_name": "Emri i plotë",
+    "email": "Email",
+    "address": "Adresa",
+    "city": "Qyteti",
+    "state": "Shteti/Provinca/Rajoni",
+    "zip": "ZIP / Kodi postar"
+  },
+  "data_source": "Burimi bazë i të dhënave",
+  "submit": "Dërgo"
 }

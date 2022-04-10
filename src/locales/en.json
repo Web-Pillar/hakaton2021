@@ -84,5 +84,22 @@
     "3": "Compare",
     "4": "Survey"
   },
-  "data_source": "Basic data source"
+  "admin_form": {
+    "title": "How to contribute to Metaschools",
+    "header": "Apply now to become an administrator through this form.",
+    "description": "By becoming an administrator you will have access to:",
+    "list": {
+      "1": "Create new schools",
+      "2": "Edit informations for existing schools",
+      "3": "Fix locations of schools"
+    },
+    "full_name": "Full Name",
+    "email": "Email",
+    "address": "Address",
+    "city": "City",
+    "state": "State/Province/Region",
+    "zip": "ZIP / Postal Code"
+  },
+  "data_source": "Basic data source",
+  "submit": "Submit"
 }
