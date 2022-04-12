@@ -197,7 +197,7 @@ export default {
       return this.schools.filter((s) => {
         return (
           (this.municipality === "all" ||
-            s.municipality === this.municipality) &&
+            this.translate(s.municipality) === this.translate(this.municipality)) &&
           (this.category === "all" || s.category === this.category) &&
           (this.rating === "all" || s.rating >= this.rating)
         );

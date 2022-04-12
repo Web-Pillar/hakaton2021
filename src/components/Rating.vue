@@ -159,6 +159,7 @@ import SchoolService from "../services/SchoolService";
 import { School } from "../models/School";
 import RatingService from '../services/RatingService';
 import { transliterate } from '../utils/transliterate';
+import { mapActions } from 'vuex';
 
 export default {
   data() {
@@ -203,6 +204,7 @@ export default {
     this.selectedSchool = new School(res.data.data);
   },
   methods: {
+    ...mapActions(['updateSchoolLocally']),
     translate(string) {
       return transliterate(string, this.$i18n.locale);
     },
@@ -214,7 +216,8 @@ export default {
         };
         const res = await RatingService.submit(payload);
         if (res.success) {
-          console.log('SUCCESS');
+          const schoolUpdated = res.data.data;
+          this.updateSchoolLocally(schoolUpdated);
         }
       } catch (error) {
         console.log('ERROR', error);

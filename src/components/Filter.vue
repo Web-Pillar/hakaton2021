@@ -10,6 +10,18 @@
                     </select>
                 </label>
             </div>
+            <div class="input-container">
+                <label class="labels">
+                {{$t("rating")}}
+                    <select class="select" v-model="rating">
+                        <option value="all" selected> {{$t("all")}}</option>
+                        <option :value="1">1+</option>
+                        <option :value="2">2+</option>
+                        <option :value="3">3+</option>
+                        <option :value="4">4+</option>
+                    </select>
+                </label>
+            </div>
             <!-- <div class="input-container">
                 <label class="labels">
                     {{$t("category")}}
@@ -34,10 +46,6 @@ export default {
     props: ['schools'],
     data: () => {
         return {
-            // municipalities: [
-            //     { label: 'Tetovo', value: 'Tetovo' },
-            //     { label: 'Bogovinje', value: 'Bogovinje' },
-            // ],
             municipality: 'all',
             category: 'all',
             rating: 'all',

@@ -40,6 +40,10 @@ const actions = {
         commit("SET_SCHOOL_DETAILS", response.data.data);
     },
 
+    async updateSchoolLocally({ commit }, payload) {
+        commit("SET_SCHOOL_DETAILS", payload);
+    },
+
     async createSchool({ commit }, payload) {
         const response = await SchoolService.createSchool(payload);
         commit("CREATE_SCHOOL", response.data.data);
