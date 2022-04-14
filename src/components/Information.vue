@@ -17,7 +17,7 @@
         hide-overlay
         transition="dialog-bottom-transition"
       >
-        <!-- <v-toolbar-side-icon dark slot="activator" class="hidden-md-and-up"
+        <v-toolbar-side-icon dark slot="activator" class="hidden-md-and-up"
           ><v-btn icon @click.native="dialog = true">
             <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
               <path
@@ -25,7 +25,7 @@
                 d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
               />
             </svg> </v-btn
-        ></v-toolbar-side-icon> -->
+        ></v-toolbar-side-icon>
         <v-card style="position: absolute">
           <nav style="border-bottom: 6px solid #1678ca">
             <v-toolbar

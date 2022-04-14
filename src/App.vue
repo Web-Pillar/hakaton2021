@@ -4,7 +4,7 @@
       <Inspop v-if="tutorial" :dialog="tutorial" @completed="completedTutorial"></Inspop>
       <Information @showInstructions="tutorial=true"></Information>
       <router-view v-if="!tutorial" />
-      <Footer></Footer>
+      <Footer></Footer>  
     </v-main>
   </v-app>
 </template>
