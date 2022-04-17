@@ -71,6 +71,15 @@
                       input-value="value"
                     ></v-switch>
                   </v-col>
+                  <v-col v-if="editedIndex === -1" cols="12" sm="6" md="4">
+                    <v-select
+                      v-model="editedItem.role"
+                      label="Role"
+                      :items="roles"
+                      item-text="name"
+                      item-value="_id"
+                    ></v-select>
+                  </v-col>
                 </v-row>
               </v-container>
             </v-card-text>
@@ -116,6 +125,7 @@
 <script>
 import { mapGetters } from "vuex";
 import store from "@/store";
+import RoleService from '../../services/RoleService';
 export default {
   beforeRouteEnter(to, from, next) {
     store.dispatch("getUsers").then(() => {
@@ -134,6 +144,7 @@ export default {
       },
       { text: "Surname", value: "surname" },
       { text: "Email", value: "email" },
+      { text: "Role", value: "role.name" },
       { text: "Created", value: "createdAt" },
       { text: "Updated", value: "updatedAt" },
       { text: "Enable", value: "enable" },
@@ -151,6 +162,7 @@ export default {
       birthday: "",
       sex: "",
       enable: "",
+      role: "",
     },
     defaultItem: {
       _id: null,
@@ -161,6 +173,7 @@ export default {
       birthday: "",
       sex: "",
       // enable: '',
+      role: "",
     },
     genders: [
       { text: "Female", value: "F" },
@@ -170,6 +183,7 @@ export default {
       { text: "True", value: true },
       { text: "False", value: false },
     ],
+    roles: null,
   }),
 
   computed: {
@@ -232,6 +246,11 @@ export default {
       this.close();
     },
   },
+
+  async mounted () {
+    const response = await RoleService.getRoles();
+    this.roles = response.data.data;
+  }
 };
 </script>
 
