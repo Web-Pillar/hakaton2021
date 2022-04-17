@@ -5,11 +5,11 @@
         </h2>
         <v-row class="px-6 py-4">
             <v-col class="p-4" cols="12" sm="12" md="6">
-                <h2 class="text-center text-h4 text-sm-h4 text-md-h4 text-lg-h4 mb-4">
+                <h2 class="text-center text-h4 text-sm-h4 text-md-h4 text-lg-h4 mb-4 secondary--text">
                     {{ $t('admin_form.header') }}
                 </h2>
-                <p>{{ $t('admin_form.description') }} </p>
-                <ul>
+                <p class="secondary--text text-sm-h5">{{ $t('admin_form.description') }} </p>
+                <ul class="secondary--text text-sm-h5">
                     <li>{{ $t('admin_form.list.1') }}</li>
                     <li>{{ $t('admin_form.list.2') }}</li>
                     <li>{{ $t('admin_form.list.3') }}</li>

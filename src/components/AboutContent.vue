@@ -7,6 +7,7 @@
     <p class="text-justify text-sm-h5 secondary--text mt-7 w-full w-md-8-12 w-xl-half mx-auto">
       {{ $t('about_content.content') }}
     </p>
+    
   </v-container>
 </template>
 

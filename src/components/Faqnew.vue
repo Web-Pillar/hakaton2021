@@ -3,13 +3,15 @@
     <v-expansion-panels class="mb-4">
       <h1 class="text-h2 text-sm-h2 text-md-h2 text-lg-h2 mb-4">
         <span class="primary--text">{{ $t('faq') }}</span>
-      </h1>
+      </h1 >
+     
       <v-expansion-panel v-for="(question, i) in questions" :key="i">
-        <v-expansion-panel-header>{{ question.q }}</v-expansion-panel-header>
-        <v-expansion-panel-content>{{ question.a }}</v-expansion-panel-content>
+        <v-expansion-panel-header class="secondary--text text-sm-h5">{{ question.q }}</v-expansion-panel-header>
+        <v-expansion-panel-content  class="secondary--text text-sm-h5">{{ question.a }}</v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
   </v-container>
+  
 </template>
 
 <script>
