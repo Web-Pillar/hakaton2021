@@ -10,6 +10,10 @@
     <p class="text-justify text-sm-h5 secondary--text mt-7 w-full w-md-8-12 w-xl-half mx-auto">
       {{ $t('about_content.content2') }}
     </p>
+
+    <p class="text-justify text-sm-h5 secondary--text mt-7 w-full w-md-8-12 w-xl-half mx-auto">
+      {{ $t('about_content.webpillar') }}
+    </p>
     
   </v-container>
 </template>

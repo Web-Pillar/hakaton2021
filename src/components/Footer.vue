@@ -12,9 +12,11 @@
     </div>
     <div class="data_source">
       <span class="ml-4 mr-2 hidden-sm-and-down">{{ $t('data_source') }}:</span>
-            <p class="ml-4 mr-2 hidden-md-and-up">{{ $t('data_source') }}:</p>
+      <p class="ml-4 mr-2 hidden-md-and-up">{{ $t('data_source') }}:</p>
 
-      <a class="ml-4 mr-2" target="_blank" rel="noopener noreferrer" href="http://data.gov.mk/mk/dataset/pernctap-ha-ochobhn-yhnjinwta">data.gov.mk</a>
+       <a class="hidden-md-and-up ml-4 mr-2" target="_blank" rel="noopener noreferrer" href="http://data.gov.mk/mk/dataset/pernctap-ha-ochobhn-yhnjinwta">data.gov.mk</a>
+
+      <a class="hidden-sm-and-down mr-2" target="_blank" rel="noopener noreferrer" href="http://data.gov.mk/mk/dataset/pernctap-ha-ochobhn-yhnjinwta">data.gov.mk</a>
       <a class="mr-2" target="_blank" rel="noopener noreferrer" href="https://open.finance.gov.mk/mk/home">open.finance.gov.mk</a>
       <a class="mr-2" target="_blank" rel="noopener noreferrer" href="https://uslugi.gov.mk/">uslugi.gov.mk</a>
     </div>
