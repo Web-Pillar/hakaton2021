@@ -83,9 +83,12 @@
           </l-marker>
         </v-marker-cluster>
         <l-control position="topleft">
-          <v-btn @click="showRadius = !showRadius" x-small fab elevation="1">
-            <v-icon>mdi-circle</v-icon>
-          </v-btn>
+          <v-card>
+            <v-card-title>Radius</v-card-title>
+            <v-card-text>
+              <v-switch inset v-model="showRadius"></v-switch>
+            </v-card-text>
+          </v-card>
         </l-control>
       </l-map>
     </v-col>
