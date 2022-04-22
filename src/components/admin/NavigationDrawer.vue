@@ -38,6 +38,7 @@ export default {
                 { id: 'menuItem_users', name: 'Users', icon: 'mdi-account-multiple', url: '/admin/users' },
                 { id: 'menuItem_schools', name: 'Schools', icon: 'mdi-town-hall', url: '/admin/schools' },
                 { id: 'menuItem_requests', name: 'Administrator Requests', icon: 'mdi-town-hall', url: '/admin/requests' },
+                { id: 'menuItem_school_updates', name: 'School Updates', icon: 'mdi-town-hall', url: '/admin/school_updates' }
             ],
             avatar: 'https://randomuser.me/api/portraits/women/85.jpg'
         }
