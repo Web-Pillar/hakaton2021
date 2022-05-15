@@ -30,14 +30,22 @@
             ></l-icon>
             <l-popup>
               <div>
-                <p>
+                <div>
                   <b>{{ $t("nameofschool") }}</b>
                   : {{ translate(school.name) }}
-                </p>
-                <p>
-                  <b>{{ $t("email") }}</b>
-                  : {{ school.email }}
-                </p>
+                </div>
+                <div>
+                  <b>{{ $t("email") }}</b>:
+                  <div class="d-flex flex-column">
+                    <a v-for="mail in school.email" :key="`mail_${mail}`" :href="`mailto:${mail}`">{{ mail }}</a>
+                  </div>
+                </div>
+                <div>
+                  <b>{{ $t("website") }}</b>:
+                  <div class="d-flex flex-column">
+                    <a v-for="web in school.websites" :key="`web_${web}`" :href="web">{{ web }}</a>
+                  </div>
+                </div>
                   <v-rating
                     color="yellow darken-3"
                     background-color="grey darken-1"

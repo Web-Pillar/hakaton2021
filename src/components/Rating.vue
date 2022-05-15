@@ -25,6 +25,9 @@
         <v-card-text>
           <h1>{{ translate(selectedSchool.address) }}</h1>
         </v-card-text>
+        <v-card-text class="d-flex flex-column">
+          <a v-for="web in selectedSchool.websites" :key="`web_${web}`" :href="web" target="_blank">{{ web }}</a>
+        </v-card-text>
         <v-divider></v-divider>
         <v-card-actions class="justify-space-between">
           <v-btn text @click="$router.go(-1)">{{$t('nothanks')}}</v-btn>
@@ -41,7 +44,11 @@
               <v-col>
                 <v-card-text>{{$t("phonenumber")}}: {{ selectedSchool.phoneNumber }}</v-card-text>
                 <v-card-text>{{$t("faxnumber")}}: {{ selectedSchool.fax }}</v-card-text>
-                <v-card-text>{{$t("email")}}: {{ selectedSchool.email }}</v-card-text>
+                <v-card-text>{{$t("email")}}:
+                  <div class="d-flex flex-column">
+                    <a v-for="mail in selectedSchool.email" :key="`mail_${mail}`" :href="`mailto:${mail}`">{{ mail }}</a>
+                  </div>
+                </v-card-text>
                 <v-card-text>{{$t("foundedby")}}: {{ selectedSchool.foundedBy }}</v-card-text>
                 <v-card-text>{{$t("teachinglanguage")}}: {{ selectedSchool.language }}</v-card-text>
                 <v-card-text>{{$t("yearofconstruction")}}: {{ selectedSchool.builtAt }}</v-card-text>

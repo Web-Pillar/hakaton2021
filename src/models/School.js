@@ -32,6 +32,7 @@ class School {
         this.labsMeta = obj.labsMeta || '';
         this.finances = obj.finances || null;
         this.rating = obj?.rating?.value || 0;
+        this.websites = obj?.website || null;
     }
 }
 
