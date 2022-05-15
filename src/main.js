@@ -5,6 +5,7 @@ import router from './router'
 import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
 import vuetify from './plugins/vuetify';
+import "./plugins/vuetify-mask.js";
 import store from './store';
 import "vuetify/dist/vuetify.min.css";
 import i18n from './i18n'

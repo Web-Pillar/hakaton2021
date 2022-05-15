@@ -100,7 +100,10 @@
     "address": "Address",
     "city": "City",
     "state": "State/Province/Region",
-    "zip": "ZIP / Postal Code"
+    "zip": "ZIP / Postal Code",
+    "phoneNumber": "Phone Number",
+    "birthday": "Birthday",
+    "gender": "Gender"
   },
   "data_source": "Basic data source",
   "submit": "Submit"

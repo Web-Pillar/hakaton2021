@@ -101,7 +101,10 @@
     "address": "Adresa",
     "city": "Qyteti",
     "state": "Shteti/Provinca/Rajoni",
-    "zip": "ZIP / Kodi postar"
+    "zip": "ZIP / Kodi postar",
+    "phoneNumber": "Numri i telefonit",
+    "birthday": "Datëlindja",
+    "gender": "Gjinia"
   },
   "data_source": "Burimi bazë i të dhënave",
   "submit": "Dërgo"

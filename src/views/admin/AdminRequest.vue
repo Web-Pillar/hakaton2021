@@ -54,8 +54,30 @@
                   </v-col>
                 </v-row>
                 <v-row>
+                  <v-col cols="12" sm="6" md="4">
+                    <v-text-field
+                      v-model="editedItem.phoneNumber"
+                      label="Phone number" disabled
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="6" md="4">
+                    <v-text-field
+                      v-model="editedItem.birthday"
+                      label="Birthday" disabled
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="6" md="4">
+                    <v-select
+                      v-model="editedItem.sex"
+                      label="Gender" disabled
+                      :items="genders"
+                      item-text="text"
+                      item-value="value"
+                    ></v-select>
+                  </v-col>
                   <v-col v-if="editedIndex !== -1" cols="12" sm="6" md="4">
                     <v-switch
+                      :disabled="editedItem.processed"
                       inset
                       v-model="editedItem.accepted"
                       label="Accepted"
@@ -135,6 +157,9 @@ export default {
       city: "",
       state: "",
       zip: "",
+      phoneNumber: "",
+      birthday: "",
+      sex: "",
       processed: "",
       accepted: "",
     },
@@ -146,6 +171,9 @@ export default {
       city: "",
       state: "",
       zip: "",
+      phoneNumber: "",
+      birthday: "",
+      sex: "",
       processed: "",
       accepted: "",
     },
