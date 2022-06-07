@@ -7,7 +7,7 @@
           <img :src="logo" alt="USAID logo" class="image">
         </v-col>
         <v-col cols="12" sm="8" md="9" style="color: black; font-size:13px">
-          <p style="padding: 0 5vw;">{{ $t("descriptione") }}</p>
+          <p class="disclaimer">{{ $t("descriptione") }}</p>
         </v-col>
       </v-row>
     </div>
@@ -58,5 +58,10 @@ export default {
     padding-top: 1rem;
     padding-bottom: 1rem;
     font-size: .875rem;
+  }
+
+  .disclaimer {
+    padding: 0 5vw;
+    font-size: medium;
   }
 </style>
