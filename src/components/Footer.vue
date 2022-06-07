@@ -3,7 +3,8 @@
     <div class=" lighten-5" style="background-color:white !important">
       <v-row align="center" no-gutters style="min-height: 140px">
         <v-col cols="12" sm="4" md="3" style="">
-          <v-img class="image" width="150px" :src="logo"></v-img>
+          <!-- <v-img class="image" width="150px" :src="logo"></v-img> -->
+          <img :src="logo" alt="USAID logo" class="image">
         </v-col>
         <v-col cols="12" sm="8" md="9" style="color: black; font-size:13px">
           <p style="padding: 0 5vw;">{{ $t("descriptione") }}</p>
@@ -47,7 +48,8 @@ export default {
 <style scoped>
   .image {
     background-color: white;
-    margin-left: 25%
+    margin-left: 25%;
+    width: 20vw;
   }
 
   .data_source{
