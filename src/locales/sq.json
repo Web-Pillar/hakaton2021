@@ -63,7 +63,7 @@
   "questions": {
     "1": "Sa shkolla përfshin aplikacioni ?",
     "2": "A përfshihen edhe shkollat private në aplikacion ? ",
-    "3": "Nga kush mbështetet ky projekt ?",
+    "3": "Kush po e mbështet këtë aplikacion ?",
     "4": "Cili është burimi i të dhënave në këtë aplikacion ?",
     "5": "A janë të gjithë lokacionet e shkollave të sakta ?"
   },
