@@ -70,7 +70,7 @@
   "answers": {
     "1": "In our app are 363 schools.",
     "2": "Currently no, but our team is working on including them soon.",
-    "3": "This project is fonded by USAID through NGO \"Metamorhosis\".",
+    "3": "This application is supported by the Metamorphosis Foundation through the USAID Citizen Participation Project.",
     "4": "The data used in this app are fetched from \"www.data.gov.mk\" and \"www.e-nabavki.gov.mk\".",
     "5": "For finding coordinates of schools, we have used Google Geocoding API, which always has a margin of error, but for better precision, our administrators are fixing them. "
   },

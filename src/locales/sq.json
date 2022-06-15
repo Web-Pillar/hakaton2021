@@ -70,7 +70,7 @@
   "answers": {
     "1": "Në aplikacionin tonë të përfshirë janë 363 shkolla.",
     "2": "Momentalisht jo, por ekipi ynë po punon që ti përfshijmë dhe ata së shpejti.",
-    "3": "Ky projekt finansohet nga USAID nëpërmjet OJQ \"Metamorhosis\".",
+    "3": "Ky aplikacion mbështetet nga Fondacioni Metamorfozis përmes Projektit të USAID-it për Pjesëmarrje Qytetare.",
     "4": "Të dhënat e shfytëyuara në këtë aplikacion janë marr nga \"www.data.gov.mk\" dhe \"www.e-nabavki.gov.mk\".",
     "5": "Për të gjetur kordinatat e shkollave, ne kemi përdorur Google Geocoding API, që gjithmon ka margjinë gabimi, por për më shumë saktësi, administratorët tanë po bëjnë përmirsimet. "
   },
