@@ -61,22 +61,22 @@
   "back": "Back",
   "instructions": "Instructions",
   "questions": {
-    "1": "How many schools are included within the application. ?",
-    "2": "Are private schools part of the app? ? ",
+    "1": "How many schools are included within the application ?",
+    "2": "Are private schools part of the app ? ",
     "3": "Who is supporting this application ?",
-    "4": "What are the sources of the data included in the app. ?",
+    "4": "What are the sources of the data included in the app ?",
     "5": "Are all the locations of schools correct ?"
   },
   "answers": {
-    "1": "In our app are 363 schools.",
+    "1": "In our app, there are 363 schools.",
     "2": "Currently no, but our team is working on including them soon.",
-    "3": "This application is supported by the Metamorphosis Foundation through the USAID Citizen Participation Project.",
+    "3": "This application is supported by the Metamorphosis Foundation through the USAID's Civic Engagement Project.",
     "4": "The data used in this app are fetched from \"www.data.gov.mk\" and \"www.e-nabavki.gov.mk\".",
     "5": "For finding coordinates of schools, we have used Google Geocoding API, which always has a margin of error, but for better precision, our administrators are fixing them. "
   },
   "about_content": {
     "header": "Every information about schools in North Macedonia starts at",
-    "content": "The website 'Metaschool' was created to facilitate the choice of education that parents make for their children as well as for students who want to make better choices for themselves. Parents and everyone else can use this website to see the performance and conditions of schools such as laboratory, equipment in the ICT classrooms, and also to make a comparison for the best choice. Everyone can see the symbol of casinos which are frequently located near the schools and have a great negative impact.s",
+    "content": "The website 'Metaschool' was created to facilitate the choice of education that parents make for their children as well as for students who want to make better choices for themselves. Parents and everyone else can use this website to see the performance and conditions of schools such as laboratory, equipment in the ICT classrooms, and also to make a comparison for the best choice. Everyone can see the symbol of casinos which are frequently located near the schools and have a great negative impact.",
     "content2": "The application is the winning solution of the second Open Data Hackathon organized by Foundation Metamorphosis as part of the USAID Civic Engagement Project. The Hackathon was held from 30 November to 3 December 2021. The purpose of the Hackathon was to develop a web/mobile application that would enable visualization, interactive display, and/or facilitation/digitization of the processes for filling and updating data from databases published by state administration bodies.",
     "webpillar": "The application was designed and developed by Web Pillar, a startup company from Tetovo, North Macedonia."
   },
